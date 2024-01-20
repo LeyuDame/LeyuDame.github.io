@@ -6,7 +6,7 @@
   <link href="https://leyudame.github.io/atom.xml" rel="self"/>
   
   <link href="https://leyudame.github.io/"/>
-  <updated>2024-01-19T15:29:55.947Z</updated>
+  <updated>2024-01-20T02:53:51.465Z</updated>
   <id>https://leyudame.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决hexo部署出现Spawn failed问题</title>
+    <link href="https://leyudame.github.io/post/cf2181b.html"/>
+    <id>https://leyudame.github.io/post/cf2181b.html</id>
+    <published>2024-01-20T02:41:11.000Z</published>
+    <updated>2024-01-20T02:53:51.465Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="报错信息">报错信息</h2><p>在部署时出现如下问题：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend dirs...</span><br><span class="line">On branch main</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (D:\.BNU\myblog\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:513:28)</span><br><span class="line">      at cp.emit (D:\.BNU\myblog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at ChildProcess._handle.onexit (node:internal/child_process:291:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="解决办法">解决办法</h2><h3 id="方案一">方案一❌</h3><p>先是尝试了一下<a href="http://t.csdnimg.cn/wZKdW">这个方案</a>，但仍然报错：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">##进入站点根目录</span><br><span class="line">cd /usr/local/src/hexo/hanyubolg/</span><br><span class="line"></span><br><span class="line">##删除git提交内容文件夹</span><br><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">##执行</span><br><span class="line">git config --global core.autocrlf false</span><br><span class="line"></span><br><span class="line">##最后</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure><h3 id="方案二">方案二✅</h3><p>接着左转右转转到了<a href="https://wakeuppppp.github.io/2022/09/20/some-problems-with-hexo/">这篇文章</a>，按照如下步骤操作，成功：</p><ul><li><p>打开命令行输入</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>得到报错</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ssh: <span class="title">connect</span> <span class="title">to</span> <span class="title">host</span> <span class="title">github.com</span> <span class="title">port</span> 22: <span class="title">Connection</span> <span class="title">timed</span> <span class="title">out</span></span></span><br></pre></td></tr></table></figure></li><li><p>找到 <code>.ssh</code> 文件夹，打开看其中是否有 <code>config</code> 文件，如果没有则新建一个，<code>windows</code> 用记事本打开编辑写入以下代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User GitHub用户名</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure></li><li><p>把其中的<code>GitHub用户名</code>修改成自己的用户名</p></li><li><p>命令行再次输入</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></li><li><p>出现相关提示，输入 <code>yes</code> 即可。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;报错信息&quot;&gt;报错信息&lt;/h2&gt;
+&lt;p&gt;在部署时出现如下问题：&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/sp</summary>
+      
+    
+    
+    
+    
+    <category term="git" scheme="https://leyudame.github.io/tags/git/"/>
+    
+    <category term="hexo" scheme="https://leyudame.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>GG组合：分分钟搞定美赛翻译</title>
@@ -95,7 +121,7 @@
     <link href="https://leyudame.github.io/post/f20b745e.html"/>
     <id>https://leyudame.github.io/post/f20b745e.html</id>
     <published>2023-12-28T04:57:52.000Z</published>
-    <updated>2023-12-30T06:53:58.194Z</updated>
+    <updated>2024-01-20T02:55:21.908Z</updated>
     
     <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，您输入的密码错误，请检查后重新输入。" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">  <script id="hbeData" type="hbeData" data-hmacdigest="8a4b09fabf202bcbffc78a3eb98957d5fa74e0d81c7454782794dfbf1c9eb2ca">343b9053c9fe013b211a4c6f9866a1f92e4a5103d51baa87071488683f4f2d5404a2e7e9cbb8f3796f8dba1cfaa89651734484308043a542e864e0e0cc6103ecf6f487dcbeffd2d684a9b3b7fd48917d85b746c99c732c6d70c4447d60f328163e5933ef20d2dd14bdee2412f76af1d2a80b9e45dc03d4192c650430ba355f105366ba21ad1269ca58b1838c10c5ed19f23aeb3c979f3eae9b87384a9fab136239c1829446b349a2dc07bef3df3db245813ad815f4e03ed58fe26524dc8f9dab198ab69b55d8477211425f680808d8ffec0d7a2d6e039e89f95af21d1097d55f956118eac04c712175cda639051871907d2eea22ef9403d970302ffcc6dd1388260b8bdd58507a0f5c28a2d627c06590dd6da0aa8f5237457b3cdfc6e94668bd6e353c422812230835444bc46f0cecd2cab8468110f61ec32deff229861c3da80c367d1f7119deb9c5a57d1d5350a41849fd512541769ea2317b1446861133626bc74b61965a3870ede4382df75c0009ff4f2a67b1ec5bc7bbed107a287a8960ed2e3f6c9eb261c87a3f7f19ab8d919f301c55d2b0bc8b104d13eee60a2cdd6e15a1c6dc0db562f9d9c134a27c35764399e1abe5bfd8ea2b15ba5533de0a08563fe0dbaeccbb34f87fac311653560c987a0c077badbbc1d5010419a2cce8fd0b561c46b45da440343c9dd013747de4e899e98620535af2d547a6a7dc052ef821612a77299d4a4e55dda6e49997aba42807e45d3073feb7a8a81b77a7e62de3002ce1515a797390f7c420cce8dd391601635ef573ee0e078ffd0329f6f0fb9df235c22a802437b9053dd8f6ed140bf957960d4c401e73c8a0b975188056055159ed9315dfab7022b3368bce7336bf97ec79a0f1b490926923d6ac51adb790edb3fe277d099f8a1573154b2dd35eaf4006d7c05ac9d32c0cf907e5dac1685807c3981fe7af12fcd4b171d178b1728615aec15856cbe1fddbb0506fcbd7f1757b3cc82a16cf0820bf45185353b350a82cbac8e346ddea50814acc0157e90ead90d2daf3d099c8b3cfcd30be0534c38e9363ae78e5ac1aa5769cceea3b097a6af88196ca8fd3a651830387d650b7edf36cb21466d07a96bf28f9e2ecdf679dce673db3fbb2d7b3e95e6ca8c15ab4037c4881de53abab269e1c887258fd0d63cc4c78fe66884f0790b3334d97a6bee9bb3a1088747a7d925e63b999a07d60a122c078483afdcfe849d42f089cf59a27d687c18d48ceced91e8313475e836dc2745a09a9c7826bfa391056b200787b48d938664af783f08ef0a89a0ae13bc4429c7683bd324c73c60c9514a3628309cdea8f9b35a80a5c5b970339209cae0bc1211f392662dbca581a010c732cefbd8dc7d19e82d34d7915bec10cc2646c54e70f0ec13aee9e21266027f1012e712fcb1180334cd9e2a824a379980329e66bfc59c8d24ec90c51ded2ccc713f2a311a5f3c5f6d9cc0a3404ab2c1cc911841a2f7ea2f1834723916d76462253566562abbca823e2d8214dab15c45186b5d7cedec5ad6a43c5e8ee20f3d562bfd2f810bfe15598931fcbfb78951b2a23a44fb8dc8174b9e984eefb217db17026f2ae4897bab8b3ab7ca6921b22ca1fe20f36b2aa80a759d6d3f0df83f66cf75e62770fa2195c83a67b0dbbf9ad166c185aab302659d0863e6ce4ca2698134a56273b82eda3868620e795f4747adcdfb50f84f33b93445782292517aaa4621ec2afa64502f57fdc0869c5b75ba8f33310189f6c36d3693cbd745f0884d2104c7dd82958cfec6b8d404e52ad8fdbd7055d944ca95a9f0004c3892c2ccbc8542628f0723acf5eaaa08c86981ef5c4f066ea4077c5a9c35ace7a7dc6c4a12d37e675e5b1714f3478f6d39802dcdc9f9924bdcd9401c544bc256043977d45e5bc551d002ba444bf4dd861a6ea1087c7454316c05114f4730636327ba316750ae9a41c46d6272ac9ac4d7e7c421d0af6018e8bf0ae6db2407ad32646fe164d1b64162bd87a1b4e9cff0be97ee2367d5980a813f11e3bad661910eb2ba67dc9faab0930d56108274d8d5de5b3f49b02820677501c9f5764dd5b0aa60c8af0c3d9553a6a5895b1933b2d525382fbcd365c8334f4dbf53783a7fcdda85d541c1d0f74709646ad283d2ec384e2d5f7eea1f384a905dd9e6888edff2c88f8bda0dd2524ac7079df572f03bf0b2159a37f906cdebcf2d7e1dbc9070053b0ef726e02726e6c0e6fb9d5b99bbe202551928524fa88a471c94a1ebb66ecadedde9ff8f32971cc5b857c389494ee9b9f9f18ca8e617ea1e4264f1bbdae90d46d4fbf0e5e21a46d54e7dc17f855f14cf851db016b4199b2c90881fb760a693edf76a64f2bdfff9e5cbbdf8c228ed10927d39b33ce6247f3e886dda3a5944e41f15970b21993a3ba7604d5bdd7fb1917b15cc0b5253f68525f6a6615faee454a5d7eb1998cafc8ab0815781af0e2cfa13f013de057a62177abdc9b146f651a10f871816d3c7c44d6d57aed0498fc209818d42cc5dc88706f388b190409316d5482dcef1658d64970185f526bff77c3c5da8fd79f44c8998c961380571d4173d9ac297681f4902205f03d3964ffd8af5b3e99898b0d3a9837cd59ffba888db391b7924c5a074b544eeefa6445f5daa7fb7697c2364b349520285de2fef656a96c9e2e157633e7cb3eb9e38a7e39a057de1f3c932313a66f6e6d9618a8e49e107e297caf7bfcef1fe2ffd3498ad40007ed80a25bdd858b0d7c3077e2895f698ba4248c4568ccd78ec7c2e31b7dde1e0e9c2f5f8f0adcd5a8f8cfc06de65d6d9b410e64fa550de6f2953e42f26a9a233a5396357fc98f5b5fcacba319125f3ffe597ae533c24bdc85df59987acbb70ee598c5d5d45c07226a9c7acff3cbeba76e8a9c93575b9d0c560c9fa3d9739e793291188d1ec464117b9f1078e00d237f61916bddc8a4bb04f54d3b7485c63a9a01238ec494665e70b1a756b64f76b2855361661a0eb236dd7343bfd00aea673fbbf198d341d37c4572c838f211bb9de203225ffb32fc477c6954f55af1d502e16920806d9627bf9b5ef485d66bdab67cccfb733c01ead7c7910f020ebd5269d8a25ddc702ae11dc5997a6afd341d9047d904e2128e26e0d2e3f9180ad1b7bb05fa6bda70d4582b1c4ce147fa4b56baef978c409fd023b348c8ef8742fc69c0089accc969cf99dd2b024254db5171a122816e4dbd46c0978ae771e959dbcf81ac3f36d976bc2bfcb9a28d29dff80c27c2732911741eb377390e35d5739845eef70a96b89979df64581e03e25e5bc07f320addde38e3160f28cb94ef440e58466bc008a8e0143dfb277d936c8721397300134c5302034316fdf7dcd68827324078bb0a1cf8c36170767f66561946eedbded50203dfd4a07bdeedc6f171995254cf404a18da57984e7336f5aca22beb200f16cfb2840f0fa5740cc46f1553e3c3e0276ff364634fe1dcd91cd66af27a2926d9e3d0f9a3d2c845f1e0bbd820f798fa7572bc7c41006520bdc61047cb675342f1c9620b8e745dfe64fe4473f8d8c80a8f3764cd74f7d87c242da4ec41f7b32432844d7dd73787383d1c009f31fad744e7552168b7d47a766880008000d074dca15f26fad909966e8396b79f185e67982f6cb50deb6a677f5c80226e0305291ffe86556b3c4f37b14a6cdc0f7075a863d761ffd3aff20dedbcc233e35679487746d4bdd3528731415cbb39f77473cc82402fac3cb407fdb685ceaccc8f2d25076137e15a46d21a4bcd27a680b0f65bb4743166cbf0f6902c932da89e0ac9aeab524f6b6cb3a060607a188a70381fe97e7d8ad6c7f6d1e8331f7374dc306477c5d2fda332ba92324ed9ddc722bb2ecdb0a061</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">当前文章暂不对外可见，请输入密码后查看！</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
     
@@ -103,8 +129,6 @@
     <summary type="html">这是一篇加密文章，需要密码才能继续阅读。</summary>
     
     
-    
-    <category term="高中" scheme="https://leyudame.github.io/categories/%E9%AB%98%E4%B8%AD/"/>
     
     
     <category term="文字" scheme="https://leyudame.github.io/tags/%E6%96%87%E5%AD%97/"/>
@@ -118,7 +142,7 @@
     <link href="https://leyudame.github.io/post/daa65a32.html"/>
     <id>https://leyudame.github.io/post/daa65a32.html</id>
     <published>2023-12-27T15:08:08.000Z</published>
-    <updated>2023-12-30T06:54:18.983Z</updated>
+    <updated>2024-01-20T02:55:27.519Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>这是我在读高一时一次期中考的语文作文，这篇文章在当时获得了55分的高分（满分60）并全年级印发。后来我曾经一度忘记了其中的具体内容，直到最近才发现了手稿，由于是考场中仓促成文，难免有不足之处，但是后半部分的层层递进的内在逻辑结构以及言简意丰的语言确实有值得回味之处。现重新整理成电子稿的形式存档，全文如下：</p></blockquote><span id="more"></span><p>当今的中国，发展迅速，突飞猛进，乡村与城市齐头并进。上海，作为中国城市的代表，有着国际视野和大都市的气息；乡村，在新政策的支持下同样吸引着无数人前去创业。对此，我更倾向于到乡村生活、创业。</p><p>随着城市的发展，大批人口涌入城市，谋求自身发展的同时也积极地参与城市的建设。于是城市日益发达，城市化的水平也不断提高，但随之也引来了一系列问题：人口压力、工业污染……但由于政府的有效调控，这些问题正逐步得到解决。反观乡村，人口大幅减少，污染企业迁入，乡政府疏于管理，这些问题不但没有得到解决，反倒不断堆积，日益突出。由此看来，乡村相比于城市，更需要得到关注与支持，更需要发展。</p><p>“田园将芜，胡不归？”淘渊明由于官场的黑暗而回到家乡，在整理荒芜田园的同时，也不断塑造着自己淡泊宁静的心境。而身处大发展的新时代的我，面对将要振兴的乡村，也不免发出一句感叹：“乡村将兴，胡不归？”</p><p>如今，乡村逐渐开始发展，也取得一些令人瞩目的成绩：如全村脱贫、生态环境改善、交通更加便利等等，但仍有不少问题有待解决。首先是教育，即使接受义务教育的覆盖率超过九成，又有多少人知道那些山区孩子上学路的遥远与艰辛？即使“六元早餐”已经普及，又有多少人知道他们的午餐和晚餐还是一如既往？其次是基础设施的建设，当大数人为户户都通水泥路而雀跃欢呼时，有多少人注意到路边随意堆放的垃圾？如此种种，使我的改善乡村环境、建设美丽乡村的希望更加迫切。乡村未兴，胡不归？</p><p>国家的发展离不开乡村的发展，“绿水青山就是金山银山”，“小康不小康，关键看老乡”，在习近平总书记的号召下，越来越多的人投入到建设乡村的队伍中：放牧戍边的卓嘎和央宗、放弃优越生活的秦玥飞、乡村医生“兰小草”王珏……美丽乡村的建设欣欣向荣，乡村将兴，胡不归？</p><p>我希望我也能投入到乡村的建设中去，为国家富强、民族复兴献出自己的一份哪怕是很微薄的力量。这样，“冰花男孩”的悲剧就不会再发生，乡村会更加富裕、文明、美丽。</p><p>在新政策的支持下，乡村走向振兴是必然的结果。乡村必兴，胡不归？</p><blockquote><p>原答题卡扫描件如下，可以看出书写还是比较工整的，全文没有一个涂改之处。以后有空写一写当时在考场上写这篇文章的心路历程❤️</p></blockquote><p><img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202312272302098.webp"/></p>]]></content>
     
@@ -128,8 +152,6 @@
 &lt;/blockquote&gt;</summary>
     
     
-    
-    <category term="高中" scheme="https://leyudame.github.io/categories/%E9%AB%98%E4%B8%AD/"/>
     
     
     <category term="文字" scheme="https://leyudame.github.io/tags/%E6%96%87%E5%AD%97/"/>
