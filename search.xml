@@ -454,4 +454,25 @@
         <tag>hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>自用Marp配置</title>
+    <url>/post/fda8c156.html</url>
+    <content><![CDATA[<p>记录一下自己常用的Marp基本配置，这样如果隔一段时间不用忘记了又得翻这几个文档🤣</p>
+<span id="more"></span>
+<ol type="1">
+<li>https://cloud.tencent.com/developer/article/1942512</li>
+<li>https://caizhiyuan.gitee.io/categories/skills/20200730-marp.html#%E5%8A%9F%E8%83%BD</li>
+<li>https://marp.app/</li>
+</ol>
+<p>基本配置：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">marp: true</span><br><span class="line">theme: gaia</span><br><span class="line"><span class="emphasis">_class: lead</span></span><br><span class="line"><span class="emphasis">paginate: true</span></span><br><span class="line"><span class="emphasis">header: </span></span><br><span class="line"><span class="emphasis">footer: </span></span><br><span class="line"><span class="emphasis">headingDivider: 2 </span></span><br><span class="line"><span class="emphasis">---</span></span><br></pre></td></tr></table></figure>
+<p>指定页垂直居中：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--_class: lead--&gt;</span></span><br></pre></td></tr></table></figure>
+<p><em>其他功能如插入图片和语法细节后期补充。</em></p>
+]]></content>
+      <tags>
+        <tag>Marp</tag>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
 </search>

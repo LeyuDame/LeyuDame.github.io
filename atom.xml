@@ -6,7 +6,7 @@
   <link href="https://leyudame.github.io/atom.xml" rel="self"/>
   
   <link href="https://leyudame.github.io/"/>
-  <updated>2024-01-20T02:57:32.764Z</updated>
+  <updated>2024-01-24T04:09:37.418Z</updated>
   <id>https://leyudame.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自用Marp配置</title>
+    <link href="https://leyudame.github.io/post/fda8c156.html"/>
+    <id>https://leyudame.github.io/post/fda8c156.html</id>
+    <published>2024-01-23T14:50:07.973Z</published>
+    <updated>2024-01-24T04:09:37.418Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录一下自己常用的Marp基本配置，这样如果隔一段时间不用忘记了又得翻这几个文档🤣</p><span id="more"></span><ol type="1"><li>https://cloud.tencent.com/developer/article/1942512</li><li>https://caizhiyuan.gitee.io/categories/skills/20200730-marp.html#%E5%8A%9F%E8%83%BD</li><li>https://marp.app/</li></ol><p>基本配置：</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">marp: true</span><br><span class="line">theme: gaia</span><br><span class="line"><span class="emphasis">_class: lead</span></span><br><span class="line"><span class="emphasis">paginate: true</span></span><br><span class="line"><span class="emphasis">header: </span></span><br><span class="line"><span class="emphasis">footer: </span></span><br><span class="line"><span class="emphasis">headingDivider: 2 </span></span><br><span class="line"><span class="emphasis">---</span></span><br></pre></td></tr></table></figure><p>指定页垂直居中：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--_class: lead--&gt;</span></span><br></pre></td></tr></table></figure><p><em>其他功能如插入图片和语法细节后期补充。</em></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;记录一下自己常用的Marp基本配置，这样如果隔一段时间不用忘记了又得翻这几个文档🤣&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Marp" scheme="https://leyudame.github.io/tags/Marp/"/>
+    
+    <category term="Markdown" scheme="https://leyudame.github.io/tags/Markdown/"/>
+    
+  </entry>
   
   <entry>
     <title>解决hexo部署出现Spawn failed问题</title>
