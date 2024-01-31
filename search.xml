@@ -490,7 +490,7 @@
 <pre class="mermaid">graph 
     A(Mathpix Snip) --&gt;|截图和识别数学公式| B(Typora)
     B --&gt;|编辑和格式化文档| C(VSCode+Marp)
-    C --&gt;|创建和预览幻灯片| D(最终讲稿&amp;课件输出)
+    C --&gt;|创建和预览幻灯片| D(最终讲稿和课件输出)
     
     style A fill:#e6f7ff,stroke:#5b8db8,stroke-width:2px
     style B fill:#fff0f6,stroke:#d35d6e,stroke-width:2px
@@ -682,6 +682,29 @@
         <tag>初中</tag>
         <tag>竞赛</tag>
         <tag>数学教学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决Github port 443 Time out问题</title>
+    <url>/post/cbb03b27.html</url>
+    <content><![CDATA[<p>今天push到远程仓库的时候系统报错：</p>
+<span id="more"></span>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed to connect to github.com port 443 after 21051 ms: Couldn&#x27;t connect to server</span><br></pre></td></tr></table></figure>
+<p>接着又是一顿左转右转反复尝试，试了一堆方法都不行（尤其是某N网站里的回答），最后通过这篇<a href="https://zhuanlan.zhihu.com/p/636418854">知乎文章</a>里的方法搞定。</p>
+<p>其实说到底就是<strong>git 设置的端口与系统代理不一致</strong>，调整一下git端口即可。</p>
+<p>首先可以查看一下当前git是否使用了代理：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --get http.proxy</span><br><span class="line">git config --global --get https.proxy</span><br></pre></td></tr></table></figure>
+<p>如果使用了代理会显示相应的ip以及端口号，未使用则不会显示内容。</p>
+<p>接着查看一下自己的系统代理，以win11为例，在“设置-网络和Internet-代理”中编辑代理服务器界面可以查看到当前的系统代理地址和端口，比如我的是<code>127.0.0.1:7890</code>，接下来给自己的git配置上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 注意结合自己的实际情况调整代理地址</span><br><span class="line">git config --global http.proxy http://127.0.0.1:7890 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+<p>最后重新push一下，搞定！🎉</p>
+<p><em>如果需要重置即恢复默认值取消git代理的话，可以使用如下命令：</em></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 取消代理</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>bug</tag>
+        <tag>GitHub</tag>
       </tags>
   </entry>
 </search>
