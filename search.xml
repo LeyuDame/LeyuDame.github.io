@@ -609,7 +609,7 @@
     <title>美赛模板LDMCM更新说明</title>
     <url>/post/a977b826.html</url>
     <content><![CDATA[<p>本次更新主要是新增了对LLM的引用方式以及附录中2024美赛要求的<em>Report on Use of AI</em>.</p>
-<p><code>&lt;!-- more --&gt;</code></p>
+<span id="more"></span>
 <p><em>注：以下翻译部分都来自于GPT-4，请注意其准确性，原文内容请访问<a href="https://www.contest.comap.com/undergraduate/contests/">美赛官网</a></em></p>
 <h2 id="政策内容">政策内容</h2>
 <ol type="1">
