@@ -542,11 +542,11 @@
 <p>今天我尝试将这些小问题与copilot进行交流，没想到它很快给出了比较专业准确的回答，经过几轮对话，最终问题也都得到了解决。最后我把copilot的回答总结了一下得到了这篇文档，文中的解决办法<strong>全部</strong>来自copilot，因此个别细节的正确性还有待考证。</p>
 <h2 id="latex-workshop扩展的报错弹窗">LaTeX Workshop扩展的报错弹窗</h2>
 <h3 id="问题描述">问题描述</h3>
-<p>每次在写<code>.tex</code>文件时使用<code>Ctrl+S</code>来保存当前完成的工作，似乎扩展LaTeX Workshop都会默认会编译一遍，但是这样编译肯定是会报错的，因为默认编译器一般是pdflatex，而我一般需要用xelatex编译，有时还有bibtex，因此每次按下<code>Ctrl+S</code>后LaTeX Workshop扩展都给我弹窗提示报错</p>
+<p>每次在写<code>.tex</code>文件时使用<code>Ctrl+S</code>来保存当前完成的工作，扩展LaTeX Workshop都会默认会编译一遍，但是这样编译肯定是会报错的，因为我设置的默认编译器是pdflatex，而一般写中文文档时需要用xelatex编译，有时还有bibtex，因此每次按下<code>Ctrl+S</code>后LaTeX Workshop扩展都给我弹窗提示报错</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Recipe terminated with error. Retry building the project.</span><br></pre></td></tr></table></figure>
 <p>那么有没有什么解决办法呢？比如让<code>Ctrl+S</code>变为单纯的保存功能而不自动进行编译，或者隐藏LaTeX Workshop扩展的弹窗提示报错？</p>
 <blockquote>
-<p>在此之前我已经设置了常用编译链<code>xelatex -&gt; bibtex -&gt; xelatex*2</code>的快捷键为<code>Alt+X</code>，因此我希望取消这个保存后自动编译的功能。</p>
+<p>在此之前我已经设置了常用编译链<code>xelatex -&gt; bibtex -&gt; xelatex*2</code>的快捷键为<code>Alt+X</code>，因此我希望取消这个保存（<code>Ctrl+S</code>）后自动用pdflatex编译的功能。</p>
 </blockquote>
 <h3 id="解决办法">解决办法</h3>
 <p>在 VS Code 中，可以通过修改设置来禁止 LaTeX Workshop 扩展在保存文件时自动编译 LaTeX 文件。以下是具体步骤：</p>
@@ -581,7 +581,7 @@
 <li>打开 VS Code 的键盘快捷键设置。你可以通过顶部菜单的 <code>文件</code> -&gt; <code>首选项</code> -&gt; <code>键盘快捷键</code>，或者使用快捷键 <code>Ctrl+K Ctrl+S</code> 来打开。</li>
 <li>在键盘快捷键设置中，找到 <code>任务：运行生成任务</code> 这一项，然后将其快捷键设置为 <code>Ctrl+D</code>。</li>
 </ol>
-<p>现在，每次你按 <code>Ctrl+S</code>，VS Code 就会运行 "build latex" 任务，即运行 <code>latexmk main.tex</code> 命令。</p></li>
+<p>现在，每次你按 <code>Ctrl+D</code>，VS Code 就会运行 "build latex" 任务，即运行 <code>latexmk main.tex</code> 命令。</p></li>
 </ol>
 <h2 id="其他问答latexmk是什么">其他问答：latexmk是什么</h2>
 <p><code>latexmk</code> 是一个用于自动编译 LaTeX 文档的工具。它可以自动运行 LaTeX 编译器，以及其他必要的工具（如 bibtex 或 biber），以生成最终的文档。</p>
