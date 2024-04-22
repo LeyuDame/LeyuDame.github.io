@@ -738,7 +738,7 @@
 </ol>
 <h3 id="编译方式与发布地址">编译方式与发布地址</h3>
 <p>编译请使用<code>xelatex*2</code>，否则目录无法正常显示</p>
-<p>Overleaf（等待发布中）：开箱即用，但后期不一定会更新</p>
+<p><a href="https://www.overleaf.com/latex/templates/bnuslides/txrjnsqpqqkh">Overleaf</a>：开箱即用，但后期不一定会更新</p>
 <p><a href="https://github.com/LeyuDame/BNUslides">Github</a>：不定期更新</p>
 <p>如果觉得上述两种方式比较麻烦，也可以直接复制<code>.cls</code>文件中的全部代码，然后在<code>.tex</code>主文档调用即可，即</p>
 <figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>{bnuslides}</span><br></pre></td></tr></table></figure>
