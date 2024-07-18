@@ -2,8 +2,8 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://localhost:13890/posts/first_post/</loc><lastmod>2024-07-18T09:20:10&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:13890/posts/</loc><lastmod>2024-07-18T09:20:10&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:13890/</loc><lastmod>2024-07-18T09:20:10&#43;08:00</lastmod></url><url>
-            <loc>http://localhost:13890/categories/</loc></url><url>
-            <loc>http://localhost:13890/tags/</loc></url></urlset>
+            <loc>http://jim0943.github.io/posts/first_post/</loc><lastmod>2024-07-18T09:20:10&#43;08:00</lastmod></url><url>
+            <loc>http://jim0943.github.io/posts/</loc><lastmod>2024-07-18T09:20:10&#43;08:00</lastmod></url><url>
+            <loc>http://jim0943.github.io/</loc><lastmod>2024-07-18T09:20:10&#43;08:00</lastmod></url><url>
+            <loc>http://jim0943.github.io/categories/</loc></url><url>
+            <loc>http://jim0943.github.io/tags/</loc></url></urlset>
