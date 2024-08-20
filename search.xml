@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>BNU LaTeX课程小论文模板</title>
+    <url>/post/ef784f81.html</url>
+    <content><![CDATA[<h2 id="模板说明"><a href="#模板说明" class="headerlink" title="模板说明"></a>模板说明</h2><p>本模板主要适用于一些课程的平时论文以及期末论文，默认页边距为2.5cm，中文宋体，英文Times New Roman，字号为12pt（小四）。</p>
+<span id="more"></span>
+
+<p>编译方式：<code>xelatex -&gt; bibtex -&gt; xelatex*2</code></p>
+<p>默认模板文件由以下四部分组成：</p>
+<ol>
+<li><code>main.tex</code> 主文件</li>
+<li><code>reference.bib</code> 参考文献，使用bibtex</li>
+<li><code>BNUpapers.sty</code> 文档格式控制，包括一些基础的设置，如页眉、标题、姓名等</li>
+<li><code>figures</code> 放置图片的文件夹</li>
+</ol>
+<p>第一次使用时需前往<code>BNUpapers.sty</code> 对标题、姓名、学号、院系、页眉等进行设置，设置完后即可一劳永逸，封面logo亦可替换</p>
+<p>默认带有封面页以及目录页，页码从目录页开始</p>
+<h2 id="特色功能"><a href="#特色功能" class="headerlink" title="特色功能"></a>特色功能</h2><ol>
+<li>智能引用<code>\autoref&#123;&#125;</code></li>
+<li>插入圆角灰底的文本框<code>\tbox&#123;&#125;</code></li>
+<li>中文定理环境</li>
+<li>Bibtex</li>
+</ol>
+<h2 id="待实现的功能"><a href="#待实现的功能" class="headerlink" title="待实现的功能"></a>待实现的功能</h2><p>一般在数学中文论文中，常常用实心全角句点“.”代替句号“。”，为实现这一功能，理论上可以用<code>xeCJK</code>里的<code>fullwidth-stop</code>来进行字符映射，从而实现句号的转换，但在实际编译中常常因为各种原因报错，希望以后能实现这一功能。</p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><ul>
+<li><a href="https://github.com/LeyuDame/BNUpapers">GitHub</a></li>
+<li><a href="https://www.overleaf.com/latex/templates/bnuke-cheng-lun-wen-mo-ban/bcwvxncqffkw">Overleaf</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>LaTeX模板</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>模板</tag>
+        <tag>overleaf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BNU中文LaTeX简历模板</title>
+    <url>/post/9df161f6.html</url>
+    <content><![CDATA[<p>由 <a href="https://github.com/LeyuDame">LeyuDame</a> 改进，主要参考<a href="https://github.com/Htallone/myCV">myCV</a></p>
+<span id="more"></span>
+
+<h2 id="主要改动"><a href="#主要改动" class="headerlink" title="主要改动"></a>主要改动</h2><ul>
+<li>添加了BNU校名Logo</li>
+<li>从BNU校徽上选取了师大蓝作为简历的整体配色</li>
+<li>调整了部分图标的样式</li>
+</ul>
+<h2 id="编译方式❓"><a href="#编译方式❓" class="headerlink" title="编译方式❓"></a>编译方式❓</h2><p>推荐直接在overleaf上进行编译✅</p>
+<p>（<em>待解决的问题：在overleaf上编译显示正常，但是在本地xelatex编译图片不能正常显示❓</em>）</p>
+<h2 id="页面预览"><a href="#页面预览" class="headerlink" title="页面预览"></a>页面预览</h2><img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401141925277.webp" alt="" style="zoom: 25%;" />
+
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>Overleaf: <a href="https://www.overleaf.com/latex/templates/bnucv/stjnkyqdcqzm">BNUCV-BNU中文LaTeX简历模板</a></p>
+]]></content>
+      <categories>
+        <category>LaTeX模板</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>模板</tag>
+        <tag>overleaf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BNUslides：一份简洁的师大蓝主题Beamer</title>
+    <url>/post/a4a4bede.html</url>
+    <content><![CDATA[<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202404201820201.webp" style="zoom:50%;" />
+
+
+<h3 id="主要特色"><a href="#主要特色" class="headerlink" title="主要特色"></a>主要特色</h3><ol>
+<li><p>纯粹的师大蓝：两种颜色分别取自官网和校徽，再设置不同透明度进行组合</p>
+</li>
+<li><p>极致的矢量图：可以直接使用<em>Tikz</em>作图，包括封面校徽logo也是<a href="https://github.com/LeyuDame/BNU_icon_Tikz"><em>Tikz</em>作出的矢量图</a></p>
+</li>
+<li><p>数学字体选用了个人认为比较好看的Fourier（中文字体默认为微软雅黑）</p>
+</li>
+<li><p>与BNU图书馆官方毕业论文$\LaTeX{}$​模板语法一致，可以实现无缝迁移，例如</p>
+<span id="more"></span>
+
+<ul>
+<li>向量，矩阵，张量等采用加粗斜体： <code>\symbf&#123;r&#125;</code> –&gt;  $\boldsymbol{r}$ </li>
+<li>特殊常数和微分采用整体：<code>\uppi</code> –&gt;  $\mathrm{\pi}$ , <code>\dif x</code> –&gt;  $\mathrm{d} x$</li>
+</ul>
+</li>
+<li><p>采用了16:9的显示比例而非传统的4:3，更适用于电脑和投影仪上展示，并且得益于16:9的比例更“宽”，在右侧借鉴了<a href="https://github.com/zbowang/BeamerTheme">Zhibo Wang</a>的侧栏目录设计，每一页面对应小标题会在侧栏目录中高亮显示</p>
+</li>
+<li><p>用<code>.cls</code> 文件单独控制格式，在使用此模板时只需<code>\documentclass&#123;bnuslides&#125;</code>即可调用此模板，实现内容与格式完全分离</p>
+</li>
+</ol>
+<h3 id="编译方式与发布地址"><a href="#编译方式与发布地址" class="headerlink" title="编译方式与发布地址"></a>编译方式与发布地址</h3><p>编译请使用<code>xelatex*2</code>，否则目录无法正常显示</p>
+<p><a href="https://www.overleaf.com/latex/templates/bnuslides/txrjnsqpqqkh">Overleaf</a>：开箱即用，但后期不一定会更新</p>
+<p><a href="https://github.com/LeyuDame/BNUslides">Github</a>：不定期更新</p>
+<p>如果觉得上述两种方式比较麻烦，也可以直接复制<code>.cls</code>文件中的全部代码，然后在<code>.tex</code>主文档调用即可，即</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;bnuslides&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下是<code>bnuslides.cls</code>的全部内容，也不是很多：</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="comment">% Author: LeyuDame</span></span><br><span class="line"><span class="comment">% Date: 2024-04-20</span></span><br><span class="line"><span class="comment">% Github: https://github.com/LeyuDame/BNUslides</span></span><br><span class="line"><span class="keyword">\ProvidesClass</span>&#123;bnuslides&#125;</span><br><span class="line"><span class="keyword">\LoadClass</span>[aspectratio=169]&#123;ctexbeamer&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;amsmath&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;amssymb&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;amsfonts&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;bm&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;upgreek&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;mathrsfs&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;commath&#125;</span><br><span class="line"><span class="comment">% 数学字体选择</span></span><br><span class="line"><span class="comment">%\RequirePackage&#123;fourier&#125; </span></span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;fouriernc&#125;</span><br><span class="line"><span class="comment">%\RequirePackage&#123;mathdesign&#125;</span></span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;float&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;caption&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;pgfplots&#125;</span><br><span class="line"><span class="keyword">\pgfplotsset</span>&#123;compat=1.18&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;multicol&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;subcaption&#125;</span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;natbib&#125;</span><br><span class="line"><span class="keyword">\useoutertheme</span>[width=5<span class="keyword">\baselineskip</span>,right]&#123;sidebar&#125;</span><br><span class="line"><span class="comment">% delete title and author</span></span><br><span class="line"><span class="comment">% \makeatletter</span></span><br><span class="line"><span class="keyword">\setbeamertemplate</span>&#123;sidebar right&#125;&#123;<span class="keyword">\insertverticalnavigation</span>&#123;<span class="keyword">\beamer@sidebarwidth</span>&#125;&#125;</span><br><span class="line"><span class="comment">% fontsize</span></span><br><span class="line"><span class="keyword">\setbeamerfont</span>&#123;section in sidebar&#125;&#123;size=<span class="keyword">\scriptsize</span>&#125;</span><br><span class="line"><span class="keyword">\setbeamerfont</span>&#123;subsection in sidebar&#125;&#123;size=<span class="keyword">\tiny</span>&#125;</span><br><span class="line"><span class="comment">% margin</span></span><br><span class="line"><span class="keyword">\setbeamersize</span>&#123;sidebar width right=3.2cm&#125;</span><br><span class="line"><span class="keyword">\setbeamersize</span>&#123;sidebar width left=1cm&#125;</span><br><span class="line"><span class="keyword">\definecolor</span>&#123;BUNBlue&#125;&#123;RGB&#125;&#123;0,80,147&#125;</span><br><span class="line"><span class="keyword">\definecolor</span>&#123;BUNBlueLight&#125;&#123;RGB&#125;&#123;0,120,200&#125;</span><br><span class="line"><span class="keyword">\definecolor</span>&#123;BUNBlueDark&#125;&#123;RGB&#125;&#123;36, 55, 104&#125;</span><br><span class="line"><span class="keyword">\definecolor</span>&#123;BUNBlueLighter&#125;&#123;RGB&#125;&#123;0,160,240&#125;</span><br><span class="line"><span class="keyword">\usefonttheme</span>[onlymath]&#123;serif&#125; <span class="comment">% 衬线数学字体</span></span><br><span class="line"><span class="keyword">\useinnertheme</span>&#123;default&#125;</span><br><span class="line"><span class="keyword">\useinnertheme</span>[shadow]&#123;rounded&#125; <span class="comment">% 阴影加圆角</span></span><br><span class="line"><span class="comment">%\useinnertheme[]&#123;rounded&#125; % 不加阴影</span></span><br><span class="line"><span class="comment">% 页眉与页脚</span></span><br><span class="line"><span class="keyword">\useoutertheme</span>&#123;infolines&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;palette primary&#125;&#123;bg=BUNBlueLighter!10,fg=BUNBlue&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;palette secondary&#125;&#123;bg=BUNBlueLighter!20,fg=BUNBlue&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;palette tertiary&#125;&#123;bg=BUNBlueDark,fg=white&#125;</span><br><span class="line"><span class="keyword">\setbeamertemplate</span>&#123;frametitle&#125;&#123;<span class="keyword">\vskip</span>1em<span class="keyword">\insertframetitle</span>&#125;</span><br><span class="line"><span class="keyword">\usecolortheme</span>&#123;rose&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;title&#125;&#123;fg=BUNBlue,bg=BUNBlue!10&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;frametitle&#125;&#123;fg=BUNBlue&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;structure&#125;&#123;fg=BUNBlueLight&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;section in toc&#125;&#123;fg=BUNBlue&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;subsection in toc&#125;&#123;fg=BUNBlue&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;section in sidebar&#125;&#123;fg=BUNBlue&#125;</span><br><span class="line"><span class="keyword">\setbeamercolor</span>&#123;subsection in sidebar&#125;&#123;fg=BUNBlue&#125;</span><br><span class="line"><span class="comment">%在每个section 前边单独插入当前章节高亮的目录页</span></span><br><span class="line"><span class="comment">%\AtBeginSection[]</span></span><br><span class="line"><span class="comment">%&#123;</span></span><br><span class="line"><span class="comment">%	\begin&#123;frame&#125;</span></span><br><span class="line"><span class="comment">%		\frametitle&#123;目录&#125;</span></span><br><span class="line"><span class="comment">%		\tableofcontents[currentsection]</span></span><br><span class="line"><span class="comment">%	\end&#123;frame&#125;</span></span><br><span class="line"><span class="comment">%&#125;</span></span><br><span class="line"><span class="keyword">\newenvironment</span>&#123;centertikzpicture&#125;</span><br><span class="line">&#123;<span class="keyword">\begin</span>&#123;center&#125;<span class="keyword">\begin</span>&#123;tikzpicture&#125;&#125;</span><br><span class="line">			&#123;<span class="keyword">\end</span>&#123;tikzpicture&#125;<span class="keyword">\end</span>&#123;center&#125;&#125;</span><br><span class="line"><span class="keyword">\newcommand</span>&#123;<span class="keyword">\symbf</span>&#125;[1]&#123;<span class="keyword">\boldsymbol</span>&#123;<span class="params">#1</span>&#125;&#125;</span><br><span class="line"><span class="keyword">\renewcommand</span>&#123;<span class="keyword">\thempfootnote</span>&#125;&#123;<span class="keyword">\arabic</span>&#123;mpfootnote&#125;&#125;</span><br><span class="line"><span class="comment">% 设置行间距</span></span><br><span class="line"><span class="keyword">\RequirePackage</span>&#123;setspace&#125;</span><br><span class="line"><span class="keyword">\AtBeginDocument</span>&#123;<span class="keyword">\setstretch</span>&#123;1.25&#125;&#125;</span><br><span class="line"><span class="keyword">\title</span>[BNUslides]&#123;BNUslides: 一份简单的师大蓝主题Beamer&#125;</span><br><span class="line"><span class="keyword">\subtitle</span>&#123;&#125;</span><br><span class="line"><span class="keyword">\author</span>[LeyuDame]&#123;LeyuDame&#125;</span><br><span class="line"><span class="keyword">\institute</span>[北京师范大学]&#123;北京师范大学&#125;</span><br><span class="line"><span class="keyword">\date</span>[<span class="keyword">\today</span>]&#123;<span class="keyword">\today</span>&#125;</span><br><span class="line"><span class="keyword">\titlegraphic</span>&#123;<span class="keyword">\includegraphics</span>[width=2cm]&#123;bnu<span class="built_in">_</span>icon.pdf&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="卷王与他们的Beamer故事"><a href="#卷王与他们的Beamer故事" class="headerlink" title="卷王与他们的Beamer故事"></a>卷王与他们的Beamer故事</h2><p>第一次接触 $\LaTeX{}$ 是数分研讨课，不过那学期课选得太多，所以开学一周后数分研讨课退了，几个G得texlive却在电脑上留了下来。而第一次接触Beamer则是在一学期后的《概率论》，几堂课下来发现老师的课件风格统一和谐，尤其是公式字母！比如概率空间 $(\Omega,\mathcal{F},\mathcal{P})$ 中的花体字母​，实在是太优雅了！</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202404201626671.webp" style="zoom: 33%;" />
+
+<p>那时我梦寐以求的一件事就是做一份和概率论老师类似的课件，所以在解几研讨课上，我第一次使用了Beamer进行展示，尤记得当时在讲台上打开pdf时激动颤抖的手🤣</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202404201626057.webp" alt="" style="zoom: 33%;" />
+
+<p>同一时期复变课上老师也用beamer进行授课，现在看来这个蓝绿蓝绿的配色似乎有某师的风格</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202404201626212.webp" style="zoom: 33%;" />
+
+<p>与此同时，正是各路卷王们开始八仙过海各显神通的时候。大家纷纷投笔从 $\LaTeX{}$ ，从手写作业变成手敲作业，从手写笔记变成帮老师打讲义🥲，而彼时的我自然不在“过海”之列，却也望其项背，尤其是认识到了overleaf和mathpix后，学习 $\LaTeX{} $的效率提升了很多。</p>
+<p>在期末考试前的最后一节概率论课上，老师也许再次提及了中心极限定理或大数定律，又或是强调了马尔可夫不等式，但现在回想起来，让人印象最深刻的还是他送给我们的那句诗：</p>
+<p><em><strong>人生天地间，忽如远行客。</strong></em></p>
+<p>在那个多雨的夏天，这句话如一缕清风，吹进这个被云雾缠绕而略显沉闷的山谷，也吹散了，如云雾一般的飘渺的回忆。</p>
+]]></content>
+      <categories>
+        <category>LaTeX模板</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>模板</tag>
+        <tag>Beamer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GG组合：分分钟搞定美赛翻译</title>
+    <url>/post/3898f375.html</url>
+    <content><![CDATA[<p>前面介绍了一个简洁易用的美赛模板<a href="https://leyudame.github.io/post/ba7a336d.html">LDMCM</a>，今天继续补充一下高效可行的翻译方法。</p>
+<span id="more"></span>
+
+<p>本文主要介绍在美赛中利用GG组合——Google Translate+Grammarly来进行快速翻译和校对论文的方法，此外还简要提及了一些其他英文写作与文献阅读的工具，并提供了一些可行的AI辅助方案比如GPTs. </p>
+<h2 id="翻译与语法"><a href="#翻译与语法" class="headerlink" title="翻译与语法"></a>翻译与语法</h2><h3 id="直击问题"><a href="#直击问题" class="headerlink" title="直击问题"></a>直击问题</h3><p>对于初学者而言，用$\LaTeX$写美赛论文在排版方面相较于word其实并不会有太大优势，若是对$\LaTeX$语法不熟悉，在插入浮动体（图片、表格等）时由于并不是WYSIWYG的（所见即所得），由细节语法的错误导致编译失败反复修改代码反而非常浪费时间。反之，只要对word足够熟悉，完全可以做出非常美观的排版效果。</p>
+<p>但是，如果不是直接用英语写作，而是先写中文再翻译成英文的话，那么一定避不开含数学表达式的中文的翻译问题。这时$\LaTeX$就会显得比word更灵活一些。</p>
+<p>比如现在我们要翻译这样一段话：</p>
+<blockquote>
+<p>当无外界因素影响时，第$i$个物种的生长可以用Logistic方程来刻画<br>$$<br>\frac{\mathrm{d} N_i}{\mathrm{d} t}&#x3D;r_i N_i\left(1-\frac{N_i}{K_i}\right)<br>\label{logistic}<br>$$</p>
+<p>这里的$\frac{\mathrm{d} N_i}{\mathrm{d} t}$表示物种$i$的瞬时增长量， $r_i$表示物种$i$的固有增长率，$N_i$表示物种$i$的生物量，$K_i$表示物种 $i$的环境容纳量。</p>
+</blockquote>
+<p>首先来看看在word中自带的翻译文档的效果：</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/word-logistic.webp" alt="" style="zoom: 80%;" />
+
+<p>嗯……乍一看感觉还行，但仔细一瞧会发现有点怪怪的。如果是把上述文字复制到第三方翻译网站，用插件生成的公式（比如Axmath）会类似于图片一样直接无法翻译；Office Math公式会自动部分地变成$\LaTeX$格式，但是怎么把翻译好的含有$\LaTeX$格式的英文变回到word中呢？🤔</p>
+<p>但如果是用$\LaTeX$书写论文，也就变成了要翻译上面文字的源代码：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">当无外界因素影响时，第<span class="built_in">$</span>i<span class="built_in">$</span>个物种的生长可以用Logistic方程来刻画</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line"><span class="keyword">\frac</span>&#123;d N<span class="built_in">_</span>i&#125;&#123;d t&#125;=r<span class="built_in">_</span>i N<span class="built_in">_</span>i<span class="keyword">\left</span>(1-<span class="keyword">\frac</span>&#123;N<span class="built_in">_</span>i&#125;&#123;K<span class="built_in">_</span>i&#125;<span class="keyword">\right</span>)</span><br><span class="line"><span class="keyword">\label</span>&#123;logistic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br><span class="line"></span><br><span class="line">这里的<span class="built_in">$</span><span class="keyword">\frac</span>&#123;dN<span class="built_in">_</span>i&#125;&#123;dt&#125;<span class="built_in">$</span>表示物种<span class="built_in">$</span>i<span class="built_in">$</span>的瞬时增长量， <span class="built_in">$</span>r<span class="built_in">_</span>i<span class="built_in">$</span>表示第物种<span class="built_in">$</span>i<span class="built_in">$</span>的固有增长率，<span class="built_in">$</span>N<span class="built_in">_</span>i<span class="built_in">$</span>表示物种<span class="built_in">$</span>i<span class="built_in">$</span>的生物量，<span class="built_in">$</span>K<span class="built_in">_</span>i<span class="built_in">$</span>表示物种 <span class="built_in">$</span>i<span class="built_in">$</span>的环境容纳量。</span><br></pre></td></tr></table></figure>
+
+<p>大部分翻译网站是支持直接翻译含有$\LaTeX$数学公式的文字的，那么具体如何操作呢？下面有请<strong>GG组合</strong>登场！（名字是临时想出来的🤣）</p>
+<h3 id="Google翻译"><a href="#Google翻译" class="headerlink" title="Google翻译"></a>Google翻译</h3><p>把上面这段源代码复制到Google翻译效果如下：</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401191743586.webp" alt="" style="zoom:67%;" />
+
+<p>除了数学表达式与普通文本连贯起来一起翻译之外，像<code>\begin&#123;equation&#125;</code>这样的代码环境也原封不动地保留了下来，并且这个公式的标签<code>\label&#123;logistic&#125;</code>也同样保留在了翻译文本中，也就是说，公式、参考文献、图片的引用标签只要是用英文命名的，翻译后就不会影响到正常的引用。同理，对于表格，整个<code>table</code>中的内容都可以拿去直接翻译而不会改变原有的格式和数学表达式，比如论文中的<strong>Notations&#x2F;符号说明</strong>。最后就是中文标点符号也都转换成了英文标点符号。</p>
+<p>把翻译后的源代码进行编译，大致效果如下：</p>
+<blockquote>
+<p>When there are no external factors, the growth of the $i$-th species can be described by the Logistic equation<br>$$<br>\frac{\mathrm{d} N_i}{\mathrm{d} t}&#x3D;r_i N_i\left(1-\frac{N_i}{K_i}\right)<br>$$<br>Here $\frac{\mathrm{d} N_i}{\mathrm{d} t}$ represents the instantaneous growth of species $i$, $r_i$ represents the inherent growth rate of species $i$, $N_i$ represents the biomass of species $i$, $K_i$ represents the environmental capacity of species $i$.</p>
+</blockquote>
+<p>可以看到效果还是不错的，只需要做一些细节上的调整（例如语法）就可以了，而这些调整相当一部分可以由下面要介绍的Grammarly自动检测并完成。</p>
+<h4 id="补充：vscode中的翻译插件"><a href="#补充：vscode中的翻译插件" class="headerlink" title="补充：vscode中的翻译插件"></a>补充：vscode中的翻译插件</h4><p>如果使用vscode编写文档，那么借助插件在vscode内部就可以完成翻译，并且还有一系列可自定义的快捷键可以使用，再结合Copilot的建议，效率会更高。</p>
+<p><img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401191816020.webp"></p>
+<h3 id="Grammarly"><a href="#Grammarly" class="headerlink" title="Grammarly"></a>Grammarly</h3><p><a href="https://www.grammarly.com/">Grammarly</a>是一个可以检测语法和拼写的软件，支持多平台多种方式使用，基础功能是免费的。下载桌面端后Grammarly会自动在后台运行，在所有能输入文字的地方Grammarly都可以自动检测语法并给出改写建议，点击接受即可自动完成替换。</p>
+<h2 id="文献阅读"><a href="#文献阅读" class="headerlink" title="文献阅读"></a>文献阅读</h2><h3 id="通义智文"><a href="#通义智文" class="headerlink" title="通义智文"></a>通义智文</h3><p>作为通义大模型的一个产品，<a href="https://tongyi.aliyun.com/zhiwen">通义智文</a>在概括文档方面有着不错的表现，可以帮助我们快速了解一篇文献的大致内容，直接跳过了翻译步骤。</p>
+<h3 id="zotero-pdf-translate"><a href="#zotero-pdf-translate" class="headerlink" title="zotero-pdf-translate"></a>zotero-pdf-translate</h3><p><a href="https://github.com/windingwind/zotero-pdf-translate">zotero-pdf-translate</a>是zotero的一个插件，安装后即可实现在zotero中进行文献翻译，再结合zotero的pdf阅读、笔记和参考文献导出。</p>
+<h3 id="Xtranslator"><a href="#Xtranslator" class="headerlink" title="Xtranslator"></a>Xtranslator</h3><p>这也是一个翻译软件，支持在任意pdf阅读器中进行划词翻译。</p>
+<h2 id="AI辅助"><a href="#AI辅助" class="headerlink" title="AI辅助"></a>AI辅助</h2><h3 id="Wolfram"><a href="#Wolfram" class="headerlink" title="Wolfram"></a>Wolfram</h3><p>最近ChatGPT插件商店——GPTs终于上线了，最令人期待的也许莫过于<a href="https://chat.openai.com/g/g-0S5FXLyFN-wolfram">GPT-4与Wolfram的结合</a>了，这使得ChatGPT的数学“能力”大大提高，并且可以进行更加精确的计算以及作图（尤其是符号计算！）。虽然它并不是做翻译的，但我们还是尝试一下把刚才这段文字发送给它看看效果如何：</p>
+<p><img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401192218226.webp"></p>
+<p>可以看到Wolfram对Logistic方程概括得比较到位，在给出“随便画个图吧”的指令后，它也非常快速地与wolframcloud完成了“交谈”并给出了图象以及分析。</p>
+<h3 id="Translate-Chinese-to-Academic-English-科研论文中翻英"><a href="#Translate-Chinese-to-Academic-English-科研论文中翻英" class="headerlink" title="Translate Chinese to Academic English 科研论文中翻英"></a>Translate Chinese to Academic English 科研论文中翻英</h3><p>这也是一个<a href="https://chat.openai.com/g/g-HejNUzj8l-translate-chinese-to-academic-english-ke-yan-lun-wen-zhong-fan-ying">GPTs</a>，把上面这段需要翻译的文字发送过去后，它先是给出了直译（与前面Google翻译的结果非常相近），随后针对部分名词列出了几个Identified Issues，最后再结合这些问题给出了更加学术化的翻译。（感觉前面列出的工具有点跟不上时代了哈哈）</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401192207598.webp" alt="" style="zoom:;" />
+
+<p>翻译后的结果：</p>
+<blockquote>
+<p>In the absence of external influences, the growth of the $i^{th}$ species can be modeled using the Logistic equation:<br>$$<br>\frac{\mathrm{d} N_i}{\mathrm{d} t}&#x3D;r_i N_i\left(1-\frac{N_i}{K_i}\right)<br>$$<br>In this equation, $\frac{\mathrm{d} N_i}{\mathrm{d} t}$ denotes the instantaneous growth rate of species $i$, $r_i$ is the intrinsic growth rate of species $i$, $N_i$ represents the biomass of species $i$, and $K_i$ signifies the environmental carrying capacity for species $i$.</p>
+</blockquote>
+<p>可以看到相较于之前的直译，学术翻译后的结果不仅在语句的结构和表达上提高了几个档次，而且连$i^{th}$这种表达都翻译到位了。😱</p>
+]]></content>
+      <categories>
+        <category>数学建模</category>
+      </categories>
+      <tags>
+        <tag>MCM</tag>
+        <tag>翻译</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Some Useful Links for MCM</title>
+    <url>/post/8bdc7cc5.html</url>
+    <content><![CDATA[<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><p><a href="https://cn.overleaf.com/project">📝Overleaf</a> 	<a href="https://www.contest.comap.com/undergraduate/contests/mcm/login.php">🌐美赛官网</a>  	<a href="https://one.bnuzh.edu.cn/">🏫数字京师</a>	<a href="http://wolframalpha.com/">Ⓜ️wolfram</a> </p>
+<span id="more"></span>
+
+<h2 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h2><ol>
+<li><a href="https://dict.cnki.net/index">知网学术翻译</a> 适合专有名词 </li>
+<li>Deepl </li>
+<li><a href="https://translate.google.co.uk/?hl=zh-CN&tab=rT&sl=en&tl=zh-CN&op=translate">Google Translate</a></li>
+</ol>
+<h2 id="文献检索"><a href="#文献检索" class="headerlink" title="文献检索"></a>文献检索</h2><ol>
+<li>木铎搜索</li>
+<li><a href="https://scholar.google.com.hk/?hl=zh-CN">Google学术</a></li>
+</ol>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><ol>
+<li><a href="https://data.cnki.net/internationalData">知网-中国经济社会大数据研究平台</a></li>
+<li><a href="https://www.gapminder.org/data/">gapminder</a> </li>
+<li><a href="https://ourworldindata.org/">Our World in Data</a> </li>
+<li><a href="https://www.eia.gov/">美国能源信息署 （EIA）</a> </li>
+<li><a href="https://www.nass.usda.gov/">美国农业部 </a> </li>
+<li><a href="https://datausa.io/">Data USA</a> </li>
+<li><a href="https://www.usbr.gov/">美国垦务局Bureau of Reclamation</a> </li>
+<li><a href="https://www.statista.com/">Statista</a> </li>
+<li><a href="https://unstats.un.org/unsd/mbs/app/DataSearchTable.aspx">MBS Monthly Bulletin of Statistics Online </a> </li>
+<li><a href="https://data.worldbank.org/indicator">世界银行Indicators | Data (worldbank.org)</a> </li>
+<li><a href="https://www.cia.gov/the-world-factbook/references/guide-to-country-comparisons/">中情局 Guide to Country Comparisons - The World Factbook (cia.gov)</a> </li>
+<li><a href="https://www.wikidata.org/wiki/Main_Page">Wikidata</a></li>
+</ol>
+<h2 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h2><ol>
+<li><a href="https://dycharts.com/appv2/#/pages/home/chart-template">镝数图表</a> （也有数据） </li>
+<li><a href="https://echarts.apache.org/examples/zh/index.html#chart-type-line">ECharts（需要JS语言编程）</a> </li>
+<li>Tableau</li>
+<li>Mapbox</li>
+<li>Ploty</li>
+<li><a href="https://zhimap.com/home">ZhiMap思维导图（支持数学公式）</a></li>
+<li><a href="https://markmap.js.org/repl">在线md转思维导图Try markmap（支持katex）</a></li>
+</ol>
+<h2 id="LaTeX相关"><a href="#LaTeX相关" class="headerlink" title="LaTeX相关"></a>LaTeX相关</h2><ol>
+<li><a href="https://mathpix.com/">Mathpix Snip</a></li>
+<li><a href="https://latex.codecogs.com/">Codecogs</a> </li>
+<li>Axmath</li>
+</ol>
+]]></content>
+      <categories>
+        <category>数学建模</category>
+      </categories>
+      <tags>
+        <tag>MCM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决Github port 443 Time out问题</title>
+    <url>/post/cbb03b27.html</url>
+    <content><![CDATA[<p>今天push到远程仓库的时候系统报错：</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed to connect to github.com port 443 after 21051 ms: Couldn&#x27;t connect to server</span><br></pre></td></tr></table></figure>
+
+<p>接着又是一顿左转右转反复尝试，试了一堆方法都不行（尤其是某N网站里的回答），最后通过这篇<a href="https://zhuanlan.zhihu.com/p/636418854">知乎文章</a>里的方法搞定。</p>
+<p>其实说到底就是<strong>git 设置的端口与系统代理不一致</strong>，调整一下git端口即可。</p>
+<p>首先可以查看一下当前git是否使用了代理：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --get http.proxy</span><br><span class="line">git config --global --get https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>如果使用了代理会显示相应的ip以及端口号，未使用则不会显示内容。</p>
+<p>接着查看一下自己的系统代理，以win11为例，在“设置-网络和Internet-代理”中编辑代理服务器界面可以查看到当前的系统代理地址和端口，比如我的是<code>127.0.0.1:7890</code>，接下来给自己的git配置上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 注意结合自己的实际情况调整代理地址</span><br><span class="line">git config --global http.proxy http://127.0.0.1:7890 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<p> 最后重新push一下，搞定！🎉</p>
+<p><em>如果需要重置即恢复默认值取消git代理的话，可以使用如下命令：</em></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 取消代理</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>GitHub</tag>
+        <tag>git</tag>
+        <tag>bug</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tikz绘制BNU校徽</title>
+    <url>/post/2723d25d.html</url>
+    <content><![CDATA[<h2 id="Tikz校徽"><a href="#Tikz校徽" class="headerlink" title="Tikz校徽"></a>Tikz校徽</h2><blockquote>
+<p>矢量图来源于Figma上的<em>中国大学矢量校徽合集</em>，但是由于介绍页面中注明禁止转载，所以也就不附上链接了。</p>
+</blockquote>
+<p>前段时间看到了<a href="https://yuxtech.club/2019/06/14/ink/">这篇文章</a>中通过<a href="https://inkscape.org/">Inkscape</a>以及插件<a href="https://github.com/xyz2tex/svg2tikz">svg2tikz</a>，分别得到了复旦和科大的校徽Tikz代码。由于之前发布的部分模板里并没有用到矢量logo，于是得到北师大校徽Tikz代码后，我顺带更新了一下之前模板里的校徽，目前更新已全部发布到<a href="https://github.com/LeyuDame">GitHub</a>，而overleaf由于发布流程繁琐一些，所以暂时不考虑更新。</p>
+<span id="more"></span>
+
+<p>在<a href="https://inkscape.org/">Inkscape</a>中导出的时候，似乎有一个用浮点数表示的精度选项（❓记不太清楚了），由于我直接选择了最高精度，所以导出来有五千多行代码，不过也才几百KB，并且放在tex文件中这部分代码片段是可以折叠的，这样就免去了插入图片带来的各种问题。当然，既然用到了Tikz绘图，那么相应的宏包一定不要忘记添加，一般来说这三个就够用了：</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125; </span><br><span class="line"><span class="keyword">\usepackage</span>&#123;pgfplots&#125;</span><br><span class="line"><span class="keyword">\pgfplotsset</span>&#123;compat=1.18&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相应的Tikz代码可参见<a href="https://github.com/LeyuDame/BNU_icon_Tikz">BNU_icon_Tikz</a>，同一目录下还包括了校徽和校名矢量图(.pdf)。</p>
+<h2 id="原有模板更新"><a href="#原有模板更新" class="headerlink" title="原有模板更新"></a>原有模板更新</h2><p>此次的更新主要是原来那些没有用矢量logo的模板，包括</p>
+<ol>
+<li><a href="https://github.com/LeyuDame/BNUCV">BNUCV</a> 北师大中文简历模板</li>
+<li><a href="https://github.com/LeyuDame/BNUpapers">BNUpapers</a> 北师大课程小论文模板</li>
+</ol>
+<p>其中还解决了<a href="https://github.com/LeyuDame/BNUCV">BNUCV</a>在本地vscode用<code>xelatex</code>编译显示不出头像图片的问题，原因在于需要用<code>xelatex</code>编译两遍，要配置<code>xelatex*2</code>，只需在<code>settings.json</code>中的<code>&quot;latex-workshop.latex.recipes&quot;: [...]</code>部分加入</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;XeLaTeX * 2&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;tools&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;xelatex&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<p>所以解决上述问题后，<a href="https://github.com/LeyuDame/BNUCV">BNUCV</a> 也顺带发布到了GitHub中。</p>
+]]></content>
+      <categories>
+        <category>LaTeX模板</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>模板</tag>
+        <tag>Tikz</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自用Marp配置</title>
+    <url>/post/fda8c156.html</url>
+    <content><![CDATA[<p>记录一下自己常用的Marp基本配置，这样如果隔一段时间不用忘记了又得翻这几个文档🤣</p>
+<span id="more"></span>
+
+<ol>
+<li><a href="https://cloud.tencent.com/developer/article/1942512">https://cloud.tencent.com/developer/article/1942512</a></li>
+<li><a href="https://caizhiyuan.gitee.io/categories/skills/20200730-marp.html#%E5%8A%9F%E8%83%BD">https://caizhiyuan.gitee.io/categories/skills/20200730-marp.html#%E5%8A%9F%E8%83%BD</a></li>
+<li><a href="https://marp.app/">https://marp.app/</a></li>
+<li><a href="https://www.lianxh.cn/details/1059.html">https://www.lianxh.cn/details/1059.html</a></li>
+</ol>
+<p>基本配置：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">marp: true</span><br><span class="line">theme: gaia</span><br><span class="line"><span class="section">#gaia, uncover, default</span></span><br><span class="line"><span class="emphasis">_class: lead</span></span><br><span class="line"><span class="emphasis">paginate: true</span></span><br><span class="line"><span class="emphasis">header: </span></span><br><span class="line"><span class="emphasis">footer: </span></span><br><span class="line"><span class="emphasis">headingDivider: 2 </span></span><br><span class="line"><span class="emphasis">---</span></span><br></pre></td></tr></table></figure>
+
+<p>指定页垂直居中：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--_class: lead--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>其他功能如插入图片和语法细节后期补充。</em></p>
+]]></content>
+      <tags>
+        <tag>Marp</tag>
+        <tag>Markdown</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一份简洁易用的美赛LaTeX模板</title>
+    <url>/post/ba7a336d.html</url>
+    <content><![CDATA[<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/mcmlatex.webp" alt="" style="zoom: 50%;" />
+
+<h2 id="峥嵘岁月"><a href="#峥嵘岁月" class="headerlink" title="峥嵘岁月"></a>峥嵘岁月</h2><p>记得第一次参加美赛是是一个寒冷潮湿的早春，那时还不怎么会$\LaTeX$，我们用word+在线文档小程序“语文建模”，比赛的第三天在本地word上从早写到晚，结果一次不小心的操作（应该是先误删后保存再关闭文件）导致这一天书写的内容功亏一篑，虽然有手动备份但也是当天早上非常原始的版本。幸好当时还有把新建的文件放到桌面上编辑的习惯，登录OneDrive才重新恢复了文件。</p>
+<span id="more"></span>
+
+<p>迎接第二次参赛的是更加充分的准备与技术加持。当时一整个寒假都在学习相关知识，这里不得不力荐一下2021年O奖得主<a href="https://space.bilibili.com/384497590/channel/collectiondetail?sid=424302"><strong>浩然讲数学建模</strong></a>，他的这个合集尤其是论文写作这块讲得非常棒；另一方面，我也在思考如何提前搜集好相关的资源例如数据网站并汇总到一起形成一个网页，于是我建立了自己的第一个Pages，也就是现在博客的<a href="https://leyudame.github.io/post/8bdc7cc5.html">第一篇内容</a>🤣；最后就是提前准备好论文模板，在一段时间的搜寻后发现了这样一份简洁易用的$\LaTeX$模板——[EasyMCM][1].</p>
+<h2 id="激扬文字"><a href="#激扬文字" class="headerlink" title="激扬文字"></a>激扬文字</h2><blockquote>
+<p>“要想拿O奖，首先得长得像O奖。”</p>
+</blockquote>
+<p>[<strong>浩然讲数学建模</strong>][2]合集视频可以说几乎都是围绕这句话展开的，所以要长得像O奖，先从论文模板开始！根据他的O奖论文模板顺藤摸瓜，我找到了原始的模板并在此基础上综合其他O奖论文中的特色进行了细微的修改与补充，其中主要的改进有</p>
+<ul>
+<li>完善了并列子图的代码，组图和每个子图可分别定义caption和label，精确控制子图间距，1x2,1x3,2x2等等排列方式自由组合</li>
+<li>引入<code>algorithm2e</code>宏包，添加了伪代码的模板</li>
+<li>完善了附录代码的添加功能，直接将代码文件放在<code>code</code>文件夹下即可</li>
+<li>完善了<code>BibTeX</code>的引用方法，可以将参考文献的<code>.bib</code>文件直接放在根目录下自动生成参考文献</li>
+<li>定义了<code>\upcite</code>命令，将引用符号上标</li>
+<li>增加了超链接</li>
+<li>调整了模型假设部分的格式，采用了2020A题O奖论文#200134（经典）中的样式，比如这个$\hookrightarrow$</li>
+</ul>
+<h3 id="上述代码片段"><a href="#上述代码片段" class="headerlink" title="上述代码片段"></a>上述代码片段</h3><p>下面列出了部分的新增代码片段，更方便直接copy😋</p>
+<h4 id="组图"><a href="#组图" class="headerlink" title="组图"></a>组图</h4><h5 id="1x2的组图"><a href="#1x2的组图" class="headerlink" title="1x2的组图"></a>1x2的组图</h5><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% 这是一个1x2的组图</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[htbp]</span><br><span class="line">	<span class="keyword">\centering</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[b]&#123;.3<span class="keyword">\textwidth</span>&#125; <span class="comment">%设置缩放比例，这里的.5代表缩放为原来的50%</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-a.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;left&#125;<span class="keyword">\label</span>&#123;subfig:left&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\hspace</span>&#123;10mm&#125; <span class="comment">%%%%%%%%%%%%%%%%%%调整子图间距</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[b]&#123;.3<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-b.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;right&#125;<span class="keyword">\label</span>&#123;subfig:right&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\caption</span>&#123;Two images&#125;<span class="keyword">\label</span>&#123;subfigure&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1x3的组图"><a href="#1x3的组图" class="headerlink" title="1x3的组图"></a>1x3的组图</h5><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% 这是一个1x3的组图</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[!htbp]</span><br><span class="line">	<span class="keyword">\centering</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.3<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-a.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>*&#123;&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.3<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-b.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>*&#123;&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.3<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-c.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>*&#123;&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\caption</span>&#123;Three images&#125;</span><br><span class="line">	<span class="keyword">\label</span>&#123;Three images&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2x2的组图"><a href="#2x2的组图" class="headerlink" title="2x2的组图"></a>2x2的组图</h5><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="comment">%% 这是一个2x2的组图（可推广至2x3,3x3等）</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[!htbp]</span><br><span class="line">	<span class="keyword">\centering</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.4<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-a.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;左上&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.4<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-b.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;右上&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="comment">%  \begin&#123;subfigure&#125;[t]&#123;0.3\textwidth&#125;</span></span><br><span class="line">	<span class="comment">%          \centering</span></span><br><span class="line">	<span class="comment">%          \includegraphics[width=\textwidth]&#123;img/example-image-a.pdf.pdf&#125;</span></span><br><span class="line">	<span class="comment">%          \caption&#123;&#125;</span></span><br><span class="line">	<span class="comment">%          \label&#123;&#125;</span></span><br><span class="line">	<span class="comment">%  \end&#123;subfigure&#125;</span></span><br><span class="line">	<span class="keyword">\qquad</span></span><br><span class="line">	<span class="comment">%%让图片换行，这就是实现多行组图的简单原理</span></span><br><span class="line">  <span class="comment">%%若需要搞一个2x3的组图就把上下的注释打开再添加图片就可以了</span></span><br><span class="line">  <span class="comment">%%注意调整比例以及间距</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.4<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-a.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;左下&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.4<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-b.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;右下&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="comment">%\begin&#123;subfigure&#125;[t]&#123;0.3\textwidth&#125;</span></span><br><span class="line">	<span class="comment">%        \centering</span></span><br><span class="line">	<span class="comment">%        \includegraphics[width=\textwidth]&#123;img/npca13.pdf&#125;</span></span><br><span class="line">	<span class="comment">%        \caption&#123;result&#125;</span></span><br><span class="line">	<span class="comment">%        \label&#123;&#125;</span></span><br><span class="line">	<span class="comment">%\end&#123;subfigure&#125;</span></span><br><span class="line">	<span class="keyword">\caption</span>&#123;组图组图变变变&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h4><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;[H]</span><br><span class="line">	<span class="keyword">\KwIn</span>&#123;输入&#125;</span><br><span class="line">	<span class="keyword">\KwOut</span>&#123;输出 &#125;</span><br><span class="line">	initialization<span class="keyword">\;</span></span><br><span class="line">	<span class="keyword">\While</span>&#123;not at end of this document&#125;&#123;</span><br><span class="line">		read current<span class="keyword">\;</span></span><br><span class="line">		<span class="keyword">\Repeat</span>&#123;this end condition&#125;&#123;</span><br><span class="line">			do these things<span class="keyword">\;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">\eIf</span>&#123;understand&#125;&#123;</span><br><span class="line">			go to next section<span class="keyword">\;</span></span><br><span class="line">			current section becomes this one<span class="keyword">\;</span></span><br><span class="line">		&#125;&#123;</span><br><span class="line">			go back to the beginning of current section<span class="keyword">\;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">\Do</span>&#123;this end condition&#125;&#123;</span><br><span class="line">			do these things<span class="keyword">\;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">\caption</span>&#123;How to write algorithms&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><p>请使用<code>\href&#123;url&#125;&#123;caption&#125;</code>，例如：</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\href</span>&#123;<span class="link">https://www.wolframalpha.com</span>&#125;&#123;wolframalpha&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="浪遏飞舟"><a href="#浪遏飞舟" class="headerlink" title="浪遏飞舟"></a>浪遏飞舟</h2><h3 id="一些常见的缩略语💬"><a href="#一些常见的缩略语💬" class="headerlink" title="一些常见的缩略语💬"></a>一些常见的缩略语💬</h3><table>
+<thead>
+<tr>
+<th>缩略语</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i.e., blabla</td>
+<td>也即是blabla（一定加逗号）</td>
+</tr>
+<tr>
+<td>e.g., blabla</td>
+<td>例如，blabla</td>
+</tr>
+<tr>
+<td>, etc.   blabla</td>
+<td>，等等。blabla</td>
+</tr>
+<tr>
+<td>n.b.</td>
+<td>特别注意</td>
+</tr>
+<tr>
+<td>cf.</td>
+<td>参见</td>
+</tr>
+</tbody></table>
+<h3 id="一些实用的-LaTeX-辅助工具🔧"><a href="#一些实用的-LaTeX-辅助工具🔧" class="headerlink" title="一些实用的$\LaTeX$辅助工具🔧"></a>一些实用的$\LaTeX$辅助工具🔧</h3><ul>
+<li><p>[excel2latex][3]：在excel里制作表格，生成相应的$\LaTeX$代码</p>
+</li>
+<li><p>Axmath：像输入法一样输入公式</p>
+</li>
+<li><p>Mathpix Snip：OCR</p>
+</li>
+<li><p>latex-formatter（vscode扩展）：格式化</p>
+</li>
+</ul>
+<h3 id="下载与使用"><a href="#下载与使用" class="headerlink" title="下载与使用"></a>下载与使用</h3><p>可以直接把该仓库clone到本地，也可以前往GitHub下载最新的源文档<a href="https://github.com/LeyuDame/LDMCM">LDMCM</a></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/LeyuDame/LDMCM.git</span><br></pre></td></tr></table></figure>
+
+<p>本地编译：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">latexmk main.tex</span><br></pre></td></tr></table></figure>
+
+<p>当然也可以上传到overleaf上进行在线编译，编译器选择<code>xelatex</code>，点击一次<code>compile</code>即可</p>
+<p>[1]: <a href="https://github.com/xjtu-blacksmith/easymcm">https://github.com/xjtu-blacksmith/easymcm</a>	“EasyMCM仓库地址（已于2023年上半年归档）”</p>
+<p>[2]: <a href="https://space.bilibili.com/384497590/channel/collectiondetail?sid=424302">https://space.bilibili.com/384497590/channel/collectiondetail?sid=424302</a>	“浩然讲数学建模”<br>[3]: <a href="https://github.com/ivankokan/Excel2LaTeX">https://github.com/ivankokan/Excel2LaTeX</a></p>
+]]></content>
+      <categories>
+        <category>数学建模</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>模板</tag>
+        <tag>MCM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用vscode搭建丝滑BNU毕业论文写作平台</title>
+    <url>/post/21a33c07.html</url>
+    <content><![CDATA[<blockquote>
+<p>很久之前就有搭建一个丝滑的毕业论文写作平台的构想了，但是直到最近才有时间写出来。毕业论文同数学建模竞赛论文一样都有着较为严格的格式规范，具体的格式要求可参阅长达10页的<a href="https://jwb.bnu.edu.cn/docs/2021-11/20451a955bc94eef9ea9baf69d94eea0.pdf">《师教培养〔2020〕6 号-北京师范大学本科生毕业论文写作规范》</a>，因此如果能用上提前定义好格式的$\LaTeX$模板，专注于查阅文献与内容创作，并且让论文里的数学公式和图表漂亮一些，将是一个较为不错的选择。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="下载BNU图书馆官方-LaTeX-模板"><a href="#下载BNU图书馆官方-LaTeX-模板" class="headerlink" title="下载BNU图书馆官方$\LaTeX$模板"></a>下载BNU图书馆官方$\LaTeX$模板</h2><p>在<a href="https://etdlib.bnu.edu.cn/index.action">北京师范大学图书馆学位论文服务系统</a>的<a href="https://etdlib.bnu.edu.cn/download.jsp">常用下载</a>页面中，找到<strong>研究生学位论文Latex参考模板</strong>，下载得到<code>zip</code>源文档，下载到本地后就会发现这个模板其实是<strong>学士&#x2F;硕士&#x2F;博士通用</strong>的一个模板，是从清华大学 TUNA 协会制作的<a href="https://github.com/tuna/thuthesis">清华大学学位论文模板</a>修改而来的。</p>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>在电脑已经能够用vscode编译$\LaTeX$的前提下（这一点如未配置可参考网上的<a href="https://zhuanlan.zhihu.com/p/139210056">相关文字教程</a>或<a href="https://www.bilibili.com/video/BV11h41127FD">视频</a>），解压后用vscode打开整个文件夹，开始对模板文档进行基本的配置。</p>
+<p>首先推荐过一遍官方的说明文档<code>bnuthesis.pdf</code>的内容，按照相关提示进行操作即可。</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/bnuthesis.webp"  />
+
+<p><strong>主要步骤与注意事项：</strong></p>
+<ol>
+<li><p><strong>新建：</strong>按照说明文档中<code>3.3 编译论文</code>部分的提示，建议另行复制一份主文档并重命名（例如<code>main.tex</code>），并且<code>/data</code>文件夹中对应各章节的<code>tex</code>文件的首行也更改<code>!TeX root</code>后相应的文件名；</p>
+</li>
+<li><p><strong>改头：</strong>在<code>bnusetup.tex</code>文档里填写自己的基本信息；</p>
+</li>
+<li><p><strong>换面：</strong>更换封面，在你自己主文档的<code>\documentclass</code>部分根据自身情况调整学位参数；</p>
+<p>默认为学术硕士：</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[degree=master]&#123;bnuthesis&#125;</span><br><span class="line">  <span class="comment">% 学位 degree:</span></span><br><span class="line">  <span class="comment">%   doctor | master | bachelor</span></span><br><span class="line">  <span class="comment">% 学位类型 degree-type:</span></span><br><span class="line">  <span class="comment">%   academic（默认）| professional</span></span><br></pre></td></tr></table></figure>
+
+<p>封面长这样：</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202312200847205.webp"  />
+
+<p>如果是本科生，使用下面修改后的参数即可：</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>[degree=bachelor]&#123;bnuthesis&#125;</span><br><span class="line">  <span class="comment">% 学位 degree:</span></span><br><span class="line">  <span class="comment">%   doctor | master | bachelor</span></span><br><span class="line">  <span class="comment">% 学位类型 degree-type:</span></span><br><span class="line">  <span class="comment">%   academic（默认）| professional</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>编译：</strong>如果电脑是Windows，推荐直接用<code>latexmk</code>命令在终端编译一次即可，如果你的主文档叫<code>main.tex</code>，要编译输出相应的pdf，则基本格式为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">latexmk main.tex</span><br></pre></td></tr></table></figure>
+
+<p>若要清理编译生成的辅助文件，输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">latexmk -c</span><br></pre></td></tr></table></figure>
+
+<p>如果是本科生，在修改<code>\documentclass</code>参数后用上述方法编译一次，可以看到封面瞬间焕然一新，与官方word版的封面（如下图）如出一辙（可能比word版更清晰一些🤔）：</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202312200853633.webp"  />
+
+<p>至此，模板基本的配置就完成了，下面可根据个人需要选择性地添加部分功能（起飞✈️）。</p>
+</li>
+</ol>
+<h2 id="进阶配置"><a href="#进阶配置" class="headerlink" title="进阶配置"></a>进阶配置</h2><p>以下部分功能的实现可能需要一点时间（当然全都是选择性的，不是必须），这里只简单介绍基本功能及配置思路。</p>
+<h3 id="智能补全：Github-Copilot"><a href="#智能补全：Github-Copilot" class="headerlink" title="智能补全：Github Copilot"></a>智能补全：<a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot">Github Copilot</a></h3><img data-src="https://github.gallerycdn.vsassets.io/extensions/github/copilot/1.143.601/1702570386943/Microsoft.VisualStudio.Services.Icons.Default" style="zoom: 33%;" />
+
+<p>用vscode的一大好处就在于这个接入了GPT-4的插件<a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot">Github Copilot</a>，虽然其本质上是一个代码补全工具，但是其强大的功能使得在编写tex文档时一样能够丝滑输出，它会根据上下文不断学习，自动推测出光标处要写的公式及文字😋</p>
+<p>Github Copilot的订阅费用为$ 10&#x2F;月，但是在GitHub中用edu邮箱完成学生认证后即可免费使用，具体步骤请自行Google</p>
+<h3 id="云同步：git"><a href="#云同步：git" class="headerlink" title="云同步：git"></a>云同步：git</h3><img data-src="https://git-scm.com/images/logo@2x.png" style="zoom: 80%;" />
+
+<p>写论文过程中及时备份存档毫无疑问是一个很重要的功能，并且有时会同时产生多个版本，形成不同的分支，要从当前版本切换到不同分支，又或是不小心删除了当前的内容需要回退到前一个版本，这个时候git就出现了。（<a href="https://zhuanlan.zhihu.com/p/610468270">如何做好 Word 文档的版本管理？两种方法10个工具 - 知乎</a>）</p>
+<p>实现云同步的工具有很多，适合自己的才是最好的。于我而言，对$\LaTeX$数学公式的支持最为重要，因此Word或者其他云文档在这方面就有些欠缺。用git进行版本控制与Word和其他云文档主要有以下区别：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>对数学公式的支持</th>
+<th>对网络环境的依赖</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git</td>
+<td>利用tex&#x2F;md文档书写，本质上是代码，完美支持✅</td>
+<td>需要同步（push）的时候才需要网络，其余时间都在本地编辑🥰</td>
+</tr>
+<tr>
+<td>Word</td>
+<td>内置的office math不太好用，不过安装<a href="https://www.amyxun.com/">AxMath</a>插件后还行❓</td>
+<td>通过Onedrive同步，但问题在于网页版和本地版格式不太一样🤔，而且不太稳定</td>
+</tr>
+<tr>
+<td>其他云文档</td>
+<td>有些可以，但还是略显麻烦，不够强大❓</td>
+<td>需要实时网络🌐</td>
+</tr>
+</tbody></table>
+<p>用vscode的另一大好处就是可以很方便地利用git把tex文档接入GitHub进行同步，从而及时备份并进行版本控制（当然Overleaf上也有这个功能，不过价格有点小贵）。具体介绍可以参见这个up主的视频，还不错：<a href="https://www.bilibili.com/video/BV1KD4y1S7FL">《Git + GitHub 10分钟完全入门》</a></p>
+<p>这里我选择了<a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">gitlens</a>将版本记录可视化，当然也有其他很多git图形界面，都做得很不错，可按自己喜好选择（只要GitHub账号绑定了<strong>学生包</strong>，那么就可以直接用此GitHub账号登录获取GitKraken Pro🤩）。gitlens的界面长这样：</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202312200922915.webp"/>
+
+<h3 id="参考文献管理与引用"><a href="#参考文献管理与引用" class="headerlink" title="参考文献管理与引用"></a>参考文献管理与引用</h3><p>这里推荐采用<code>vscode</code>+<code>zotero</code>+<code>坚果云</code>的方式完成智能引用和参考文献云同步，用${ {\mathrm {B{\scriptstyle {IB} }T_{ {\displaystyle E} }X} } }$实现，具体引用格式的选择请参见说明文档的<code>4.7.1 参考文献</code>部分，相关配置方法可参考以下文章：</p>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/183605019">VS Code + LaTex + Zotero 写作毕业论文 - 知乎 (zhihu.com)</a></li>
+<li><a href="https://help.jianguoyun.com/?p=4190">坚果云使用 Zotero 配置过程详解 | 坚果云帮助中心 (jianguoyun.com)</a></li>
+</ol>
+<h2 id="小工具与个性化"><a href="#小工具与个性化" class="headerlink" title="小工具与个性化"></a>小工具与个性化</h2><h3 id="Shift-IM-for-Math"><a href="#Shift-IM-for-Math" class="headerlink" title="Shift IM for Math"></a><a href="https://marketplace.visualstudio.com/items?itemName=yfzhao.shift-im-for-math">Shift IM for Math</a></h3><p>官方介绍：Automatically change IME condition. Make it easier to input $\LaTeX$ in <code>latex</code> and <code>markdown</code> file. Without AutoHotkey.</p>
+<p>简而言之就是自动识别<code>$</code>之间的数学公式环境自动切换中英文输入。</p>
+<h3 id="Office主题套装"><a href="#Office主题套装" class="headerlink" title="Office主题套装"></a><a href="https://marketplace.visualstudio.com/items?itemName=huacat.office-theme">Office主题套装</a></h3><p>使用这个主题（非官方）会给人一种在编辑Office的错觉，其中Word主题效果如下：</p>
+<p><img data-src="https://raw.githubusercontent.com/huacat1017/huacat.office-theme/master/image/word.png"></p>
+<h3 id="NBARealTimeScore"><a href="#NBARealTimeScore" class="headerlink" title="NBARealTimeScore"></a><a href="https://marketplace.visualstudio.com/items?itemName=liyangjj.NBARealTimeScore">NBARealTimeScore</a></h3><p>官方介绍：实时获取当天NBA比赛比分，并显示在vscode下方状态栏左侧；更可以观看实时文字直播，以及赛后数据统计。你可以边搬砖边关注NBA。</p>
+<p>简而言之就是摸鱼搬砖两不误🤣</p>
+]]></content>
+      <categories>
+        <category>LaTeX模板</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>模板</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>番石榴</title>
+    <url>/post/f20b745e.html</url>
+    <content><![CDATA[<p>第一次吃番石榴，是在高三的时候。这一年冬天，竟没有一丝寒冷，课间跑到楼下大卖部买一杯切好的番石榴，迎着阳光上楼。果肉从浅绿到乳白，挑起一块塞入口中，清爽香甜，沁人心脾，一抹淡淡的往事就这样荡漾开来。</p>
+<span id="more"></span>
+
+<p>清新又自然，香甜又美好。</p>
+<p>那年夏日，她时常跑到洗手间门口洗水果，有一次别人问她：番石榴啊，她微笑着，尬尬的回答道：是啊。我就这样在一旁漠不关心的看着，心里却纳闷，番石榴是一种什么样的水果？洗了就能直接吃，还挺好的，我就喜欢，不知味道如何？</p>
+<p>第一印象来自于残冬时节。</p>
+<p>军训时的一天晚上，她们班练军体拳，我们则在旁边观摩，一片绿绿的军训服中，丑陋的军帽轻轻搭在马尾旁，反倒成了一种装饰。依然是面带微笑，之前居然没见过，只是那五颜六色的鞋着实不好看。</p>
+<p>后来正式开了学，春天的气息扑鼻而来，她就坐在窗边的位置上，深蓝色的发带将一小撮头发束在头顶，其余披肩，似乎总是面带微笑，像极了一位美丽的公主，优雅而端庄，但她不是公主，她是班长。”躺在你学校的操场看星空／教室里的灯还亮着你没走／记得……”在《等你下课》的悠扬曲调中，那窗边的位置竟令人神往起来。</p>
+<p>清新又自然，香甜又美好。</p>
+<p>盛夏转瞬即逝，七月流火，秋日夕阳布满了黄沙飞扬的集合操场，”蝴蝶飞飞飞你要向远方／可你怎么却落在我心上？”这时果然有一只蝴蝶匆匆赶来集合，我就这样目不转睛地看着。夕阳无限好，只是近黄昏。春天的故事一去不返，秋天就要说再见，伤感，却又无法自拔。</p>
+<p>萧瑟又寒冷，凄凉又悲切。</p>
+<p>冬天的北风一点点刺骨起来，黑暗的早早降临一下把一切一切隔得很远，很远。</p>
+<p>春天又至，似曾相识。</p>
+<p>夏日阳光正好，光影交织，扑朔迷离。</p>
+<p>秋风再起，往日凌乱的碎片一下被重新吹起，令人恍惚。</p>
+<p>此时的她竟是如此普通，普通到一定要看鞋子才能确定那一张陌生的脸庞。</p>
+<p>春去秋来，光阴流转。其实有时”不堪回首”也是美好记忆。</p>
+<p>春华秋实，天道酬勤。我们都在努力中遇见更好的自己。</p>
+<p>此刻，捧一杯番石榴，走过创美泉，登上高三楼，在走廊里不期而遇，微笑着面对它：你好啊，番石榴!</p>
+<p>2020年1月24日</p>
+<p><img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/%E7%95%AA%E7%9F%B3%E6%A6%B4.webp"></p>
+]]></content>
+      <tags>
+        <tag>小作文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美赛模板LDMCM更新说明</title>
+    <url>/post/a977b826.html</url>
+    <content><![CDATA[<p>本次更新主要是新增了对LLM的引用方式以及附录中2024美赛要求的<em>Report on Use of AI</em>. </p>
+<span id="more"></span>
+
+<p><em>注：以下翻译部分都来自于GPT-4，请注意其准确性，原文内容请访问<a href="https://www.contest.comap.com/undergraduate/contests/">美赛官网</a></em></p>
+<h2 id="政策内容"><a href="#政策内容" class="headerlink" title="政策内容"></a>政策内容</h2><ol>
+<li><p><strong>政策目的</strong>：鉴于大型语言模型和生成式AI技术的快速发展，该政策旨在为参赛团队、指导老师和评委提供更多的透明度和指导。政策适用于学生工作的所有方面，包括研究与开发模型（包括代码创造）到书面报告。</p>
+</li>
+<li><p><strong>诚实透明</strong>：团队必须对使用AI工具的所有情况坦诚和透明。团队和提交作品的透明度越高，其工作就越有可能被完全信任、欣赏和正确使用。这种披露有助于理解智力工作的发展，并正确承认贡献。如果不公开和明确引用AI工具的作用，可能会导致可疑的段落和工作被识别为抄袭并取消资格。</p>
+</li>
+<li><p><strong>AI工具的使用</strong>：解决问题不需要使用AI工具，尽管允许负责任地使用。COMAP认识到LLMs和生成式AI作为生产力工具的价值，它们可以帮助团队准备提交材料，例如生成结构的初始想法，或在总结、改写、语言润色等方面。在模型开发的许多任务中，人类的创造力和团队合作至关重要，而依赖AI工具会带来风险。因此，建议在使用这些技术进行模型选择和构建、协助创建代码、解释数据和模型结果以及得出科学结论等任务时要小心。</p>
+</li>
+<li><p><strong>LLMs和生成式AI的限制</strong>：</p>
+<ul>
+<li><strong>客观性</strong>：之前发布的包含种族主义、性别歧视或其他偏见的内容可能会在LLM生成的文本中出现，一些重要观点可能不会被代表。</li>
+<li><strong>准确性</strong>：LLMs可能会“幻觉”，即生成虚假内容，特别是在超出其领域或处理复杂或模棱两可的主题时。它们可能生成在语言上但不在科学上可信的内容，它们可能会搞错事实，并且已经显示出它们可以生成不存在的引用。一些LLM只训练了特定日期之前发布的内容，因此呈现出不完整的画面。</li>
+<li><strong>上下文理解</strong>：LLMs不能将人类理解应用于文本的上下文，特别是在处理习语表达、讽刺、幽默或隐喻语言时。这可能导致生成内容中的错误或误解。</li>
+<li><strong>训练数据</strong>：LLMs需要大量高质量的训练数据以达到最佳性能。然而，在某些领域或语言中，这样的数据可能不容易获得，从而限制了任何输出的有用性。</li>
+</ul>
+</li>
+</ol>
+<h3 id="参赛团队的应该注意什么？"><a href="#参赛团队的应该注意什么？" class="headerlink" title="参赛团队的应该注意什么？"></a>参赛团队的应该注意什么？</h3><ol>
+<li><p><strong>明确指出使用LLMs或其他AI工具</strong>：参赛团队在报告中必须明确指出他们使用了LLMs或其他AI工具，包括使用了哪个模型以及用途。要求使用文内引用和参考文献部分来做这个说明。此外，在25页解决方案之后附上使用AI的报告（下文将描述）。</p>
+</li>
+<li><p><strong>验证内容和引用的准确性、有效性和适当性</strong>：团队需要验证由语言模型生成的内容和任何引用的准确性、有效性和适当性，并纠正任何错误或不一致。</p>
+</li>
+<li><p><strong>提供引用和参考文献</strong>：参赛团队应该按照提供的指导提供引用和参考文献，并仔细检查引用确保它们是准确的并且正确引用。</p>
+</li>
+<li><p><strong>意识到抄袭的潜在风险</strong>：由于LLMs可能会从其他来源复制大量文本，因此有抄袭的潜在风险。团队需要检查原始来源，确保他们没有抄袭别人的工作。</p>
+</li>
+</ol>
+<h3 id="引用建议"><a href="#引用建议" class="headerlink" title="引用建议"></a>引用建议</h3><ol>
+<li><p><strong>文档和引用工具</strong>：参赛团队在使用任何工具时，需要仔细考虑如何进行文档记录和引用。随着越来越多的风格指南开始纳入AI工具的引用和参考政策，团队应当遵循这些指南来正确引用所使用的AI工具。</p>
+</li>
+<li><p><strong>内文引用和参考部分</strong>：在25页的解决方案报告中，团队应使用内文引用，并在参考文献部分列出所有使用的AI工具。这要求团队在报告的相应部分清晰地标注使用的AI工具，包括工具的名称和用途。</p>
+</li>
+<li><p><strong>报告页数限制</strong>：无论团队是否选择使用AI工具，主要解决方案报告的页数限制仍为25页。这意味着团队需要在这一页面限制内完成他们的主要报告。</p>
+</li>
+<li><p><strong>使用AI的报告</strong>：如果团队选择使用AI工具，他们需要在报告的末尾新增一个标题为“使用AI的报告”（Report on Use of AI）的部分。这一新部分没有页面限制，并且不计入25页解决方案的页数限制内。这允许团队详细记录他们如何使用AI工具，包括使用的工具类型、用途和对解决方案的贡献，而不用担心会超过页面限制。</p>
+</li>
+</ol>
+<h2 id="引用方式"><a href="#引用方式" class="headerlink" title="引用方式"></a>引用方式</h2><p>新增了LLM的引用方式。以ChatGPT为例。只需使用<code>\upcite&#123;openai2024chatgpt&#125;</code>命令即可（或<code>\cite&#123;openai2024chatgpt&#125;</code>），具体改动请参见<code>references.bib</code>文件。</p>
+<p>效果如下：</p>
+<blockquote>
+<p>此处引用了LLM. $^{[1]}$</p>
+<p>[1] OpenAI. Chatgpt: Optimizing language models for dialogue, Feb 2024. Available<br>online: <a href="https://openai.com/chatgpt">https://openai.com/chatgpt</a> (accessed on February 2nd, 2024).</p>
+</blockquote>
+<h2 id="Report-on-Use-of-AI"><a href="#Report-on-Use-of-AI" class="headerlink" title="Report on Use of AI"></a>Report on Use of AI</h2><p>新增了2024美赛要求的<strong>Report on Use of AI</strong>，具体改动请参见附录部分，即<em>Appendix C: Report on Use of AI</em>.</p>
+<p>采用了官方提供的格式：</p>
+<blockquote>
+<ol>
+<li>OpenAI ChatGPT (Nov 5, 2023 version, ChatGPT-4)</li>
+</ol>
+<p>  Query1: <code>&lt;insert the exact wording you input into the AI tool&gt;</code></p>
+<p>  Output: <code>&lt;insert the complete output from the AI tool&gt;</code></p>
+<ol start="2">
+<li>OpenAI Ernie (Nov 5, 2023 version, Ernie 4.0)</li>
+</ol>
+<p>  Query1: <code>&lt;insert the exact wording of any subsequent input into the AI tool&gt;</code></p>
+<p>  Output: <code>&lt;insert the complete output from the second query&gt;</code></p>
+<ol start="3">
+<li>Github CoPilot (Feb 3, 2024 version)</li>
+</ol>
+<p>  Query1: <code>&lt;insert the exact wording you input into the AI tool&gt;</code></p>
+<p>  Output: <code>&lt;insert the complete output from the AI tool&gt;</code></p>
+<ol start="4">
+<li>Google Bard (Feb 2, 2024 version)</li>
+</ol>
+<p>  Query: <code>&lt;insert the exact wording of your query&gt;</code></p>
+<p>  Output: <code>&lt;insert the complete output from the AI tool&gt;</code></p>
+</blockquote>
+<p>在书写时只需把LLM的问答替换掉<code>&lt;···&gt;</code>中的内容即可。在导出ChaGPT的回答时，推荐一个chrome插件<a href="https://chromewebstore.google.com/detail/chatgpt-to-markdown/dloobgjjpoohngalnjepgdggjeempdec">chatgpt-to-markdown</a>，可以非常方便地把对话导出成md文本。</p>
+<h2 id="下载更新"><a href="#下载更新" class="headerlink" title="下载更新"></a>下载更新</h2><p>参见<a href="https://github.com/LeyuDame/LDMCM">LDMCM</a>或</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/LeyuDame/LDMCM.git</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>数学建模</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>模板</tag>
+        <tag>MCM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决vscode编译latex的两个小困扰</title>
+    <url>/post/622bc5ab.html</url>
+    <content><![CDATA[<p>在vscode中编译LaTeX时，时常会遇到几个小问题。</p>
+<span id="more"></span>
+
+<p>今天我尝试将这些小问题与copilot进行交流，没想到它很快给出了比较专业准确的回答，经过几轮对话，最终问题也都得到了解决。最后我把copilot的回答总结了一下得到了这篇文档，文中的解决办法<strong>全部</strong>来自copilot，因此个别细节的正确性还有待考证。</p>
+<h2 id="LaTeX-Workshop扩展的报错弹窗"><a href="#LaTeX-Workshop扩展的报错弹窗" class="headerlink" title="LaTeX Workshop扩展的报错弹窗"></a>LaTeX Workshop扩展的报错弹窗</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>每次在写<code>.tex</code>文件时使用<code>Ctrl+S</code>来保存当前完成的工作，扩展LaTeX Workshop都会默认会编译一遍，但是这样编译肯定是会报错的，因为我设置的默认编译器是pdflatex，而一般写中文文档时需要用xelatex编译，有时还有bibtex，因此每次按下<code>Ctrl+S</code>后LaTeX Workshop扩展都给我弹窗提示报错</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Recipe terminated with error. Retry building the project.</span><br></pre></td></tr></table></figure>
+
+<p>那么有没有什么解决办法呢？比如让<code>Ctrl+S</code>变为单纯的保存功能而不自动进行编译，或者隐藏LaTeX Workshop扩展的弹窗提示报错？</p>
+<blockquote>
+<p>在此之前我已经设置了常用编译链<code>xelatex -&gt; bibtex -&gt; xelatex*2</code>的快捷键为<code>Alt+X</code>，因此我希望取消这个保存（<code>Ctrl+S</code>）后自动用pdflatex编译的功能。</p>
+</blockquote>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在 VS Code 中，可以通过修改设置来禁止 LaTeX Workshop 扩展在保存文件时自动编译 LaTeX 文件。以下是具体步骤：</p>
+<ol>
+<li>打开 VS Code 的设置。你可以通过顶部菜单的 <code>文件</code> -&gt; <code>首选项</code> -&gt; <code>设置</code>，或者使用快捷键 <code>Ctrl+,</code> 来打开。</li>
+<li>在设置中，找到 <code>LaTeX Workshop</code> 部分。</li>
+<li>在 <code>LaTeX Workshop</code> 设置中，找到 <code>latex.autoBuild.onSave.enabled</code> 选项，它默认是 <code>onFileChange</code>，现在选择 <code>never</code>。</li>
+</ol>
+<p>现在，当你保存 LaTeX 文件时，VS Code 不会自动编译它。</p>
+<h4 id="补充一"><a href="#补充一" class="headerlink" title="补充一"></a>补充一</h4><p>至于隐藏 LaTeX Workshop 扩展的弹窗提示报错，copilot没有找到直接的设置选项。但是，你可以尝试在设置中找到 <code>latex.recipe.default</code> 选项，然后将其设置为一个不会产生错误的编译命令，这可能可以避免弹窗提示报错。</p>
+<h4 id="补充二"><a href="#补充二" class="headerlink" title="补充二"></a>补充二</h4><p>这个设置决定了 LaTeX Workshop 扩展何时自动编译 LaTeX 项目。</p>
+<ul>
+<li><code>onSave</code>：在保存 <code>.tex</code> 文件时编译项目。也就是说，每当你在 VS Code 中保存 LaTeX 文件时，VS Code 将自动编译你的 LaTeX 项目。</li>
+<li><code>onFileChange</code>：在检测到任何依赖文件的变化时编译项目，即使这些变化是由其他应用程序引起的。</li>
+</ul>
+<h2 id="latexmk编译命令绑定快捷键"><a href="#latexmk编译命令绑定快捷键" class="headerlink" title="latexmk编译命令绑定快捷键"></a>latexmk编译命令绑定快捷键</h2><h3 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h3><p>每次用latexmk命令编译时，都需要在内置终端输入<code>latexmk main.tex</code>，虽然只是一段短短的字符，但是在vscode中怎么能不用快捷键呢？因此我决定把这个命令和<code>Ctrl+D</code>绑定一下，这样和保存<code>Ctrl+S</code>就可以一起丝滑操作了，先保存再编译，而且也没有报错弹窗了，非常nice！</p>
+<h3 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h3><ol>
+<li><p>在 VS Code 中，你可以通过创建一个任务（task）来运行 <code>latexmk</code> 命令，然后将这个任务绑定到快捷键 <code>Ctrl+S</code>。以下是具体步骤：</p>
+<ol>
+<li>在 VS Code 中，打开你的工作区的 <code>.vscode</code> 目录（如果没有，你需要创建一个）</li>
+<li>在 <code>.vscode</code> 目录中，创建一个名为 <code>tasks.json</code> 的文件</li>
+<li>在 <code>tasks.json</code> 文件中，添加以下内容：</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build latex&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;shell&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;latexmk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;main.tex&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这将创建一个名为 “build latex” 的任务，它会运行 <code>latexmk main.tex</code> 命令。</p>
+<ol>
+<li>打开 VS Code 的键盘快捷键设置。你可以通过顶部菜单的 <code>文件</code> -&gt; <code>首选项</code> -&gt; <code>键盘快捷键</code>，或者使用快捷键 <code>Ctrl+K Ctrl+S</code> 来打开。</li>
+<li>在键盘快捷键设置中，找到 <code>任务：运行生成任务</code> 这一项，然后将其快捷键设置为 <code>Ctrl+D</code>。</li>
+</ol>
+<p>现在，每次你按 <code>Ctrl+D</code>，VS Code 就会运行 “build latex” 任务，即运行 <code>latexmk main.tex</code> 命令。</p>
+</li>
+</ol>
+<h2 id="其他问答：latexmk是什么"><a href="#其他问答：latexmk是什么" class="headerlink" title="其他问答：latexmk是什么"></a>其他问答：latexmk是什么</h2><p><code>latexmk</code> 是一个用于自动编译 LaTeX 文档的工具。它可以自动运行 LaTeX 编译器，以及其他必要的工具（如 bibtex 或 biber），以生成最终的文档。</p>
+<p>基本的 <code>latexmk</code> 命令如下：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">latexmk [选项] [文件...]</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>[选项]</code> 是可选的命令行选项，<code>[文件...]</code> 是一个或多个要编译的 LaTeX 文件。</p>
+<p>一些常用的 <code>latexmk</code> 选项包括：</p>
+<ul>
+<li><code>-pdf</code>：生成 PDF 文件（使用 pdflatex）。</li>
+<li><code>-bibtex</code>：运行 bibtex 或 biber（如果需要）。</li>
+<li><code>-c</code>：清理所有非日志文件。</li>
+<li><code>-C</code>：清理所有生成的文件，包括 PDF 文件。</li>
+</ul>
+<p>例如，如果你有一个名为 <code>main.tex</code> 的 LaTeX 文件，你可以使用以下命令来编译它：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">latexmk -pdf -bibtex main.tex</span><br></pre></td></tr></table></figure>
+
+<p>这将使用 pdflatex 和 bibtex（如果需要）来编译 <code>main.tex</code>，并生成一个 PDF 文件。</p>
+]]></content>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>vscode</tag>
+        <tag>copilot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决hexo部署出现Spawn failed问题</title>
+    <url>/post/cf2181b.html</url>
+    <content><![CDATA[<h2 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h2><p>在部署时出现如下问题：</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo d</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend dirs...</span><br><span class="line">On branch main</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (D:\.BNU\myblog\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:513:28)</span><br><span class="line">      at cp.emit (D:\.BNU\myblog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at ChildProcess._handle.onexit (node:internal/child_process:291:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="方案一❌"><a href="#方案一❌" class="headerlink" title="方案一❌"></a>方案一❌</h3><p>先是尝试了一下<a href="http://t.csdnimg.cn/wZKdW">这个方案</a>，但仍然报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">##进入站点根目录</span><br><span class="line">cd /usr/local/src/hexo/hanyubolg/</span><br><span class="line"></span><br><span class="line">##删除git提交内容文件夹</span><br><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">##执行</span><br><span class="line">git config --global core.autocrlf false</span><br><span class="line"></span><br><span class="line">##最后</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="方案二✅"><a href="#方案二✅" class="headerlink" title="方案二✅"></a>方案二✅</h3><p>接着左转右转转到了<a href="https://wakeuppppp.github.io/2022/09/20/some-problems-with-hexo/">这篇文章</a>，按照如下步骤操作，成功：</p>
+<ul>
+<li><p>打开命令行输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>得到报错</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">ssh: <span class="title">connect</span> <span class="title">to</span> <span class="title">host</span> <span class="title">github.com</span> <span class="title">port</span> 22: <span class="title">Connection</span> <span class="title">timed</span> <span class="title">out</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>找到 <code>.ssh</code> 文件夹，打开看其中是否有 <code>config</code> 文件，如果没有则新建一个，<code>windows</code> 用记事本打开编辑写入以下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User GitHub用户名</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把其中的<code>GitHub用户名</code>修改成自己的用户名</p>
+</li>
+<li><p>命令行再次输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>出现相关提示，输入 <code>yes</code> 即可。</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>bug</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>寒假学科营备课经验</title>
+    <url>/post/9d56260e.html</url>
+    <content><![CDATA[<p>前几天整理了一下1月份上学科营的内容，连续多天的课程为我后续进行批量大规模的备课提供了可借鉴的经验基础。</p>
+<span id="more"></span>
+
+<p>总的说来，有以下几点技术加持。</p>
+<p>一是markdown相关。从Mathpix Snip到Typora再到vscode+marp流水线式“生产”讲稿以及课件以及答案解析，贯穿始终的md语法让一切操作都变得无比丝滑。</p>
+<pre><code class="highlight mermaid">graph 
+    A(Mathpix Snip) --&gt;|截图和识别数学公式| B(Typora)
+    B --&gt;|编辑和格式化文档| C(VSCode+Marp)
+    C --&gt;|创建和预览幻灯片| D(最终讲稿和课件输出)
+    
+    style A fill:#e6f7ff,stroke:#5b8db8,stroke-width:2px
+    style B fill:#fff0f6,stroke:#d35d6e,stroke-width:2px
+    style C fill:#fffbe6,stroke:#f4b942,stroke-width:2px
+    style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+</code></pre>
+
+<p>二是AI相关。为了让课堂不单调，我尝试用GPT-4生成了一些谜语和插图。</p>
+<p>比如讲韦达定理时，我本打算找一则相关的谜语，但是在网上找了一圈也没有发现合适的，于是让GPT-4写了一个：</p>
+<blockquote>
+<p><em>在代数的海洋中，我是解的秘密钥匙；两个根的和与积，藏于系数之中。</em></p>
+</blockquote>
+<p>还有关于放缩法的谜语：</p>
+<blockquote>
+<p><em>在数学的世界，我轻巧舞动，缩小复杂，放大简明。在比例的游戏，我变换身影，我是何法，巧解难题？</em></p>
+</blockquote>
+<p>以及几幅章节页的插图：</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202402010815221.webp" style="zoom: 25%;" />
+
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202402010817513.webp" alt="" style="zoom: 25%;" />
+
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202402010816770.webp" style="zoom: 25%;" />
+
+<p>因为这几节课的核心在于“对称性”思想，所以这些插图虽然里面的符号看上去有些奇怪，但是整体的效果仍然很好地突出了主题。</p>
+<p>谜语是简单的，插图是抽象的，这几节课同学们反馈的效果还不错，相当于是咖啡加糖，起到了恰到好处的调节作用。顺便再提一下上面的这个mermaid图也是GPT-4画的。😋</p>
+]]></content>
+      <tags>
+        <tag>数学教学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从向量角度理解游戏《荒野乱斗》</title>
+    <url>/post/1b41b2a3.html</url>
+    <content><![CDATA[<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202407140823393.webp" alt="" style="zoom:50%;" />
+
+<p>前段时间在玩《荒野乱斗》(Brawl Stars)时，为了尽可能提高获胜的概率，我不断更换尝试不同的英雄，从而探寻哪个英雄最适合当前的模式和地图。有那么一瞬间，仿佛回到了曾经打数学建模竞赛时那些调整参数的夜晚，先选择一组参数，然后运行代码，等结果，分析结果，接着继续调整，<strong>此时此刻，恰如彼时彼刻</strong>！</p>
+<p>又因为近期在讲空间向量以及受到《数学之美》第14章“余弦定理和新闻的分类”的启发，我决定从向量出发，谈谈（<del>瞎编</del>）一个一定程度上可以解释《荒野乱斗》的数学模型。</p>
+<span id="more"></span>
+
+<h2 id="英雄参数化"><a href="#英雄参数化" class="headerlink" title="英雄参数化"></a>英雄参数化</h2><p>每个英雄都有一系列不尽相同数据作为参数，例如生命值、攻击力、攻击范围、移动速度等等，把这些数值放到一起，那么每个英雄都可以写作一个向量，若用$\mathbf{H}_{hero}$来表示，即</p>
+<p>$$<br>\mathbf{H}_{hero}&#x3D;(生命值，普通攻击值，射程，装弹速度，移动速度，超级技能攻击值，超级技能射程)<br>$$</p>
+<p>以9级的艾德加为例，生命值为5940，普通攻击值为2×972，射程为“近”，装弹速度“非常快”，移动速度“非常快”；超级技能攻击值为1350，射程为“中等”，若把描述性词语用$[0,1]$之间的一个实数量化（比如“非常快”标记为0.9，“中等”标记为0.5等，当然这样过于主观，想要得到更精确的结果，需要结合实际情况调整参数），则艾德加的参数可表示为一个7维向量</p>
+<p>$$<br>\mathbf{H}_{艾德加}&#x3D;(5940,1944,0.2,0.9,0.9,1350,0.5)<br>$$</p>
+<p>当然在游戏中，还有一些诸如“随身妙具”“极限充能”之类的附属加成，为了简化模型，这部分参数的影响就暂时不考虑了。此外，各种英雄的攻击方式不尽相同，比如有的英雄一次有3发子弹，每次攻击值为500，而有些英雄攻击值虽有1000但却是一次性的，这时就不能简单地用上述仅一个分量来表示攻击值，可以考虑把第二分量拆成3个分量，即</p>
+<p>$$<br>\mathbf{H}_{hero}&#x3D;(生命值，普通攻击值1，普通攻击值2，普通攻击值3，射程，\ldots)<br>$$</p>
+<p>对应两个英雄的参数为</p>
+<p>$$<br>\begin{aligned}<br>\mathbf{H}<em>{hero1}&amp;&#x3D;(生命值,500,500,500,射程,\ldots)\<br>\mathbf{H}</em>{hero2}&amp;&#x3D;(生命值,1000,0,0,射程,\ldots)<br>\end{aligned}<br>$$</p>
+<h2 id="英雄分类"><a href="#英雄分类" class="headerlink" title="英雄分类"></a>英雄分类</h2><p>在游戏中，参数相近的英雄会归为同一类，比如生命值较大的英雄一般会归类为“坦克”，而攻击范围（射程）较远一般会归为“射手”，移动速度较快则可能归为“突袭者”。比如上面的“艾德加”就属于“突袭者”，再比如“阿方”也是“突袭者”，而“雅琪”属于“坦克”。仍沿用第一种不细分普通攻击次数的表示方法，把3位英雄参数放到一起（都是9级）对比如下：</p>
+<p>$$<br>\begin{aligned}<br>\mathbf{H}<em>{艾德加}&amp;&#x3D;(5940,1944,0.2,0.9,0.9,1350,0.5)\<br>\mathbf{H}</em>{阿方}&amp;&#x3D;(7740,2448,0.9,0.9,0.7,2160,0.9)\<br>\mathbf{H}_{雅琪}&amp;&#x3D;(9000,2232,0.2,0.5,0.7,0,0.6)<br>\end{aligned}<br>$$</p>
+<p>若分别将3位英雄两两组合，可以计算他们夹角余弦值，计算公式大家应该是再熟悉不过了，即</p>
+<p>$$<br>\cos&lt;\mathbf{H}<em>{hero1},\mathbf{H}_{hero2}&gt; &#x3D; \frac{\mathbf{H}</em>{hero1} \cdot \mathbf{H}<em>{hero2}}{|\mathbf{H}</em>{hero1}| |\mathbf{H}_{hero2}|}<br>$$</p>
+<p>其中，$\mathbf{H}<em>{hero1} \cdot \mathbf{H}</em>{hero2}$表示两位英雄的内积，$|\mathbf{H}<em>{hero1}|$和$ |\mathbf{H}</em>{hero2}|$分别表示两个英雄向量的模。下面用python简单计算一下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cosine_similarity</span>(<span class="params">A, B</span>):</span><br><span class="line">    dot_product = np.dot(A, B)</span><br><span class="line">    norm_A = np.linalg.norm(A)</span><br><span class="line">    norm_B = np.linalg.norm(B)</span><br><span class="line">    cosine_sim = dot_product / (norm_A * norm_B)</span><br><span class="line">    <span class="keyword">return</span> cosine_sim</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义向量</span></span><br><span class="line">\mathbf&#123;H&#125;_艾德加 = np.array([<span class="number">5940</span>, <span class="number">1944</span>, <span class="number">0.2</span>, <span class="number">0.9</span>, <span class="number">0.9</span>, <span class="number">1350</span>, <span class="number">0.5</span>])</span><br><span class="line">\mathbf&#123;H&#125;_阿方 = np.array([<span class="number">7740</span>, <span class="number">2448</span>, <span class="number">0.9</span>, <span class="number">0.9</span>, <span class="number">0.7</span>, <span class="number">2160</span>, <span class="number">0.9</span>])</span><br><span class="line">\mathbf&#123;H&#125;_雅琪 = np.array([<span class="number">9000</span>, <span class="number">2232</span>, <span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.7</span>, <span class="number">0</span>, <span class="number">0.6</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算余弦值</span></span><br><span class="line">cos_艾德加_阿方 = cosine_similarity(\mathbf&#123;H&#125;_艾德加, \mathbf&#123;H&#125;_阿方)</span><br><span class="line">cos_艾德加_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_艾德加, \mathbf&#123;H&#125;_雅琪)</span><br><span class="line">cos_阿方_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_阿方, \mathbf&#123;H&#125;_雅琪)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出余弦值计算结果，保留四位有效数字</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;艾德加 &amp; 阿方 的余弦值:&quot;</span>, <span class="built_in">round</span>(cos_艾德加_阿方, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;艾德加 &amp; 雅琪 的余弦值:&quot;</span>, <span class="built_in">round</span>(cos_艾德加_雅琪, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;阿方 &amp; 雅琪 的余弦值:&quot;</span>, <span class="built_in">round</span>(cos_阿方_雅琪, <span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+
+<p>计算结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>向量对</th>
+<th>余弦值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>艾德加 &amp; 阿方</td>
+<td>0.9988</td>
+</tr>
+<tr>
+<td>艾德加 &amp; 雅琪</td>
+<td>0.9748</td>
+</tr>
+<tr>
+<td>阿方 &amp; 雅琪</td>
+<td>0.9644</td>
+</tr>
+</tbody></table>
+<p>可以看到，三个结果数值上非常接近，这是因为在前面计算时并没有对不同位置的分量进行加权处理，比如生命值的数值都在$10^3$量级，远大于那些取值范围在$[0,1]$的描述性参数，若将3个英雄向量先进行归一化（我也不知道这个方法的具体名称以及是否严谨，暂时先这样算吧）处理再计算：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将向量堆叠为矩阵</span></span><br><span class="line">\mathbf&#123;H&#125;_matrix = np.vstack([\mathbf&#123;H&#125;_艾德加, \mathbf&#123;H&#125;_阿方, \mathbf&#123;H&#125;_雅琪])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按列计算比例</span></span><br><span class="line">\mathbf&#123;H&#125;_normalized = \mathbf&#123;H&#125;_matrix / \mathbf&#123;H&#125;_matrix.<span class="built_in">sum</span>(axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算归一化向量之间的余弦值</span></span><br><span class="line">cos_艾德加_阿方 = cosine_similarity(\mathbf&#123;H&#125;_normalized[<span class="number">0</span>], \mathbf&#123;H&#125;_normalized[<span class="number">1</span>])</span><br><span class="line">cos_艾德加_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_normalized[<span class="number">0</span>], \mathbf&#123;H&#125;_normalized[<span class="number">2</span>])</span><br><span class="line">cos_阿方_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_normalized[<span class="number">1</span>], \mathbf&#123;H&#125;_normalized[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<p>得到计算结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>向量对</th>
+<th>余弦值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>艾德加 &amp; 阿方</td>
+<td>0.8892</td>
+</tr>
+<tr>
+<td>艾德加 &amp; 雅琪</td>
+<td>0.8374</td>
+</tr>
+<tr>
+<td>阿方 &amp; 雅琪</td>
+<td>0.7509</td>
+</tr>
+</tbody></table>
+<p>这里余弦值越大表示夹角越小，则两个英雄的特征参数越接近。若定义一个阈值，比如说当两英雄余弦值大于0.85时，我们就可以把这两个英雄认定为同一类英雄。从上面的结果可以看出，艾德加和阿方都是“突袭者”，所以余弦值较大，而雅琪是“坦克”，与前两位英雄的余弦值明显小于他们之间的余弦值。</p>
+<p>计算好余弦值后再进行一遍聚类，这样就可以把所有英雄都分好类。除了前面提到的“坦克”“突袭者”“射手”之外，还有“投弹手”“火力手”“控场”和“辅助”。</p>
+<h2 id="比赛函数"><a href="#比赛函数" class="headerlink" title="比赛函数"></a>比赛函数</h2><p>比赛可以看成是把英雄向量$\mathbf{H}_{hero}$映射到某一实数的函数$\sigma:\mathbb{R}^n\rightarrow \mathbb{R}$，</p>
+<p>$$<br>c_{hero} &#x3D; \sigma(\mathbf{H}_{hero})<br>$$</p>
+<p>这里的实数值$c_{hero}$越大可以理解为这个英雄在比赛当中获胜的概率越大，或者说在这场比赛当中的竞争力越大，或者说在这场比赛当中的适应性越高。其中$\mathbb{R}^n$中的$n$是英雄向量的维数，前面的例子里$n&#x3D;7$。显然不同类型的地图以及模式对应着不同的函数。</p>
+<p>但这么说还是有些抽象了，那么有没有办法找到一个确定的具体的函数呢？我的一个解决办法是让不同比赛都对应有一个单位方向向量 $\mathbf{e}$ ，每个比赛函数就是把英雄向量$\mathbf{H}<em>{hero}$往这个比赛相应的方向向量 $\mathbf{e}$ 上投影，然后取对应投影向量的长度$|\mathbf{e}\cdot \mathbf{H}</em>{hero}|$作为衡量$c_{hero}$值大小的一个标准，最简单的方式就是直接定义</p>
+<p>$$<br>\sigma_{\mathbf{e}}(\mathbf{H}<em>{hero})&#x3D;|\mathbf{e}\cdot \mathbf{H}</em>{hero}|<br>$$</p>
+<p>若一个英雄向量 $\mathbf{H}_{hero}$ 和比赛方向向量之间的夹角越小，那么就说明这个英雄在这个比赛模式和地图下的适应程度越高，或者说和比赛期望的英雄属性是比较接近的。比如草丛掩体多的地图适合“突袭者”等近身攻击效果好的英雄，而空旷的地带则适合那些射手型英雄。 $\mathbf{e}$ 的选取与两个因素有关——地图和模式。</p>
+<h2 id="组队比赛"><a href="#组队比赛" class="headerlink" title="组队比赛"></a>组队比赛</h2><p>如果是双人或者三人甚至更多人的组队比赛，这时就需要涉及先把对应所有英雄的向量进行某种运算，比如进行相加，然后用函数映射。但是，如果只是单纯的相加求和向量，那么理论上讲属性越接近的英雄和向量的模长会越大，对应的 $c_{hero}$ 值也就越大，然而实际情况却是那些优势互补的组合往往获胜概率更大。</p>
+<p>这时我们可以考虑求两英雄向量外积的模长作为 $c$ 值，即</p>
+<p>$$<br>c_{hero1,hero2}&#x3D;|\mathbf{H}<em>{hero1}\times\mathbf{H}</em>{hero2}|<br>$$</p>
+<p>由于要面对不同比赛，所以我们需要修改一下前面关于比赛函数的定义。现在我们需要把比赛看作是作用于英雄向量的一个线性变换，即$\sigma:\mathbb{R}^n\rightarrow \mathbb{R}^n$，对于单个英雄而言，</p>
+<p>$$<br>c_{hero}&#x3D;|\sigma(\mathbf{H_{hero}})|<br>$$</p>
+<p>对于双人组队的英雄而言，</p>
+<p>$$<br>c_{hero1,hero2}&#x3D;|\sigma(\mathbf{H}<em>{hero1})\times\sigma(\mathbf{H}</em>{hero2})|<br>$$</p>
+<p>类似的，对于三人组队的情形，</p>
+<p>$$<br>c_{hero1,hero2,hero3}&#x3D;|[\sigma(\mathbf{H}<em>{hero1})\times\sigma(\mathbf{H}</em>{hero2})]\times\sigma(\mathbf{H}_{hero3})|<br>$$</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通过上面的分析可知，玩游戏《荒野乱斗》其实无非就是不断调整参数，去寻找使得特定的一场比赛取到最优解的一组参数（英雄），再包裹上一层炫彩华丽的画面和动感十足的音乐（音效），但其本质和数学建模还是非常相近的。唯一的区别在于游戏中有限数量的英雄的参数都已经被开发者设定好了，因此给人一种受制于人的感觉；而如果是用计算机进行数值模拟，我们的活动范围大大增加；若是进入到数学的理论层面，我们则可以动辄考虑各种无穷的极限情形，这正是数学的迷人之处。</p>
+<p>最后，引用一下每个游戏都会有的《健康游戏忠告》：</p>
+<p>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。</p>
+<p>适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活！</p>
+]]></content>
+      <tags>
+        <tag>数学教学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>乡村将兴，胡不归</title>
+    <url>/post/daa65a32.html</url>
+    <content><![CDATA[<blockquote>
+<p>这是我在读高一时一次期中考的语文作文，这篇文章在当时获得了55分的高分（满分60）并全年级印发。后来我曾经一度忘记了其中的具体内容，直到最近才发现了手稿，由于是考场中仓促成文，难免有不足之处，但是后半部分的层层递进的内在逻辑结构以及言简意丰的语言确实有值得回味之处。现重新整理成电子稿的形式存档，全文如下：</p>
+</blockquote>
+<span id="more"></span>
+
+<p>当今的中国，发展迅速，突飞猛进，乡村与城市齐头并进。上海，作为中国城市的代表，有着国际视野和大都市的气息；乡村，在新政策的支持下同样吸引着无数人前去创业。对此，我更倾向于到乡村生活、创业。</p>
+<p>随着城市的发展，大批人口涌入城市，谋求自身发展的同时也积极地参与城市的建设。于是城市日益发达，城市化的水平也不断提高，但随之也引来了一系列问题：人口压力、工业污染……但由于政府的有效调控，这些问题正逐步得到解决。反观乡村，人口大幅减少，污染企业迁入，乡政府疏于管理，这些问题不但没有得到解决，反倒不断堆积，日益突出。由此看来，乡村相比于城市，更需要得到关注与支持，更需要发展。</p>
+<p>“田园将芜，胡不归？”淘渊明由于官场的黑暗而回到家乡，在整理荒芜田园的同时，也不断塑造着自己淡泊宁静的心境。而身处大发展的新时代的我，面对将要振兴的乡村，也不免发出一句感叹：“乡村将兴，胡不归？”</p>
+<p>如今，乡村逐渐开始发展，也取得一些令人瞩目的成绩：如全村脱贫、生态环境改善、交通更加便利等等，但仍有不少问题有待解决。首先是教育，即使接受义务教育的覆盖率超过九成，又有多少人知道那些山区孩子上学路的遥远与艰辛？即使“六元早餐”已经普及，又有多少人知道他们的午餐和晚餐还是一如既往？其次是基础设施的建设，当大数人为户户都通水泥路而雀跃欢呼时，有多少人注意到路边随意堆放的垃圾？如此种种，使我的改善乡村环境、建设美丽乡村的希望更加迫切。乡村未兴，胡不归？</p>
+<p>国家的发展离不开乡村的发展，“绿水青山就是金山银山”，“小康不小康，关键看老乡”，在习近平总书记的号召下，越来越多的人投入到建设乡村的队伍中：放牧戍边的卓嘎和央宗、放弃优越生活的秦玥飞、乡村医生“兰小草”王珏……美丽乡村的建设欣欣向荣，乡村将兴，胡不归？</p>
+<p>我希望我也能投入到乡村的建设中去，为国家富强、民族复兴献出自己的一份哪怕是很微薄的力量。这样，“冰花男孩”的悲剧就不会再发生，乡村会更加富裕、文明、美丽。</p>
+<p>在新政策的支持下，乡村走向振兴是必然的结果。乡村必兴，胡不归？</p>
+<blockquote>
+<p>原答题卡扫描件如下，可以看出书写还是比较工整的，全文没有一个涂改之处。以后有空写一写当时在考场上写这篇文章的心路历程❤️</p>
+</blockquote>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202312272302098.webp"/>
+]]></content>
+      <tags>
+        <tag>小作文</tag>
+      </tags>
+  </entry>
+</search>
