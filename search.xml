@@ -64,6 +64,63 @@
       </tags>
   </entry>
   <entry>
+    <title>GG组合：分分钟搞定美赛翻译</title>
+    <url>/post/3898f375.html</url>
+    <content><![CDATA[<p>前面介绍了一个简洁易用的美赛模板<a href="https://leyudame.github.io/post/ba7a336d.html">LDMCM</a>，今天继续补充一下高效可行的翻译方法。</p>
+<span id="more"></span>
+
+<p>本文主要介绍在美赛中利用GG组合——Google Translate+Grammarly来进行快速翻译和校对论文的方法，此外还简要提及了一些其他英文写作与文献阅读的工具，并提供了一些可行的AI辅助方案比如GPTs. </p>
+<h2 id="翻译与语法"><a href="#翻译与语法" class="headerlink" title="翻译与语法"></a>翻译与语法</h2><h3 id="直击问题"><a href="#直击问题" class="headerlink" title="直击问题"></a>直击问题</h3><p>对于初学者而言，用$\LaTeX$写美赛论文在排版方面相较于word其实并不会有太大优势，若是对$\LaTeX$语法不熟悉，在插入浮动体（图片、表格等）时由于并不是WYSIWYG的（所见即所得），由细节语法的错误导致编译失败反复修改代码反而非常浪费时间。反之，只要对word足够熟悉，完全可以做出非常美观的排版效果。</p>
+<p>但是，如果不是直接用英语写作，而是先写中文再翻译成英文的话，那么一定避不开含数学表达式的中文的翻译问题。这时$\LaTeX$就会显得比word更灵活一些。</p>
+<p>比如现在我们要翻译这样一段话：</p>
+<blockquote>
+<p>当无外界因素影响时，第$i$个物种的生长可以用Logistic方程来刻画<br>$$<br>\frac{\mathrm{d} N_i}{\mathrm{d} t}&#x3D;r_i N_i\left(1-\frac{N_i}{K_i}\right)<br>\label{logistic}<br>$$</p>
+<p>这里的$\frac{\mathrm{d} N_i}{\mathrm{d} t}$表示物种$i$的瞬时增长量， $r_i$表示物种$i$的固有增长率，$N_i$表示物种$i$的生物量，$K_i$表示物种 $i$的环境容纳量。</p>
+</blockquote>
+<p>首先来看看在word中自带的翻译文档的效果：</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/word-logistic.webp" alt="" style="zoom: 80%;" />
+
+<p>嗯……乍一看感觉还行，但仔细一瞧会发现有点怪怪的。如果是把上述文字复制到第三方翻译网站，用插件生成的公式（比如Axmath）会类似于图片一样直接无法翻译；Office Math公式会自动部分地变成$\LaTeX$格式，但是怎么把翻译好的含有$\LaTeX$格式的英文变回到word中呢？🤔</p>
+<p>但如果是用$\LaTeX$书写论文，也就变成了要翻译上面文字的源代码：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">当无外界因素影响时，第<span class="built_in">$</span>i<span class="built_in">$</span>个物种的生长可以用Logistic方程来刻画</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line"><span class="keyword">\frac</span>&#123;d N<span class="built_in">_</span>i&#125;&#123;d t&#125;=r<span class="built_in">_</span>i N<span class="built_in">_</span>i<span class="keyword">\left</span>(1-<span class="keyword">\frac</span>&#123;N<span class="built_in">_</span>i&#125;&#123;K<span class="built_in">_</span>i&#125;<span class="keyword">\right</span>)</span><br><span class="line"><span class="keyword">\label</span>&#123;logistic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br><span class="line"></span><br><span class="line">这里的<span class="built_in">$</span><span class="keyword">\frac</span>&#123;dN<span class="built_in">_</span>i&#125;&#123;dt&#125;<span class="built_in">$</span>表示物种<span class="built_in">$</span>i<span class="built_in">$</span>的瞬时增长量， <span class="built_in">$</span>r<span class="built_in">_</span>i<span class="built_in">$</span>表示第物种<span class="built_in">$</span>i<span class="built_in">$</span>的固有增长率，<span class="built_in">$</span>N<span class="built_in">_</span>i<span class="built_in">$</span>表示物种<span class="built_in">$</span>i<span class="built_in">$</span>的生物量，<span class="built_in">$</span>K<span class="built_in">_</span>i<span class="built_in">$</span>表示物种 <span class="built_in">$</span>i<span class="built_in">$</span>的环境容纳量。</span><br></pre></td></tr></table></figure>
+
+<p>大部分翻译网站是支持直接翻译含有$\LaTeX$数学公式的文字的，那么具体如何操作呢？下面有请<strong>GG组合</strong>登场！（名字是临时想出来的🤣）</p>
+<h3 id="Google翻译"><a href="#Google翻译" class="headerlink" title="Google翻译"></a>Google翻译</h3><p>把上面这段源代码复制到Google翻译效果如下：</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401191743586.webp" alt="" style="zoom:67%;" />
+
+<p>除了数学表达式与普通文本连贯起来一起翻译之外，像<code>\begin&#123;equation&#125;</code>这样的代码环境也原封不动地保留了下来，并且这个公式的标签<code>\label&#123;logistic&#125;</code>也同样保留在了翻译文本中，也就是说，公式、参考文献、图片的引用标签只要是用英文命名的，翻译后就不会影响到正常的引用。同理，对于表格，整个<code>table</code>中的内容都可以拿去直接翻译而不会改变原有的格式和数学表达式，比如论文中的<strong>Notations&#x2F;符号说明</strong>。最后就是中文标点符号也都转换成了英文标点符号。</p>
+<p>把翻译后的源代码进行编译，大致效果如下：</p>
+<blockquote>
+<p>When there are no external factors, the growth of the $i$-th species can be described by the Logistic equation<br>$$<br>\frac{\mathrm{d} N_i}{\mathrm{d} t}&#x3D;r_i N_i\left(1-\frac{N_i}{K_i}\right)<br>$$<br>Here $\frac{\mathrm{d} N_i}{\mathrm{d} t}$ represents the instantaneous growth of species $i$, $r_i$ represents the inherent growth rate of species $i$, $N_i$ represents the biomass of species $i$, $K_i$ represents the environmental capacity of species $i$.</p>
+</blockquote>
+<p>可以看到效果还是不错的，只需要做一些细节上的调整（例如语法）就可以了，而这些调整相当一部分可以由下面要介绍的Grammarly自动检测并完成。</p>
+<h4 id="补充：vscode中的翻译插件"><a href="#补充：vscode中的翻译插件" class="headerlink" title="补充：vscode中的翻译插件"></a>补充：vscode中的翻译插件</h4><p>如果使用vscode编写文档，那么借助插件在vscode内部就可以完成翻译，并且还有一系列可自定义的快捷键可以使用，再结合Copilot的建议，效率会更高。</p>
+<p><img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401191816020.webp"></p>
+<h3 id="Grammarly"><a href="#Grammarly" class="headerlink" title="Grammarly"></a>Grammarly</h3><p><a href="https://www.grammarly.com/">Grammarly</a>是一个可以检测语法和拼写的软件，支持多平台多种方式使用，基础功能是免费的。下载桌面端后Grammarly会自动在后台运行，在所有能输入文字的地方Grammarly都可以自动检测语法并给出改写建议，点击接受即可自动完成替换。</p>
+<h2 id="文献阅读"><a href="#文献阅读" class="headerlink" title="文献阅读"></a>文献阅读</h2><h3 id="通义智文"><a href="#通义智文" class="headerlink" title="通义智文"></a>通义智文</h3><p>作为通义大模型的一个产品，<a href="https://tongyi.aliyun.com/zhiwen">通义智文</a>在概括文档方面有着不错的表现，可以帮助我们快速了解一篇文献的大致内容，直接跳过了翻译步骤。</p>
+<h3 id="zotero-pdf-translate"><a href="#zotero-pdf-translate" class="headerlink" title="zotero-pdf-translate"></a>zotero-pdf-translate</h3><p><a href="https://github.com/windingwind/zotero-pdf-translate">zotero-pdf-translate</a>是zotero的一个插件，安装后即可实现在zotero中进行文献翻译，再结合zotero的pdf阅读、笔记和参考文献导出。</p>
+<h3 id="Xtranslator"><a href="#Xtranslator" class="headerlink" title="Xtranslator"></a>Xtranslator</h3><p>这也是一个翻译软件，支持在任意pdf阅读器中进行划词翻译。</p>
+<h2 id="AI辅助"><a href="#AI辅助" class="headerlink" title="AI辅助"></a>AI辅助</h2><h3 id="Wolfram"><a href="#Wolfram" class="headerlink" title="Wolfram"></a>Wolfram</h3><p>最近ChatGPT插件商店——GPTs终于上线了，最令人期待的也许莫过于<a href="https://chat.openai.com/g/g-0S5FXLyFN-wolfram">GPT-4与Wolfram的结合</a>了，这使得ChatGPT的数学“能力”大大提高，并且可以进行更加精确的计算以及作图（尤其是符号计算！）。虽然它并不是做翻译的，但我们还是尝试一下把刚才这段文字发送给它看看效果如何：</p>
+<p><img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401192218226.webp"></p>
+<p>可以看到Wolfram对Logistic方程概括得比较到位，在给出“随便画个图吧”的指令后，它也非常快速地与wolframcloud完成了“交谈”并给出了图象以及分析。</p>
+<h3 id="Translate-Chinese-to-Academic-English-科研论文中翻英"><a href="#Translate-Chinese-to-Academic-English-科研论文中翻英" class="headerlink" title="Translate Chinese to Academic English 科研论文中翻英"></a>Translate Chinese to Academic English 科研论文中翻英</h3><p>这也是一个<a href="https://chat.openai.com/g/g-HejNUzj8l-translate-chinese-to-academic-english-ke-yan-lun-wen-zhong-fan-ying">GPTs</a>，把上面这段需要翻译的文字发送过去后，它先是给出了直译（与前面Google翻译的结果非常相近），随后针对部分名词列出了几个Identified Issues，最后再结合这些问题给出了更加学术化的翻译。（感觉前面列出的工具有点跟不上时代了哈哈）</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401192207598.webp" alt="" style="zoom:;" />
+
+<p>翻译后的结果：</p>
+<blockquote>
+<p>In the absence of external influences, the growth of the $i^{th}$ species can be modeled using the Logistic equation:<br>$$<br>\frac{\mathrm{d} N_i}{\mathrm{d} t}&#x3D;r_i N_i\left(1-\frac{N_i}{K_i}\right)<br>$$<br>In this equation, $\frac{\mathrm{d} N_i}{\mathrm{d} t}$ denotes the instantaneous growth rate of species $i$, $r_i$ is the intrinsic growth rate of species $i$, $N_i$ represents the biomass of species $i$, and $K_i$ signifies the environmental carrying capacity for species $i$.</p>
+</blockquote>
+<p>可以看到相较于之前的直译，学术翻译后的结果不仅在语句的结构和表达上提高了几个档次，而且连$i^{th}$这种表达都翻译到位了。😱</p>
+]]></content>
+      <categories>
+        <category>数学建模</category>
+      </categories>
+      <tags>
+        <tag>MCM</tag>
+        <tag>翻译</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BNUslides：一份简洁的师大蓝主题Beamer</title>
     <url>/post/a4a4bede.html</url>
     <content><![CDATA[<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202404201820201.webp" style="zoom:50%;" />
@@ -124,63 +181,6 @@
       </tags>
   </entry>
   <entry>
-    <title>GG组合：分分钟搞定美赛翻译</title>
-    <url>/post/3898f375.html</url>
-    <content><![CDATA[<p>前面介绍了一个简洁易用的美赛模板<a href="https://leyudame.github.io/post/ba7a336d.html">LDMCM</a>，今天继续补充一下高效可行的翻译方法。</p>
-<span id="more"></span>
-
-<p>本文主要介绍在美赛中利用GG组合——Google Translate+Grammarly来进行快速翻译和校对论文的方法，此外还简要提及了一些其他英文写作与文献阅读的工具，并提供了一些可行的AI辅助方案比如GPTs. </p>
-<h2 id="翻译与语法"><a href="#翻译与语法" class="headerlink" title="翻译与语法"></a>翻译与语法</h2><h3 id="直击问题"><a href="#直击问题" class="headerlink" title="直击问题"></a>直击问题</h3><p>对于初学者而言，用$\LaTeX$写美赛论文在排版方面相较于word其实并不会有太大优势，若是对$\LaTeX$语法不熟悉，在插入浮动体（图片、表格等）时由于并不是WYSIWYG的（所见即所得），由细节语法的错误导致编译失败反复修改代码反而非常浪费时间。反之，只要对word足够熟悉，完全可以做出非常美观的排版效果。</p>
-<p>但是，如果不是直接用英语写作，而是先写中文再翻译成英文的话，那么一定避不开含数学表达式的中文的翻译问题。这时$\LaTeX$就会显得比word更灵活一些。</p>
-<p>比如现在我们要翻译这样一段话：</p>
-<blockquote>
-<p>当无外界因素影响时，第$i$个物种的生长可以用Logistic方程来刻画<br>$$<br>\frac{\mathrm{d} N_i}{\mathrm{d} t}&#x3D;r_i N_i\left(1-\frac{N_i}{K_i}\right)<br>\label{logistic}<br>$$</p>
-<p>这里的$\frac{\mathrm{d} N_i}{\mathrm{d} t}$表示物种$i$的瞬时增长量， $r_i$表示物种$i$的固有增长率，$N_i$表示物种$i$的生物量，$K_i$表示物种 $i$的环境容纳量。</p>
-</blockquote>
-<p>首先来看看在word中自带的翻译文档的效果：</p>
-<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/word-logistic.webp" alt="" style="zoom: 80%;" />
-
-<p>嗯……乍一看感觉还行，但仔细一瞧会发现有点怪怪的。如果是把上述文字复制到第三方翻译网站，用插件生成的公式（比如Axmath）会类似于图片一样直接无法翻译；Office Math公式会自动部分地变成$\LaTeX$格式，但是怎么把翻译好的含有$\LaTeX$格式的英文变回到word中呢？🤔</p>
-<p>但如果是用$\LaTeX$书写论文，也就变成了要翻译上面文字的源代码：</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">当无外界因素影响时，第<span class="built_in">$</span>i<span class="built_in">$</span>个物种的生长可以用Logistic方程来刻画</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line"><span class="keyword">\frac</span>&#123;d N<span class="built_in">_</span>i&#125;&#123;d t&#125;=r<span class="built_in">_</span>i N<span class="built_in">_</span>i<span class="keyword">\left</span>(1-<span class="keyword">\frac</span>&#123;N<span class="built_in">_</span>i&#125;&#123;K<span class="built_in">_</span>i&#125;<span class="keyword">\right</span>)</span><br><span class="line"><span class="keyword">\label</span>&#123;logistic&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br><span class="line"></span><br><span class="line">这里的<span class="built_in">$</span><span class="keyword">\frac</span>&#123;dN<span class="built_in">_</span>i&#125;&#123;dt&#125;<span class="built_in">$</span>表示物种<span class="built_in">$</span>i<span class="built_in">$</span>的瞬时增长量， <span class="built_in">$</span>r<span class="built_in">_</span>i<span class="built_in">$</span>表示第物种<span class="built_in">$</span>i<span class="built_in">$</span>的固有增长率，<span class="built_in">$</span>N<span class="built_in">_</span>i<span class="built_in">$</span>表示物种<span class="built_in">$</span>i<span class="built_in">$</span>的生物量，<span class="built_in">$</span>K<span class="built_in">_</span>i<span class="built_in">$</span>表示物种 <span class="built_in">$</span>i<span class="built_in">$</span>的环境容纳量。</span><br></pre></td></tr></table></figure>
-
-<p>大部分翻译网站是支持直接翻译含有$\LaTeX$数学公式的文字的，那么具体如何操作呢？下面有请<strong>GG组合</strong>登场！（名字是临时想出来的🤣）</p>
-<h3 id="Google翻译"><a href="#Google翻译" class="headerlink" title="Google翻译"></a>Google翻译</h3><p>把上面这段源代码复制到Google翻译效果如下：</p>
-<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401191743586.webp" alt="" style="zoom:67%;" />
-
-<p>除了数学表达式与普通文本连贯起来一起翻译之外，像<code>\begin&#123;equation&#125;</code>这样的代码环境也原封不动地保留了下来，并且这个公式的标签<code>\label&#123;logistic&#125;</code>也同样保留在了翻译文本中，也就是说，公式、参考文献、图片的引用标签只要是用英文命名的，翻译后就不会影响到正常的引用。同理，对于表格，整个<code>table</code>中的内容都可以拿去直接翻译而不会改变原有的格式和数学表达式，比如论文中的<strong>Notations&#x2F;符号说明</strong>。最后就是中文标点符号也都转换成了英文标点符号。</p>
-<p>把翻译后的源代码进行编译，大致效果如下：</p>
-<blockquote>
-<p>When there are no external factors, the growth of the $i$-th species can be described by the Logistic equation<br>$$<br>\frac{\mathrm{d} N_i}{\mathrm{d} t}&#x3D;r_i N_i\left(1-\frac{N_i}{K_i}\right)<br>$$<br>Here $\frac{\mathrm{d} N_i}{\mathrm{d} t}$ represents the instantaneous growth of species $i$, $r_i$ represents the inherent growth rate of species $i$, $N_i$ represents the biomass of species $i$, $K_i$ represents the environmental capacity of species $i$.</p>
-</blockquote>
-<p>可以看到效果还是不错的，只需要做一些细节上的调整（例如语法）就可以了，而这些调整相当一部分可以由下面要介绍的Grammarly自动检测并完成。</p>
-<h4 id="补充：vscode中的翻译插件"><a href="#补充：vscode中的翻译插件" class="headerlink" title="补充：vscode中的翻译插件"></a>补充：vscode中的翻译插件</h4><p>如果使用vscode编写文档，那么借助插件在vscode内部就可以完成翻译，并且还有一系列可自定义的快捷键可以使用，再结合Copilot的建议，效率会更高。</p>
-<p><img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401191816020.webp"></p>
-<h3 id="Grammarly"><a href="#Grammarly" class="headerlink" title="Grammarly"></a>Grammarly</h3><p><a href="https://www.grammarly.com/">Grammarly</a>是一个可以检测语法和拼写的软件，支持多平台多种方式使用，基础功能是免费的。下载桌面端后Grammarly会自动在后台运行，在所有能输入文字的地方Grammarly都可以自动检测语法并给出改写建议，点击接受即可自动完成替换。</p>
-<h2 id="文献阅读"><a href="#文献阅读" class="headerlink" title="文献阅读"></a>文献阅读</h2><h3 id="通义智文"><a href="#通义智文" class="headerlink" title="通义智文"></a>通义智文</h3><p>作为通义大模型的一个产品，<a href="https://tongyi.aliyun.com/zhiwen">通义智文</a>在概括文档方面有着不错的表现，可以帮助我们快速了解一篇文献的大致内容，直接跳过了翻译步骤。</p>
-<h3 id="zotero-pdf-translate"><a href="#zotero-pdf-translate" class="headerlink" title="zotero-pdf-translate"></a>zotero-pdf-translate</h3><p><a href="https://github.com/windingwind/zotero-pdf-translate">zotero-pdf-translate</a>是zotero的一个插件，安装后即可实现在zotero中进行文献翻译，再结合zotero的pdf阅读、笔记和参考文献导出。</p>
-<h3 id="Xtranslator"><a href="#Xtranslator" class="headerlink" title="Xtranslator"></a>Xtranslator</h3><p>这也是一个翻译软件，支持在任意pdf阅读器中进行划词翻译。</p>
-<h2 id="AI辅助"><a href="#AI辅助" class="headerlink" title="AI辅助"></a>AI辅助</h2><h3 id="Wolfram"><a href="#Wolfram" class="headerlink" title="Wolfram"></a>Wolfram</h3><p>最近ChatGPT插件商店——GPTs终于上线了，最令人期待的也许莫过于<a href="https://chat.openai.com/g/g-0S5FXLyFN-wolfram">GPT-4与Wolfram的结合</a>了，这使得ChatGPT的数学“能力”大大提高，并且可以进行更加精确的计算以及作图（尤其是符号计算！）。虽然它并不是做翻译的，但我们还是尝试一下把刚才这段文字发送给它看看效果如何：</p>
-<p><img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401192218226.webp"></p>
-<p>可以看到Wolfram对Logistic方程概括得比较到位，在给出“随便画个图吧”的指令后，它也非常快速地与wolframcloud完成了“交谈”并给出了图象以及分析。</p>
-<h3 id="Translate-Chinese-to-Academic-English-科研论文中翻英"><a href="#Translate-Chinese-to-Academic-English-科研论文中翻英" class="headerlink" title="Translate Chinese to Academic English 科研论文中翻英"></a>Translate Chinese to Academic English 科研论文中翻英</h3><p>这也是一个<a href="https://chat.openai.com/g/g-HejNUzj8l-translate-chinese-to-academic-english-ke-yan-lun-wen-zhong-fan-ying">GPTs</a>，把上面这段需要翻译的文字发送过去后，它先是给出了直译（与前面Google翻译的结果非常相近），随后针对部分名词列出了几个Identified Issues，最后再结合这些问题给出了更加学术化的翻译。（感觉前面列出的工具有点跟不上时代了哈哈）</p>
-<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202401192207598.webp" alt="" style="zoom:;" />
-
-<p>翻译后的结果：</p>
-<blockquote>
-<p>In the absence of external influences, the growth of the $i^{th}$ species can be modeled using the Logistic equation:<br>$$<br>\frac{\mathrm{d} N_i}{\mathrm{d} t}&#x3D;r_i N_i\left(1-\frac{N_i}{K_i}\right)<br>$$<br>In this equation, $\frac{\mathrm{d} N_i}{\mathrm{d} t}$ denotes the instantaneous growth rate of species $i$, $r_i$ is the intrinsic growth rate of species $i$, $N_i$ represents the biomass of species $i$, and $K_i$ signifies the environmental carrying capacity for species $i$.</p>
-</blockquote>
-<p>可以看到相较于之前的直译，学术翻译后的结果不仅在语句的结构和表达上提高了几个档次，而且连$i^{th}$这种表达都翻译到位了。😱</p>
-]]></content>
-      <categories>
-        <category>数学建模</category>
-      </categories>
-      <tags>
-        <tag>MCM</tag>
-        <tag>翻译</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Some Useful Links for MCM</title>
     <url>/post/8bdc7cc5.html</url>
     <content><![CDATA[<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><p><a href="https://cn.overleaf.com/project">📝Overleaf</a> 	<a href="https://www.contest.comap.com/undergraduate/contests/mcm/login.php">🌐美赛官网</a>  	<a href="https://one.bnuzh.edu.cn/">🏫数字京师</a>	<a href="http://wolframalpha.com/">Ⓜ️wolfram</a> </p>
@@ -232,40 +232,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决Github port 443 Time out问题</title>
-    <url>/post/cbb03b27.html</url>
-    <content><![CDATA[<p>今天push到远程仓库的时候系统报错：</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed to connect to github.com port 443 after 21051 ms: Couldn&#x27;t connect to server</span><br></pre></td></tr></table></figure>
-
-<p>接着又是一顿左转右转反复尝试，试了一堆方法都不行（尤其是某N网站里的回答），最后通过这篇<a href="https://zhuanlan.zhihu.com/p/636418854">知乎文章</a>里的方法搞定。</p>
-<p>其实说到底就是<strong>git 设置的端口与系统代理不一致</strong>，调整一下git端口即可。</p>
-<p>首先可以查看一下当前git是否使用了代理：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --get http.proxy</span><br><span class="line">git config --global --get https.proxy</span><br></pre></td></tr></table></figure>
-
-<p>如果使用了代理会显示相应的ip以及端口号，未使用则不会显示内容。</p>
-<p>接着查看一下自己的系统代理，以win11为例，在“设置-网络和Internet-代理”中编辑代理服务器界面可以查看到当前的系统代理地址和端口，比如我的是<code>127.0.0.1:7890</code>，接下来给自己的git配置上：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 注意结合自己的实际情况调整代理地址</span><br><span class="line">git config --global http.proxy http://127.0.0.1:7890 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
-
-<p> 最后重新push一下，搞定！🎉</p>
-<p><em>如果需要重置即恢复默认值取消git代理的话，可以使用如下命令：</em></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 取消代理</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-]]></content>
-      <tags>
-        <tag>GitHub</tag>
-        <tag>git</tag>
-        <tag>bug</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Tikz绘制BNU校徽</title>
     <url>/post/2723d25d.html</url>
     <content><![CDATA[<h2 id="Tikz校徽"><a href="#Tikz校徽" class="headerlink" title="Tikz校徽"></a>Tikz校徽</h2><blockquote>
@@ -295,32 +261,6 @@
         <tag>LaTeX</tag>
         <tag>模板</tag>
         <tag>Tikz</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自用Marp配置</title>
-    <url>/post/fda8c156.html</url>
-    <content><![CDATA[<p>记录一下自己常用的Marp基本配置，这样如果隔一段时间不用忘记了又得翻这几个文档🤣</p>
-<span id="more"></span>
-
-<ol>
-<li><a href="https://cloud.tencent.com/developer/article/1942512">https://cloud.tencent.com/developer/article/1942512</a></li>
-<li><a href="https://caizhiyuan.gitee.io/categories/skills/20200730-marp.html#%E5%8A%9F%E8%83%BD">https://caizhiyuan.gitee.io/categories/skills/20200730-marp.html#%E5%8A%9F%E8%83%BD</a></li>
-<li><a href="https://marp.app/">https://marp.app/</a></li>
-<li><a href="https://www.lianxh.cn/details/1059.html">https://www.lianxh.cn/details/1059.html</a></li>
-</ol>
-<p>基本配置：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">marp: true</span><br><span class="line">theme: gaia</span><br><span class="line"><span class="section">#gaia, uncover, default</span></span><br><span class="line"><span class="emphasis">_class: lead</span></span><br><span class="line"><span class="emphasis">paginate: true</span></span><br><span class="line"><span class="emphasis">header: </span></span><br><span class="line"><span class="emphasis">footer: </span></span><br><span class="line"><span class="emphasis">headingDivider: 2 </span></span><br><span class="line"><span class="emphasis">---</span></span><br></pre></td></tr></table></figure>
-
-<p>指定页垂直居中：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--_class: lead--&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><em>其他功能如插入图片和语法细节后期补充。</em></p>
-]]></content>
-      <tags>
-        <tag>Marp</tag>
-        <tag>Markdown</tag>
-        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
@@ -414,6 +354,227 @@
         <tag>LaTeX</tag>
         <tag>模板</tag>
         <tag>MCM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自用Marp配置</title>
+    <url>/post/fda8c156.html</url>
+    <content><![CDATA[<p>记录一下自己常用的Marp基本配置，这样如果隔一段时间不用忘记了又得翻这几个文档🤣</p>
+<span id="more"></span>
+
+<ol>
+<li><a href="https://cloud.tencent.com/developer/article/1942512">https://cloud.tencent.com/developer/article/1942512</a></li>
+<li><a href="https://caizhiyuan.gitee.io/categories/skills/20200730-marp.html#%E5%8A%9F%E8%83%BD">https://caizhiyuan.gitee.io/categories/skills/20200730-marp.html#%E5%8A%9F%E8%83%BD</a></li>
+<li><a href="https://marp.app/">https://marp.app/</a></li>
+<li><a href="https://www.lianxh.cn/details/1059.html">https://www.lianxh.cn/details/1059.html</a></li>
+</ol>
+<p>基本配置：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">marp: true</span><br><span class="line">theme: gaia</span><br><span class="line"><span class="section">#gaia, uncover, default</span></span><br><span class="line"><span class="emphasis">_class: lead</span></span><br><span class="line"><span class="emphasis">paginate: true</span></span><br><span class="line"><span class="emphasis">header: </span></span><br><span class="line"><span class="emphasis">footer: </span></span><br><span class="line"><span class="emphasis">headingDivider: 2 </span></span><br><span class="line"><span class="emphasis">---</span></span><br></pre></td></tr></table></figure>
+
+<p>指定页垂直居中：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--_class: lead--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>其他功能如插入图片和语法细节后期补充。</em></p>
+]]></content>
+      <tags>
+        <tag>Marp</tag>
+        <tag>Markdown</tag>
+        <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>乡村将兴，胡不归</title>
+    <url>/post/daa65a32.html</url>
+    <content><![CDATA[<blockquote>
+<p>这是我在读高一时一次期中考的语文作文，这篇文章在当时获得了55分的高分（满分60）并全年级印发。后来我曾经一度忘记了其中的具体内容，直到最近才发现了手稿，由于是考场中仓促成文，难免有不足之处，但是后半部分的层层递进的内在逻辑结构以及言简意丰的语言确实有值得回味之处。现重新整理成电子稿的形式存档，全文如下：</p>
+</blockquote>
+<span id="more"></span>
+
+<p>当今的中国，发展迅速，突飞猛进，乡村与城市齐头并进。上海，作为中国城市的代表，有着国际视野和大都市的气息；乡村，在新政策的支持下同样吸引着无数人前去创业。对此，我更倾向于到乡村生活、创业。</p>
+<p>随着城市的发展，大批人口涌入城市，谋求自身发展的同时也积极地参与城市的建设。于是城市日益发达，城市化的水平也不断提高，但随之也引来了一系列问题：人口压力、工业污染……但由于政府的有效调控，这些问题正逐步得到解决。反观乡村，人口大幅减少，污染企业迁入，乡政府疏于管理，这些问题不但没有得到解决，反倒不断堆积，日益突出。由此看来，乡村相比于城市，更需要得到关注与支持，更需要发展。</p>
+<p>“田园将芜，胡不归？”淘渊明由于官场的黑暗而回到家乡，在整理荒芜田园的同时，也不断塑造着自己淡泊宁静的心境。而身处大发展的新时代的我，面对将要振兴的乡村，也不免发出一句感叹：“乡村将兴，胡不归？”</p>
+<p>如今，乡村逐渐开始发展，也取得一些令人瞩目的成绩：如全村脱贫、生态环境改善、交通更加便利等等，但仍有不少问题有待解决。首先是教育，即使接受义务教育的覆盖率超过九成，又有多少人知道那些山区孩子上学路的遥远与艰辛？即使“六元早餐”已经普及，又有多少人知道他们的午餐和晚餐还是一如既往？其次是基础设施的建设，当大数人为户户都通水泥路而雀跃欢呼时，有多少人注意到路边随意堆放的垃圾？如此种种，使我的改善乡村环境、建设美丽乡村的希望更加迫切。乡村未兴，胡不归？</p>
+<p>国家的发展离不开乡村的发展，“绿水青山就是金山银山”，“小康不小康，关键看老乡”，在习近平总书记的号召下，越来越多的人投入到建设乡村的队伍中：放牧戍边的卓嘎和央宗、放弃优越生活的秦玥飞、乡村医生“兰小草”王珏……美丽乡村的建设欣欣向荣，乡村将兴，胡不归？</p>
+<p>我希望我也能投入到乡村的建设中去，为国家富强、民族复兴献出自己的一份哪怕是很微薄的力量。这样，“冰花男孩”的悲剧就不会再发生，乡村会更加富裕、文明、美丽。</p>
+<p>在新政策的支持下，乡村走向振兴是必然的结果。乡村必兴，胡不归？</p>
+<blockquote>
+<p>原答题卡扫描件如下，可以看出书写还是比较工整的，全文没有一个涂改之处。以后有空写一写当时在考场上写这篇文章的心路历程❤️</p>
+</blockquote>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202312272302098.webp"/>
+]]></content>
+      <tags>
+        <tag>小作文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从向量角度理解游戏《荒野乱斗》</title>
+    <url>/post/1b41b2a3.html</url>
+    <content><![CDATA[<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202407140823393.webp" alt="" style="zoom:50%;" />
+
+<p>前段时间在玩《荒野乱斗》(Brawl Stars)时，为了尽可能提高获胜的概率，我不断更换尝试不同的英雄，从而探寻哪个英雄最适合当前的模式和地图。有那么一瞬间，仿佛回到了曾经打数学建模竞赛时那些调整参数的夜晚，先选择一组参数，然后运行代码，等结果，分析结果，接着继续调整，<strong>此时此刻，恰如彼时彼刻</strong>！</p>
+<p>又因为近期在讲空间向量以及受到《数学之美》第14章“余弦定理和新闻的分类”的启发，我决定从向量出发，谈谈（<del>瞎编</del>）一个一定程度上可以解释《荒野乱斗》的数学模型。</p>
+<span id="more"></span>
+
+<h2 id="英雄参数化"><a href="#英雄参数化" class="headerlink" title="英雄参数化"></a>英雄参数化</h2><p>每个英雄都有一系列不尽相同数据作为参数，例如生命值、攻击力、攻击范围、移动速度等等，把这些数值放到一起，那么每个英雄都可以写作一个向量，若用$\mathbf{H}_{hero}$来表示，即</p>
+<p>$$<br>\mathbf{H}_{hero}&#x3D;(生命值，普通攻击值，射程，装弹速度，移动速度，超级技能攻击值，超级技能射程)<br>$$</p>
+<p>以9级的艾德加为例，生命值为5940，普通攻击值为2×972，射程为“近”，装弹速度“非常快”，移动速度“非常快”；超级技能攻击值为1350，射程为“中等”，若把描述性词语用$[0,1]$之间的一个实数量化（比如“非常快”标记为0.9，“中等”标记为0.5等，当然这样过于主观，想要得到更精确的结果，需要结合实际情况调整参数），则艾德加的参数可表示为一个7维向量</p>
+<p>$$<br>\mathbf{H}_{艾德加}&#x3D;(5940,1944,0.2,0.9,0.9,1350,0.5)<br>$$</p>
+<p>当然在游戏中，还有一些诸如“随身妙具”“极限充能”之类的附属加成，为了简化模型，这部分参数的影响就暂时不考虑了。此外，各种英雄的攻击方式不尽相同，比如有的英雄一次有3发子弹，每次攻击值为500，而有些英雄攻击值虽有1000但却是一次性的，这时就不能简单地用上述仅一个分量来表示攻击值，可以考虑把第二分量拆成3个分量，即</p>
+<p>$$<br>\mathbf{H}_{hero}&#x3D;(生命值，普通攻击值1，普通攻击值2，普通攻击值3，射程，\ldots)<br>$$</p>
+<p>对应两个英雄的参数为</p>
+<p>$$<br>\begin{aligned}<br>\mathbf{H}<em>{hero1}&amp;&#x3D;(生命值,500,500,500,射程,\ldots)\<br>\mathbf{H}</em>{hero2}&amp;&#x3D;(生命值,1000,0,0,射程,\ldots)<br>\end{aligned}<br>$$</p>
+<h2 id="英雄分类"><a href="#英雄分类" class="headerlink" title="英雄分类"></a>英雄分类</h2><p>在游戏中，参数相近的英雄会归为同一类，比如生命值较大的英雄一般会归类为“坦克”，而攻击范围（射程）较远一般会归为“射手”，移动速度较快则可能归为“突袭者”。比如上面的“艾德加”就属于“突袭者”，再比如“阿方”也是“突袭者”，而“雅琪”属于“坦克”。仍沿用第一种不细分普通攻击次数的表示方法，把3位英雄参数放到一起（都是9级）对比如下：</p>
+<p>$$<br>\begin{aligned}<br>\mathbf{H}<em>{艾德加}&amp;&#x3D;(5940,1944,0.2,0.9,0.9,1350,0.5)\<br>\mathbf{H}</em>{阿方}&amp;&#x3D;(7740,2448,0.9,0.9,0.7,2160,0.9)\<br>\mathbf{H}_{雅琪}&amp;&#x3D;(9000,2232,0.2,0.5,0.7,0,0.6)<br>\end{aligned}<br>$$</p>
+<p>若分别将3位英雄两两组合，可以计算他们夹角余弦值，计算公式大家应该是再熟悉不过了，即</p>
+<p>$$<br>\cos&lt;\mathbf{H}<em>{hero1},\mathbf{H}_{hero2}&gt; &#x3D; \frac{\mathbf{H}</em>{hero1} \cdot \mathbf{H}<em>{hero2}}{|\mathbf{H}</em>{hero1}| |\mathbf{H}_{hero2}|}<br>$$</p>
+<p>其中，$\mathbf{H}<em>{hero1} \cdot \mathbf{H}</em>{hero2}$表示两位英雄的内积，$|\mathbf{H}<em>{hero1}|$和$ |\mathbf{H}</em>{hero2}|$分别表示两个英雄向量的模。下面用python简单计算一下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cosine_similarity</span>(<span class="params">A, B</span>):</span><br><span class="line">    dot_product = np.dot(A, B)</span><br><span class="line">    norm_A = np.linalg.norm(A)</span><br><span class="line">    norm_B = np.linalg.norm(B)</span><br><span class="line">    cosine_sim = dot_product / (norm_A * norm_B)</span><br><span class="line">    <span class="keyword">return</span> cosine_sim</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义向量</span></span><br><span class="line">\mathbf&#123;H&#125;_艾德加 = np.array([<span class="number">5940</span>, <span class="number">1944</span>, <span class="number">0.2</span>, <span class="number">0.9</span>, <span class="number">0.9</span>, <span class="number">1350</span>, <span class="number">0.5</span>])</span><br><span class="line">\mathbf&#123;H&#125;_阿方 = np.array([<span class="number">7740</span>, <span class="number">2448</span>, <span class="number">0.9</span>, <span class="number">0.9</span>, <span class="number">0.7</span>, <span class="number">2160</span>, <span class="number">0.9</span>])</span><br><span class="line">\mathbf&#123;H&#125;_雅琪 = np.array([<span class="number">9000</span>, <span class="number">2232</span>, <span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.7</span>, <span class="number">0</span>, <span class="number">0.6</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算余弦值</span></span><br><span class="line">cos_艾德加_阿方 = cosine_similarity(\mathbf&#123;H&#125;_艾德加, \mathbf&#123;H&#125;_阿方)</span><br><span class="line">cos_艾德加_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_艾德加, \mathbf&#123;H&#125;_雅琪)</span><br><span class="line">cos_阿方_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_阿方, \mathbf&#123;H&#125;_雅琪)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出余弦值计算结果，保留四位有效数字</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;艾德加 &amp; 阿方 的余弦值:&quot;</span>, <span class="built_in">round</span>(cos_艾德加_阿方, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;艾德加 &amp; 雅琪 的余弦值:&quot;</span>, <span class="built_in">round</span>(cos_艾德加_雅琪, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;阿方 &amp; 雅琪 的余弦值:&quot;</span>, <span class="built_in">round</span>(cos_阿方_雅琪, <span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+
+<p>计算结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>向量对</th>
+<th>余弦值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>艾德加 &amp; 阿方</td>
+<td>0.9988</td>
+</tr>
+<tr>
+<td>艾德加 &amp; 雅琪</td>
+<td>0.9748</td>
+</tr>
+<tr>
+<td>阿方 &amp; 雅琪</td>
+<td>0.9644</td>
+</tr>
+</tbody></table>
+<p>可以看到，三个结果数值上非常接近，这是因为在前面计算时并没有对不同位置的分量进行加权处理，比如生命值的数值都在$10^3$量级，远大于那些取值范围在$[0,1]$的描述性参数，若将3个英雄向量先进行归一化（我也不知道这个方法的具体名称以及是否严谨，暂时先这样算吧）处理再计算：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将向量堆叠为矩阵</span></span><br><span class="line">\mathbf&#123;H&#125;_matrix = np.vstack([\mathbf&#123;H&#125;_艾德加, \mathbf&#123;H&#125;_阿方, \mathbf&#123;H&#125;_雅琪])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按列计算比例</span></span><br><span class="line">\mathbf&#123;H&#125;_normalized = \mathbf&#123;H&#125;_matrix / \mathbf&#123;H&#125;_matrix.<span class="built_in">sum</span>(axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算归一化向量之间的余弦值</span></span><br><span class="line">cos_艾德加_阿方 = cosine_similarity(\mathbf&#123;H&#125;_normalized[<span class="number">0</span>], \mathbf&#123;H&#125;_normalized[<span class="number">1</span>])</span><br><span class="line">cos_艾德加_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_normalized[<span class="number">0</span>], \mathbf&#123;H&#125;_normalized[<span class="number">2</span>])</span><br><span class="line">cos_阿方_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_normalized[<span class="number">1</span>], \mathbf&#123;H&#125;_normalized[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<p>得到计算结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>向量对</th>
+<th>余弦值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>艾德加 &amp; 阿方</td>
+<td>0.8892</td>
+</tr>
+<tr>
+<td>艾德加 &amp; 雅琪</td>
+<td>0.8374</td>
+</tr>
+<tr>
+<td>阿方 &amp; 雅琪</td>
+<td>0.7509</td>
+</tr>
+</tbody></table>
+<p>这里余弦值越大表示夹角越小，则两个英雄的特征参数越接近。若定义一个阈值，比如说当两英雄余弦值大于0.85时，我们就可以把这两个英雄认定为同一类英雄。从上面的结果可以看出，艾德加和阿方都是“突袭者”，所以余弦值较大，而雅琪是“坦克”，与前两位英雄的余弦值明显小于他们之间的余弦值。</p>
+<p>计算好余弦值后再进行一遍聚类，这样就可以把所有英雄都分好类。除了前面提到的“坦克”“突袭者”“射手”之外，还有“投弹手”“火力手”“控场”和“辅助”。</p>
+<h2 id="比赛函数"><a href="#比赛函数" class="headerlink" title="比赛函数"></a>比赛函数</h2><p>比赛可以看成是把英雄向量$\mathbf{H}_{hero}$映射到某一实数的函数$\sigma:\mathbb{R}^n\rightarrow \mathbb{R}$，</p>
+<p>$$<br>c_{hero} &#x3D; \sigma(\mathbf{H}_{hero})<br>$$</p>
+<p>这里的实数值$c_{hero}$越大可以理解为这个英雄在比赛当中获胜的概率越大，或者说在这场比赛当中的竞争力越大，或者说在这场比赛当中的适应性越高。其中$\mathbb{R}^n$中的$n$是英雄向量的维数，前面的例子里$n&#x3D;7$。显然不同类型的地图以及模式对应着不同的函数。</p>
+<p>但这么说还是有些抽象了，那么有没有办法找到一个确定的具体的函数呢？我的一个解决办法是让不同比赛都对应有一个单位方向向量 $\mathbf{e}$ ，每个比赛函数就是把英雄向量$\mathbf{H}<em>{hero}$往这个比赛相应的方向向量 $\mathbf{e}$ 上投影，然后取对应投影向量的长度$|\mathbf{e}\cdot \mathbf{H}</em>{hero}|$作为衡量$c_{hero}$值大小的一个标准，最简单的方式就是直接定义</p>
+<p>$$<br>\sigma_{\mathbf{e}}(\mathbf{H}<em>{hero})&#x3D;|\mathbf{e}\cdot \mathbf{H}</em>{hero}|<br>$$</p>
+<p>若一个英雄向量 $\mathbf{H}_{hero}$ 和比赛方向向量之间的夹角越小，那么就说明这个英雄在这个比赛模式和地图下的适应程度越高，或者说和比赛期望的英雄属性是比较接近的。比如草丛掩体多的地图适合“突袭者”等近身攻击效果好的英雄，而空旷的地带则适合那些射手型英雄。 $\mathbf{e}$ 的选取与两个因素有关——地图和模式。</p>
+<h2 id="组队比赛"><a href="#组队比赛" class="headerlink" title="组队比赛"></a>组队比赛</h2><p>如果是双人或者三人甚至更多人的组队比赛，这时就需要涉及先把对应所有英雄的向量进行某种运算，比如进行相加，然后用函数映射。但是，如果只是单纯的相加求和向量，那么理论上讲属性越接近的英雄和向量的模长会越大，对应的 $c_{hero}$ 值也就越大，然而实际情况却是那些优势互补的组合往往获胜概率更大。</p>
+<p>这时我们可以考虑求两英雄向量外积的模长作为 $c$ 值，即</p>
+<p>$$<br>c_{hero1,hero2}&#x3D;|\mathbf{H}<em>{hero1}\times\mathbf{H}</em>{hero2}|<br>$$</p>
+<p>由于要面对不同比赛，所以我们需要修改一下前面关于比赛函数的定义。现在我们需要把比赛看作是作用于英雄向量的一个线性变换，即$\sigma:\mathbb{R}^n\rightarrow \mathbb{R}^n$，对于单个英雄而言，</p>
+<p>$$<br>c_{hero}&#x3D;|\sigma(\mathbf{H_{hero}})|<br>$$</p>
+<p>对于双人组队的英雄而言，</p>
+<p>$$<br>c_{hero1,hero2}&#x3D;|\sigma(\mathbf{H}<em>{hero1})\times\sigma(\mathbf{H}</em>{hero2})|<br>$$</p>
+<p>类似的，对于三人组队的情形，</p>
+<p>$$<br>c_{hero1,hero2,hero3}&#x3D;|[\sigma(\mathbf{H}<em>{hero1})\times\sigma(\mathbf{H}</em>{hero2})]\times\sigma(\mathbf{H}_{hero3})|<br>$$</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通过上面的分析可知，玩游戏《荒野乱斗》其实无非就是不断调整参数，去寻找使得特定的一场比赛取到最优解的一组参数（英雄），再包裹上一层炫彩华丽的画面和动感十足的音乐（音效），但其本质和数学建模还是非常相近的。唯一的区别在于游戏中有限数量的英雄的参数都已经被开发者设定好了，因此给人一种受制于人的感觉；而如果是用计算机进行数值模拟，我们的活动范围大大增加；若是进入到数学的理论层面，我们则可以动辄考虑各种无穷的极限情形，这正是数学的迷人之处。</p>
+<p>最后，引用一下每个游戏都会有的《健康游戏忠告》：</p>
+<p>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。</p>
+<p>适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活！</p>
+]]></content>
+      <tags>
+        <tag>数学教学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决Github port 443 Time out问题</title>
+    <url>/post/cbb03b27.html</url>
+    <content><![CDATA[<p>今天push到远程仓库的时候系统报错：</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed to connect to github.com port 443 after 21051 ms: Couldn&#x27;t connect to server</span><br></pre></td></tr></table></figure>
+
+<p>接着又是一顿左转右转反复尝试，试了一堆方法都不行（尤其是某N网站里的回答），最后通过这篇<a href="https://zhuanlan.zhihu.com/p/636418854">知乎文章</a>里的方法搞定。</p>
+<p>其实说到底就是<strong>git 设置的端口与系统代理不一致</strong>，调整一下git端口即可。</p>
+<p>首先可以查看一下当前git是否使用了代理：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global --get http.proxy</span><br><span class="line">git config --global --get https.proxy</span><br></pre></td></tr></table></figure>
+
+<p>如果使用了代理会显示相应的ip以及端口号，未使用则不会显示内容。</p>
+<p>接着查看一下自己的系统代理，以win11为例，在“设置-网络和Internet-代理”中编辑代理服务器界面可以查看到当前的系统代理地址和端口，比如我的是<code>127.0.0.1:7890</code>，接下来给自己的git配置上：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 注意结合自己的实际情况调整代理地址</span><br><span class="line">git config --global http.proxy http://127.0.0.1:7890 </span><br><span class="line">git config --global https.proxy http://127.0.0.1:7890</span><br></pre></td></tr></table></figure>
+
+<p> 最后重新push一下，搞定！🎉</p>
+<p><em>如果需要重置即恢复默认值取消git代理的话，可以使用如下命令：</em></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 取消代理</span><br><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+]]></content>
+      <tags>
+        <tag>GitHub</tag>
+        <tag>git</tag>
+        <tag>bug</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>寒假学科营备课经验</title>
+    <url>/post/9d56260e.html</url>
+    <content><![CDATA[<p>前几天整理了一下1月份上学科营的内容，连续多天的课程为我后续进行批量大规模的备课提供了可借鉴的经验基础。</p>
+<span id="more"></span>
+
+<p>总的说来，有以下几点技术加持。</p>
+<p>一是markdown相关。从Mathpix Snip到Typora再到vscode+marp流水线式“生产”讲稿以及课件以及答案解析，贯穿始终的md语法让一切操作都变得无比丝滑。</p>
+<pre><code class="highlight mermaid">graph 
+    A(Mathpix Snip) --&gt;|截图和识别数学公式| B(Typora)
+    B --&gt;|编辑和格式化文档| C(VSCode+Marp)
+    C --&gt;|创建和预览幻灯片| D(最终讲稿和课件输出)
+    
+    style A fill:#e6f7ff,stroke:#5b8db8,stroke-width:2px
+    style B fill:#fff0f6,stroke:#d35d6e,stroke-width:2px
+    style C fill:#fffbe6,stroke:#f4b942,stroke-width:2px
+    style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+</code></pre>
+
+<p>二是AI相关。为了让课堂不单调，我尝试用GPT-4生成了一些谜语和插图。</p>
+<p>比如讲韦达定理时，我本打算找一则相关的谜语，但是在网上找了一圈也没有发现合适的，于是让GPT-4写了一个：</p>
+<blockquote>
+<p><em>在代数的海洋中，我是解的秘密钥匙；两个根的和与积，藏于系数之中。</em></p>
+</blockquote>
+<p>还有关于放缩法的谜语：</p>
+<blockquote>
+<p><em>在数学的世界，我轻巧舞动，缩小复杂，放大简明。在比例的游戏，我变换身影，我是何法，巧解难题？</em></p>
+</blockquote>
+<p>以及几幅章节页的插图：</p>
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202402010815221.webp" style="zoom: 25%;" />
+
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202402010817513.webp" alt="" style="zoom: 25%;" />
+
+<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202402010816770.webp" style="zoom: 25%;" />
+
+<p>因为这几节课的核心在于“对称性”思想，所以这些插图虽然里面的符号看上去有些奇怪，但是整体的效果仍然很好地突出了主题。</p>
+<p>谜语是简单的，插图是抽象的，这几节课同学们反馈的效果还不错，相当于是咖啡加糖，起到了恰到好处的调节作用。顺便再提一下上面的这个mermaid图也是GPT-4画的。😋</p>
+]]></content>
+      <tags>
+        <tag>数学教学</tag>
       </tags>
   </entry>
   <entry>
@@ -636,6 +797,43 @@
       </tags>
   </entry>
   <entry>
+    <title>解决hexo部署出现Spawn failed问题</title>
+    <url>/post/cf2181b.html</url>
+    <content><![CDATA[<h2 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h2><p>在部署时出现如下问题：</p>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo d</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend dirs...</span><br><span class="line">On branch main</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (D:\.BNU\myblog\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:513:28)</span><br><span class="line">      at cp.emit (D:\.BNU\myblog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at ChildProcess._handle.onexit (node:internal/child_process:291:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="方案一❌"><a href="#方案一❌" class="headerlink" title="方案一❌"></a>方案一❌</h3><p>先是尝试了一下<a href="http://t.csdnimg.cn/wZKdW">这个方案</a>，但仍然报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">##进入站点根目录</span><br><span class="line">cd /usr/local/src/hexo/hanyubolg/</span><br><span class="line"></span><br><span class="line">##删除git提交内容文件夹</span><br><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">##执行</span><br><span class="line">git config --global core.autocrlf false</span><br><span class="line"></span><br><span class="line">##最后</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="方案二✅"><a href="#方案二✅" class="headerlink" title="方案二✅"></a>方案二✅</h3><p>接着左转右转转到了<a href="https://wakeuppppp.github.io/2022/09/20/some-problems-with-hexo/">这篇文章</a>，按照如下步骤操作，成功：</p>
+<ul>
+<li><p>打开命令行输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>得到报错</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">ssh: <span class="title">connect</span> <span class="title">to</span> <span class="title">host</span> <span class="title">github.com</span> <span class="title">port</span> 22: <span class="title">Connection</span> <span class="title">timed</span> <span class="title">out</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>找到 <code>.ssh</code> 文件夹，打开看其中是否有 <code>config</code> 文件，如果没有则新建一个，<code>windows</code> 用记事本打开编辑写入以下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User GitHub用户名</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把其中的<code>GitHub用户名</code>修改成自己的用户名</p>
+</li>
+<li><p>命令行再次输入</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>出现相关提示，输入 <code>yes</code> 即可。</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>bug</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决vscode编译latex的两个小困扰</title>
     <url>/post/622bc5ab.html</url>
     <content><![CDATA[<p>在vscode中编译LaTeX时，时常会遇到几个小问题。</p>
@@ -701,204 +899,6 @@
         <tag>LaTeX</tag>
         <tag>vscode</tag>
         <tag>copilot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决hexo部署出现Spawn failed问题</title>
-    <url>/post/cf2181b.html</url>
-    <content><![CDATA[<h2 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h2><p>在部署时出现如下问题：</p>
-<span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo d</span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend dirs...</span><br><span class="line">On branch main</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL &#123;</span><br><span class="line">  err: Error: Spawn failed</span><br><span class="line">      at ChildProcess.&lt;anonymous&gt; (D:\.BNU\myblog\node_modules\hexo-util\lib\spawn.js:51:21)</span><br><span class="line">      at ChildProcess.emit (node:events:513:28)</span><br><span class="line">      at cp.emit (D:\.BNU\myblog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">      at ChildProcess._handle.onexit (node:internal/child_process:291:12) &#123;</span><br><span class="line">    code: 128</span><br><span class="line">  &#125;</span><br><span class="line">&#125; Something&#x27;s wrong. Maybe you can find the solution here: %s https://hexo.io/docs/troubleshooting.html</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><h3 id="方案一❌"><a href="#方案一❌" class="headerlink" title="方案一❌"></a>方案一❌</h3><p>先是尝试了一下<a href="http://t.csdnimg.cn/wZKdW">这个方案</a>，但仍然报错：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">##进入站点根目录</span><br><span class="line">cd /usr/local/src/hexo/hanyubolg/</span><br><span class="line"></span><br><span class="line">##删除git提交内容文件夹</span><br><span class="line">rm -rf .deploy_git/</span><br><span class="line"></span><br><span class="line">##执行</span><br><span class="line">git config --global core.autocrlf false</span><br><span class="line"></span><br><span class="line">##最后</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-
-<h3 id="方案二✅"><a href="#方案二✅" class="headerlink" title="方案二✅"></a>方案二✅</h3><p>接着左转右转转到了<a href="https://wakeuppppp.github.io/2022/09/20/some-problems-with-hexo/">这篇文章</a>，按照如下步骤操作，成功：</p>
-<ul>
-<li><p>打开命令行输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-
-<p>得到报错</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">ssh: <span class="title">connect</span> <span class="title">to</span> <span class="title">host</span> <span class="title">github.com</span> <span class="title">port</span> 22: <span class="title">Connection</span> <span class="title">timed</span> <span class="title">out</span></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>找到 <code>.ssh</code> 文件夹，打开看其中是否有 <code>config</code> 文件，如果没有则新建一个，<code>windows</code> 用记事本打开编辑写入以下代码</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User GitHub用户名</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把其中的<code>GitHub用户名</code>修改成自己的用户名</p>
-</li>
-<li><p>命令行再次输入</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>出现相关提示，输入 <code>yes</code> 即可。</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>git</tag>
-        <tag>bug</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>寒假学科营备课经验</title>
-    <url>/post/9d56260e.html</url>
-    <content><![CDATA[<p>前几天整理了一下1月份上学科营的内容，连续多天的课程为我后续进行批量大规模的备课提供了可借鉴的经验基础。</p>
-<span id="more"></span>
-
-<p>总的说来，有以下几点技术加持。</p>
-<p>一是markdown相关。从Mathpix Snip到Typora再到vscode+marp流水线式“生产”讲稿以及课件以及答案解析，贯穿始终的md语法让一切操作都变得无比丝滑。</p>
-<pre><code class="highlight mermaid">graph 
-    A(Mathpix Snip) --&gt;|截图和识别数学公式| B(Typora)
-    B --&gt;|编辑和格式化文档| C(VSCode+Marp)
-    C --&gt;|创建和预览幻灯片| D(最终讲稿和课件输出)
-    
-    style A fill:#e6f7ff,stroke:#5b8db8,stroke-width:2px
-    style B fill:#fff0f6,stroke:#d35d6e,stroke-width:2px
-    style C fill:#fffbe6,stroke:#f4b942,stroke-width:2px
-    style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-</code></pre>
-
-<p>二是AI相关。为了让课堂不单调，我尝试用GPT-4生成了一些谜语和插图。</p>
-<p>比如讲韦达定理时，我本打算找一则相关的谜语，但是在网上找了一圈也没有发现合适的，于是让GPT-4写了一个：</p>
-<blockquote>
-<p><em>在代数的海洋中，我是解的秘密钥匙；两个根的和与积，藏于系数之中。</em></p>
-</blockquote>
-<p>还有关于放缩法的谜语：</p>
-<blockquote>
-<p><em>在数学的世界，我轻巧舞动，缩小复杂，放大简明。在比例的游戏，我变换身影，我是何法，巧解难题？</em></p>
-</blockquote>
-<p>以及几幅章节页的插图：</p>
-<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202402010815221.webp" style="zoom: 25%;" />
-
-<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202402010817513.webp" alt="" style="zoom: 25%;" />
-
-<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202402010816770.webp" style="zoom: 25%;" />
-
-<p>因为这几节课的核心在于“对称性”思想，所以这些插图虽然里面的符号看上去有些奇怪，但是整体的效果仍然很好地突出了主题。</p>
-<p>谜语是简单的，插图是抽象的，这几节课同学们反馈的效果还不错，相当于是咖啡加糖，起到了恰到好处的调节作用。顺便再提一下上面的这个mermaid图也是GPT-4画的。😋</p>
-]]></content>
-      <tags>
-        <tag>数学教学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>从向量角度理解游戏《荒野乱斗》</title>
-    <url>/post/1b41b2a3.html</url>
-    <content><![CDATA[<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202407140823393.webp" alt="" style="zoom:50%;" />
-
-<p>前段时间在玩《荒野乱斗》(Brawl Stars)时，为了尽可能提高获胜的概率，我不断更换尝试不同的英雄，从而探寻哪个英雄最适合当前的模式和地图。有那么一瞬间，仿佛回到了曾经打数学建模竞赛时那些调整参数的夜晚，先选择一组参数，然后运行代码，等结果，分析结果，接着继续调整，<strong>此时此刻，恰如彼时彼刻</strong>！</p>
-<p>又因为近期在讲空间向量以及受到《数学之美》第14章“余弦定理和新闻的分类”的启发，我决定从向量出发，谈谈（<del>瞎编</del>）一个一定程度上可以解释《荒野乱斗》的数学模型。</p>
-<span id="more"></span>
-
-<h2 id="英雄参数化"><a href="#英雄参数化" class="headerlink" title="英雄参数化"></a>英雄参数化</h2><p>每个英雄都有一系列不尽相同数据作为参数，例如生命值、攻击力、攻击范围、移动速度等等，把这些数值放到一起，那么每个英雄都可以写作一个向量，若用$\mathbf{H}_{hero}$来表示，即</p>
-<p>$$<br>\mathbf{H}_{hero}&#x3D;(生命值，普通攻击值，射程，装弹速度，移动速度，超级技能攻击值，超级技能射程)<br>$$</p>
-<p>以9级的艾德加为例，生命值为5940，普通攻击值为2×972，射程为“近”，装弹速度“非常快”，移动速度“非常快”；超级技能攻击值为1350，射程为“中等”，若把描述性词语用$[0,1]$之间的一个实数量化（比如“非常快”标记为0.9，“中等”标记为0.5等，当然这样过于主观，想要得到更精确的结果，需要结合实际情况调整参数），则艾德加的参数可表示为一个7维向量</p>
-<p>$$<br>\mathbf{H}_{艾德加}&#x3D;(5940,1944,0.2,0.9,0.9,1350,0.5)<br>$$</p>
-<p>当然在游戏中，还有一些诸如“随身妙具”“极限充能”之类的附属加成，为了简化模型，这部分参数的影响就暂时不考虑了。此外，各种英雄的攻击方式不尽相同，比如有的英雄一次有3发子弹，每次攻击值为500，而有些英雄攻击值虽有1000但却是一次性的，这时就不能简单地用上述仅一个分量来表示攻击值，可以考虑把第二分量拆成3个分量，即</p>
-<p>$$<br>\mathbf{H}_{hero}&#x3D;(生命值，普通攻击值1，普通攻击值2，普通攻击值3，射程，\ldots)<br>$$</p>
-<p>对应两个英雄的参数为</p>
-<p>$$<br>\begin{aligned}<br>\mathbf{H}<em>{hero1}&amp;&#x3D;(生命值,500,500,500,射程,\ldots)\<br>\mathbf{H}</em>{hero2}&amp;&#x3D;(生命值,1000,0,0,射程,\ldots)<br>\end{aligned}<br>$$</p>
-<h2 id="英雄分类"><a href="#英雄分类" class="headerlink" title="英雄分类"></a>英雄分类</h2><p>在游戏中，参数相近的英雄会归为同一类，比如生命值较大的英雄一般会归类为“坦克”，而攻击范围（射程）较远一般会归为“射手”，移动速度较快则可能归为“突袭者”。比如上面的“艾德加”就属于“突袭者”，再比如“阿方”也是“突袭者”，而“雅琪”属于“坦克”。仍沿用第一种不细分普通攻击次数的表示方法，把3位英雄参数放到一起（都是9级）对比如下：</p>
-<p>$$<br>\begin{aligned}<br>\mathbf{H}<em>{艾德加}&amp;&#x3D;(5940,1944,0.2,0.9,0.9,1350,0.5)\<br>\mathbf{H}</em>{阿方}&amp;&#x3D;(7740,2448,0.9,0.9,0.7,2160,0.9)\<br>\mathbf{H}_{雅琪}&amp;&#x3D;(9000,2232,0.2,0.5,0.7,0,0.6)<br>\end{aligned}<br>$$</p>
-<p>若分别将3位英雄两两组合，可以计算他们夹角余弦值，计算公式大家应该是再熟悉不过了，即</p>
-<p>$$<br>\cos&lt;\mathbf{H}<em>{hero1},\mathbf{H}_{hero2}&gt; &#x3D; \frac{\mathbf{H}</em>{hero1} \cdot \mathbf{H}<em>{hero2}}{|\mathbf{H}</em>{hero1}| |\mathbf{H}_{hero2}|}<br>$$</p>
-<p>其中，$\mathbf{H}<em>{hero1} \cdot \mathbf{H}</em>{hero2}$表示两位英雄的内积，$|\mathbf{H}<em>{hero1}|$和$ |\mathbf{H}</em>{hero2}|$分别表示两个英雄向量的模。下面用python简单计算一下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cosine_similarity</span>(<span class="params">A, B</span>):</span><br><span class="line">    dot_product = np.dot(A, B)</span><br><span class="line">    norm_A = np.linalg.norm(A)</span><br><span class="line">    norm_B = np.linalg.norm(B)</span><br><span class="line">    cosine_sim = dot_product / (norm_A * norm_B)</span><br><span class="line">    <span class="keyword">return</span> cosine_sim</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义向量</span></span><br><span class="line">\mathbf&#123;H&#125;_艾德加 = np.array([<span class="number">5940</span>, <span class="number">1944</span>, <span class="number">0.2</span>, <span class="number">0.9</span>, <span class="number">0.9</span>, <span class="number">1350</span>, <span class="number">0.5</span>])</span><br><span class="line">\mathbf&#123;H&#125;_阿方 = np.array([<span class="number">7740</span>, <span class="number">2448</span>, <span class="number">0.9</span>, <span class="number">0.9</span>, <span class="number">0.7</span>, <span class="number">2160</span>, <span class="number">0.9</span>])</span><br><span class="line">\mathbf&#123;H&#125;_雅琪 = np.array([<span class="number">9000</span>, <span class="number">2232</span>, <span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.7</span>, <span class="number">0</span>, <span class="number">0.6</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算余弦值</span></span><br><span class="line">cos_艾德加_阿方 = cosine_similarity(\mathbf&#123;H&#125;_艾德加, \mathbf&#123;H&#125;_阿方)</span><br><span class="line">cos_艾德加_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_艾德加, \mathbf&#123;H&#125;_雅琪)</span><br><span class="line">cos_阿方_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_阿方, \mathbf&#123;H&#125;_雅琪)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出余弦值计算结果，保留四位有效数字</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;艾德加 &amp; 阿方 的余弦值:&quot;</span>, <span class="built_in">round</span>(cos_艾德加_阿方, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;艾德加 &amp; 雅琪 的余弦值:&quot;</span>, <span class="built_in">round</span>(cos_艾德加_雅琪, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;阿方 &amp; 雅琪 的余弦值:&quot;</span>, <span class="built_in">round</span>(cos_阿方_雅琪, <span class="number">4</span>))</span><br></pre></td></tr></table></figure>
-
-<p>计算结果如下：</p>
-<table>
-<thead>
-<tr>
-<th>向量对</th>
-<th>余弦值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>艾德加 &amp; 阿方</td>
-<td>0.9988</td>
-</tr>
-<tr>
-<td>艾德加 &amp; 雅琪</td>
-<td>0.9748</td>
-</tr>
-<tr>
-<td>阿方 &amp; 雅琪</td>
-<td>0.9644</td>
-</tr>
-</tbody></table>
-<p>可以看到，三个结果数值上非常接近，这是因为在前面计算时并没有对不同位置的分量进行加权处理，比如生命值的数值都在$10^3$量级，远大于那些取值范围在$[0,1]$的描述性参数，若将3个英雄向量先进行归一化（我也不知道这个方法的具体名称以及是否严谨，暂时先这样算吧）处理再计算：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 将向量堆叠为矩阵</span></span><br><span class="line">\mathbf&#123;H&#125;_matrix = np.vstack([\mathbf&#123;H&#125;_艾德加, \mathbf&#123;H&#125;_阿方, \mathbf&#123;H&#125;_雅琪])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按列计算比例</span></span><br><span class="line">\mathbf&#123;H&#125;_normalized = \mathbf&#123;H&#125;_matrix / \mathbf&#123;H&#125;_matrix.<span class="built_in">sum</span>(axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算归一化向量之间的余弦值</span></span><br><span class="line">cos_艾德加_阿方 = cosine_similarity(\mathbf&#123;H&#125;_normalized[<span class="number">0</span>], \mathbf&#123;H&#125;_normalized[<span class="number">1</span>])</span><br><span class="line">cos_艾德加_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_normalized[<span class="number">0</span>], \mathbf&#123;H&#125;_normalized[<span class="number">2</span>])</span><br><span class="line">cos_阿方_雅琪 = cosine_similarity(\mathbf&#123;H&#125;_normalized[<span class="number">1</span>], \mathbf&#123;H&#125;_normalized[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-
-<p>得到计算结果如下：</p>
-<table>
-<thead>
-<tr>
-<th>向量对</th>
-<th>余弦值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>艾德加 &amp; 阿方</td>
-<td>0.8892</td>
-</tr>
-<tr>
-<td>艾德加 &amp; 雅琪</td>
-<td>0.8374</td>
-</tr>
-<tr>
-<td>阿方 &amp; 雅琪</td>
-<td>0.7509</td>
-</tr>
-</tbody></table>
-<p>这里余弦值越大表示夹角越小，则两个英雄的特征参数越接近。若定义一个阈值，比如说当两英雄余弦值大于0.85时，我们就可以把这两个英雄认定为同一类英雄。从上面的结果可以看出，艾德加和阿方都是“突袭者”，所以余弦值较大，而雅琪是“坦克”，与前两位英雄的余弦值明显小于他们之间的余弦值。</p>
-<p>计算好余弦值后再进行一遍聚类，这样就可以把所有英雄都分好类。除了前面提到的“坦克”“突袭者”“射手”之外，还有“投弹手”“火力手”“控场”和“辅助”。</p>
-<h2 id="比赛函数"><a href="#比赛函数" class="headerlink" title="比赛函数"></a>比赛函数</h2><p>比赛可以看成是把英雄向量$\mathbf{H}_{hero}$映射到某一实数的函数$\sigma:\mathbb{R}^n\rightarrow \mathbb{R}$，</p>
-<p>$$<br>c_{hero} &#x3D; \sigma(\mathbf{H}_{hero})<br>$$</p>
-<p>这里的实数值$c_{hero}$越大可以理解为这个英雄在比赛当中获胜的概率越大，或者说在这场比赛当中的竞争力越大，或者说在这场比赛当中的适应性越高。其中$\mathbb{R}^n$中的$n$是英雄向量的维数，前面的例子里$n&#x3D;7$。显然不同类型的地图以及模式对应着不同的函数。</p>
-<p>但这么说还是有些抽象了，那么有没有办法找到一个确定的具体的函数呢？我的一个解决办法是让不同比赛都对应有一个单位方向向量 $\mathbf{e}$ ，每个比赛函数就是把英雄向量$\mathbf{H}<em>{hero}$往这个比赛相应的方向向量 $\mathbf{e}$ 上投影，然后取对应投影向量的长度$|\mathbf{e}\cdot \mathbf{H}</em>{hero}|$作为衡量$c_{hero}$值大小的一个标准，最简单的方式就是直接定义</p>
-<p>$$<br>\sigma_{\mathbf{e}}(\mathbf{H}<em>{hero})&#x3D;|\mathbf{e}\cdot \mathbf{H}</em>{hero}|<br>$$</p>
-<p>若一个英雄向量 $\mathbf{H}_{hero}$ 和比赛方向向量之间的夹角越小，那么就说明这个英雄在这个比赛模式和地图下的适应程度越高，或者说和比赛期望的英雄属性是比较接近的。比如草丛掩体多的地图适合“突袭者”等近身攻击效果好的英雄，而空旷的地带则适合那些射手型英雄。 $\mathbf{e}$ 的选取与两个因素有关——地图和模式。</p>
-<h2 id="组队比赛"><a href="#组队比赛" class="headerlink" title="组队比赛"></a>组队比赛</h2><p>如果是双人或者三人甚至更多人的组队比赛，这时就需要涉及先把对应所有英雄的向量进行某种运算，比如进行相加，然后用函数映射。但是，如果只是单纯的相加求和向量，那么理论上讲属性越接近的英雄和向量的模长会越大，对应的 $c_{hero}$ 值也就越大，然而实际情况却是那些优势互补的组合往往获胜概率更大。</p>
-<p>这时我们可以考虑求两英雄向量外积的模长作为 $c$ 值，即</p>
-<p>$$<br>c_{hero1,hero2}&#x3D;|\mathbf{H}<em>{hero1}\times\mathbf{H}</em>{hero2}|<br>$$</p>
-<p>由于要面对不同比赛，所以我们需要修改一下前面关于比赛函数的定义。现在我们需要把比赛看作是作用于英雄向量的一个线性变换，即$\sigma:\mathbb{R}^n\rightarrow \mathbb{R}^n$，对于单个英雄而言，</p>
-<p>$$<br>c_{hero}&#x3D;|\sigma(\mathbf{H_{hero}})|<br>$$</p>
-<p>对于双人组队的英雄而言，</p>
-<p>$$<br>c_{hero1,hero2}&#x3D;|\sigma(\mathbf{H}<em>{hero1})\times\sigma(\mathbf{H}</em>{hero2})|<br>$$</p>
-<p>类似的，对于三人组队的情形，</p>
-<p>$$<br>c_{hero1,hero2,hero3}&#x3D;|[\sigma(\mathbf{H}<em>{hero1})\times\sigma(\mathbf{H}</em>{hero2})]\times\sigma(\mathbf{H}_{hero3})|<br>$$</p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通过上面的分析可知，玩游戏《荒野乱斗》其实无非就是不断调整参数，去寻找使得特定的一场比赛取到最优解的一组参数（英雄），再包裹上一层炫彩华丽的画面和动感十足的音乐（音效），但其本质和数学建模还是非常相近的。唯一的区别在于游戏中有限数量的英雄的参数都已经被开发者设定好了，因此给人一种受制于人的感觉；而如果是用计算机进行数值模拟，我们的活动范围大大增加；若是进入到数学的理论层面，我们则可以动辄考虑各种无穷的极限情形，这正是数学的迷人之处。</p>
-<p>最后，引用一下每个游戏都会有的《健康游戏忠告》：</p>
-<p>抵制不良游戏，拒绝盗版游戏。注意自我保护，谨防受骗上当。</p>
-<p>适度游戏益脑，沉迷游戏伤身。合理安排时间，享受健康生活！</p>
-]]></content>
-      <tags>
-        <tag>数学教学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>乡村将兴，胡不归</title>
-    <url>/post/daa65a32.html</url>
-    <content><![CDATA[<blockquote>
-<p>这是我在读高一时一次期中考的语文作文，这篇文章在当时获得了55分的高分（满分60）并全年级印发。后来我曾经一度忘记了其中的具体内容，直到最近才发现了手稿，由于是考场中仓促成文，难免有不足之处，但是后半部分的层层递进的内在逻辑结构以及言简意丰的语言确实有值得回味之处。现重新整理成电子稿的形式存档，全文如下：</p>
-</blockquote>
-<span id="more"></span>
-
-<p>当今的中国，发展迅速，突飞猛进，乡村与城市齐头并进。上海，作为中国城市的代表，有着国际视野和大都市的气息；乡村，在新政策的支持下同样吸引着无数人前去创业。对此，我更倾向于到乡村生活、创业。</p>
-<p>随着城市的发展，大批人口涌入城市，谋求自身发展的同时也积极地参与城市的建设。于是城市日益发达，城市化的水平也不断提高，但随之也引来了一系列问题：人口压力、工业污染……但由于政府的有效调控，这些问题正逐步得到解决。反观乡村，人口大幅减少，污染企业迁入，乡政府疏于管理，这些问题不但没有得到解决，反倒不断堆积，日益突出。由此看来，乡村相比于城市，更需要得到关注与支持，更需要发展。</p>
-<p>“田园将芜，胡不归？”淘渊明由于官场的黑暗而回到家乡，在整理荒芜田园的同时，也不断塑造着自己淡泊宁静的心境。而身处大发展的新时代的我，面对将要振兴的乡村，也不免发出一句感叹：“乡村将兴，胡不归？”</p>
-<p>如今，乡村逐渐开始发展，也取得一些令人瞩目的成绩：如全村脱贫、生态环境改善、交通更加便利等等，但仍有不少问题有待解决。首先是教育，即使接受义务教育的覆盖率超过九成，又有多少人知道那些山区孩子上学路的遥远与艰辛？即使“六元早餐”已经普及，又有多少人知道他们的午餐和晚餐还是一如既往？其次是基础设施的建设，当大数人为户户都通水泥路而雀跃欢呼时，有多少人注意到路边随意堆放的垃圾？如此种种，使我的改善乡村环境、建设美丽乡村的希望更加迫切。乡村未兴，胡不归？</p>
-<p>国家的发展离不开乡村的发展，“绿水青山就是金山银山”，“小康不小康，关键看老乡”，在习近平总书记的号召下，越来越多的人投入到建设乡村的队伍中：放牧戍边的卓嘎和央宗、放弃优越生活的秦玥飞、乡村医生“兰小草”王珏……美丽乡村的建设欣欣向荣，乡村将兴，胡不归？</p>
-<p>我希望我也能投入到乡村的建设中去，为国家富强、民族复兴献出自己的一份哪怕是很微薄的力量。这样，“冰花男孩”的悲剧就不会再发生，乡村会更加富裕、文明、美丽。</p>
-<p>在新政策的支持下，乡村走向振兴是必然的结果。乡村必兴，胡不归？</p>
-<blockquote>
-<p>原答题卡扫描件如下，可以看出书写还是比较工整的，全文没有一个涂改之处。以后有空写一写当时在考场上写这篇文章的心路历程❤️</p>
-</blockquote>
-<img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/202312272302098.webp"/>
-]]></content>
-      <tags>
-        <tag>小作文</tag>
       </tags>
   </entry>
 </search>
