@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leyudame.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="峥嵘岁月记得第一次参加美赛是是一个寒冷潮湿的早春，那时还不怎么会$\LaTeX$，我们用word+在线文档小程序“语文建模”，比赛的第三天在本地word上从早写到晚，结果一次不小心的操作（应该是先误删后保存再关闭文件）导致这一天书写的内容功亏一篑，虽然有手动备份但也是当天早上非常原始的版本。幸好当时还有把新建的文件放到桌面上编辑的习惯，登录OneDrive才重新恢复了文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一份简洁易用的美赛LaTeX模板">
+<meta property="og:url" content="https://leyudame.github.io/post/ba7a336d.html">
+<meta property="og:site_name" content="YKWTII">
+<meta property="og:description" content="峥嵘岁月记得第一次参加美赛是是一个寒冷潮湿的早春，那时还不怎么会$\LaTeX$，我们用word+在线文档小程序“语文建模”，比赛的第三天在本地word上从早写到晚，结果一次不小心的操作（应该是先误删后保存再关闭文件）导致这一天书写的内容功亏一篑，虽然有手动备份但也是当天早上非常原始的版本。幸好当时还有把新建的文件放到桌面上编辑的习惯，登录OneDrive才重新恢复了文件。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/mcmlatex.webp">
+<meta property="article:published_time" content="2024-01-05T09:57:41.000Z">
+<meta property="article:modified_time" content="2024-07-13T14:44:36.678Z">
+<meta property="article:author" content="LeyuDame">
+<meta property="article:tag" content="LaTeX">
+<meta property="article:tag" content="模板">
+<meta property="article:tag" content="MCM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/mcmlatex.webp">
+
+
+<link rel="canonical" href="https://leyudame.github.io/post/ba7a336d.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://leyudame.github.io/post/ba7a336d.html","path":"post/ba7a336d.html","title":"一份简洁易用的美赛LaTeX模板"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一份简洁易用的美赛LaTeX模板 | YKWTII</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">YKWTII</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">LeyuDame's Blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B3%A5%E5%B5%98%E5%B2%81%E6%9C%88"><span class="nav-number">1.</span> <span class="nav-text">峥嵘岁月</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BF%80%E6%89%AC%E6%96%87%E5%AD%97"><span class="nav-number">2.</span> <span class="nav-text">激扬文字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E8%BF%B0%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5"><span class="nav-number">2.1.</span> <span class="nav-text">上述代码片段</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%84%E5%9B%BE"><span class="nav-number">2.1.1.</span> <span class="nav-text">组图</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1x2%E7%9A%84%E7%BB%84%E5%9B%BE"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">1x2的组图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1x3%E7%9A%84%E7%BB%84%E5%9B%BE"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">1x3的组图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2x2%E7%9A%84%E7%BB%84%E5%9B%BE"><span class="nav-number">2.1.1.3.</span> <span class="nav-text">2x2的组图</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="nav-number">2.1.2.</span> <span class="nav-text">伪代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">2.1.3.</span> <span class="nav-text">超链接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AA%E9%81%8F%E9%A3%9E%E8%88%9F"><span class="nav-number">3.</span> <span class="nav-text">浪遏飞舟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84%E7%BC%A9%E7%95%A5%E8%AF%AD%F0%9F%92%AC"><span class="nav-number">3.1.</span> <span class="nav-text">一些常见的缩略语💬</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%AE%9E%E7%94%A8%E7%9A%84-LaTeX-%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%F0%9F%94%A7"><span class="nav-number">3.2.</span> <span class="nav-text">一些实用的$\LaTeX$辅助工具🔧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">3.3.</span> <span class="nav-text">下载与使用</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LeyuDame"
+      src="/images/LeyuDame.png">
+  <p class="site-author-name" itemprop="name">LeyuDame</p>
+  <div class="site-description" itemprop="description">You Know What Time It Is</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leyudame" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leyudame" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:ykwtii0943@gmail.com" title="E-Mail → mailto:ykwtii0943@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://leyudame.github.io/post/ba7a336d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/LeyuDame.png">
+      <meta itemprop="name" content="LeyuDame">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YKWTII">
+      <meta itemprop="description" content="You Know What Time It Is">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一份简洁易用的美赛LaTeX模板 | YKWTII">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一份简洁易用的美赛LaTeX模板
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-05 17:57:41" itemprop="dateCreated datePublished" datetime="2024-01-05T17:57:41+08:00">2024-01-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-07-13 22:44:36" itemprop="dateModified" datetime="2024-07-13T22:44:36+08:00">2024-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" itemprop="url" rel="index"><span itemprop="name">数学建模</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img data-src="https://pauline.oss-cn-shenzhen.aliyuncs.com/img/mcmlatex.webp" alt="" style="zoom: 50%;" />
+
+<h2 id="峥嵘岁月"><a href="#峥嵘岁月" class="headerlink" title="峥嵘岁月"></a>峥嵘岁月</h2><p>记得第一次参加美赛是是一个寒冷潮湿的早春，那时还不怎么会$\LaTeX$，我们用word+在线文档小程序“语文建模”，比赛的第三天在本地word上从早写到晚，结果一次不小心的操作（应该是先误删后保存再关闭文件）导致这一天书写的内容功亏一篑，虽然有手动备份但也是当天早上非常原始的版本。幸好当时还有把新建的文件放到桌面上编辑的习惯，登录OneDrive才重新恢复了文件。</p>
+<span id="more"></span>
+
+<p>迎接第二次参赛的是更加充分的准备与技术加持。当时一整个寒假都在学习相关知识，这里不得不力荐一下2021年O奖得主<a target="_blank" rel="noopener" href="https://space.bilibili.com/384497590/channel/collectiondetail?sid=424302"><strong>浩然讲数学建模</strong></a>，他的这个合集尤其是论文写作这块讲得非常棒；另一方面，我也在思考如何提前搜集好相关的资源例如数据网站并汇总到一起形成一个网页，于是我建立了自己的第一个Pages，也就是现在博客的<a href="https://leyudame.github.io/post/8bdc7cc5.html">第一篇内容</a>🤣；最后就是提前准备好论文模板，在一段时间的搜寻后发现了这样一份简洁易用的$\LaTeX$模板——[EasyMCM][1].</p>
+<h2 id="激扬文字"><a href="#激扬文字" class="headerlink" title="激扬文字"></a>激扬文字</h2><blockquote>
+<p>“要想拿O奖，首先得长得像O奖。”</p>
+</blockquote>
+<p>[<strong>浩然讲数学建模</strong>][2]合集视频可以说几乎都是围绕这句话展开的，所以要长得像O奖，先从论文模板开始！根据他的O奖论文模板顺藤摸瓜，我找到了原始的模板并在此基础上综合其他O奖论文中的特色进行了细微的修改与补充，其中主要的改进有</p>
+<ul>
+<li>完善了并列子图的代码，组图和每个子图可分别定义caption和label，精确控制子图间距，1x2,1x3,2x2等等排列方式自由组合</li>
+<li>引入<code>algorithm2e</code>宏包，添加了伪代码的模板</li>
+<li>完善了附录代码的添加功能，直接将代码文件放在<code>code</code>文件夹下即可</li>
+<li>完善了<code>BibTeX</code>的引用方法，可以将参考文献的<code>.bib</code>文件直接放在根目录下自动生成参考文献</li>
+<li>定义了<code>\upcite</code>命令，将引用符号上标</li>
+<li>增加了超链接</li>
+<li>调整了模型假设部分的格式，采用了2020A题O奖论文#200134（经典）中的样式，比如这个$\hookrightarrow$</li>
+</ul>
+<h3 id="上述代码片段"><a href="#上述代码片段" class="headerlink" title="上述代码片段"></a>上述代码片段</h3><p>下面列出了部分的新增代码片段，更方便直接copy😋</p>
+<h4 id="组图"><a href="#组图" class="headerlink" title="组图"></a>组图</h4><h5 id="1x2的组图"><a href="#1x2的组图" class="headerlink" title="1x2的组图"></a>1x2的组图</h5><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 这是一个1x2的组图</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[htbp]</span><br><span class="line">	<span class="keyword">\centering</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[b]&#123;.3<span class="keyword">\textwidth</span>&#125; <span class="comment">%设置缩放比例，这里的.5代表缩放为原来的50%</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-a.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;left&#125;<span class="keyword">\label</span>&#123;subfig:left&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\hspace</span>&#123;10mm&#125; <span class="comment">%%%%%%%%%%%%%%%%%%调整子图间距</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[b]&#123;.3<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-b.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;right&#125;<span class="keyword">\label</span>&#123;subfig:right&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\caption</span>&#123;Two images&#125;<span class="keyword">\label</span>&#123;subfigure&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1x3的组图"><a href="#1x3的组图" class="headerlink" title="1x3的组图"></a>1x3的组图</h5><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 这是一个1x3的组图</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[!htbp]</span><br><span class="line">	<span class="keyword">\centering</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.3<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-a.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>*&#123;&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.3<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-b.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>*&#123;&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.3<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-c.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>*&#123;&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\caption</span>&#123;Three images&#125;</span><br><span class="line">	<span class="keyword">\label</span>&#123;Three images&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2x2的组图"><a href="#2x2的组图" class="headerlink" title="2x2的组图"></a>2x2的组图</h5><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%% 这是一个2x2的组图（可推广至2x3,3x3等）</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[!htbp]</span><br><span class="line">	<span class="keyword">\centering</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.4<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-a.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;左上&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.4<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-b.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;右上&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="comment">%  \begin&#123;subfigure&#125;[t]&#123;0.3\textwidth&#125;</span></span><br><span class="line">	<span class="comment">%          \centering</span></span><br><span class="line">	<span class="comment">%          \includegraphics[width=\textwidth]&#123;img/example-image-a.pdf.pdf&#125;</span></span><br><span class="line">	<span class="comment">%          \caption&#123;&#125;</span></span><br><span class="line">	<span class="comment">%          \label&#123;&#125;</span></span><br><span class="line">	<span class="comment">%  \end&#123;subfigure&#125;</span></span><br><span class="line">	<span class="keyword">\qquad</span></span><br><span class="line">	<span class="comment">%%让图片换行，这就是实现多行组图的简单原理</span></span><br><span class="line">  <span class="comment">%%若需要搞一个2x3的组图就把上下的注释打开再添加图片就可以了</span></span><br><span class="line">  <span class="comment">%%注意调整比例以及间距</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.4<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-a.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;左下&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\begin</span>&#123;subfigure&#125;[t]&#123;0.4<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">		<span class="keyword">\centering</span></span><br><span class="line">		<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;img/example-image-b.pdf&#125;</span><br><span class="line">		<span class="keyword">\caption</span>&#123;右下&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="comment">%\begin&#123;subfigure&#125;[t]&#123;0.3\textwidth&#125;</span></span><br><span class="line">	<span class="comment">%        \centering</span></span><br><span class="line">	<span class="comment">%        \includegraphics[width=\textwidth]&#123;img/npca13.pdf&#125;</span></span><br><span class="line">	<span class="comment">%        \caption&#123;result&#125;</span></span><br><span class="line">	<span class="comment">%        \label&#123;&#125;</span></span><br><span class="line">	<span class="comment">%\end&#123;subfigure&#125;</span></span><br><span class="line">	<span class="keyword">\caption</span>&#123;组图组图变变变&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h4><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;algorithm&#125;[H]</span><br><span class="line">	<span class="keyword">\KwIn</span>&#123;输入&#125;</span><br><span class="line">	<span class="keyword">\KwOut</span>&#123;输出 &#125;</span><br><span class="line">	initialization<span class="keyword">\;</span></span><br><span class="line">	<span class="keyword">\While</span>&#123;not at end of this document&#125;&#123;</span><br><span class="line">		read current<span class="keyword">\;</span></span><br><span class="line">		<span class="keyword">\Repeat</span>&#123;this end condition&#125;&#123;</span><br><span class="line">			do these things<span class="keyword">\;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">\eIf</span>&#123;understand&#125;&#123;</span><br><span class="line">			go to next section<span class="keyword">\;</span></span><br><span class="line">			current section becomes this one<span class="keyword">\;</span></span><br><span class="line">		&#125;&#123;</span><br><span class="line">			go back to the beginning of current section<span class="keyword">\;</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">\Do</span>&#123;this end condition&#125;&#123;</span><br><span class="line">			do these things<span class="keyword">\;</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">\caption</span>&#123;How to write algorithms&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;algorithm&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><p>请使用<code>\href&#123;url&#125;&#123;caption&#125;</code>，例如：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\href</span>&#123;<span class="link">https://www.wolframalpha.com</span>&#125;&#123;wolframalpha&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="浪遏飞舟"><a href="#浪遏飞舟" class="headerlink" title="浪遏飞舟"></a>浪遏飞舟</h2><h3 id="一些常见的缩略语💬"><a href="#一些常见的缩略语💬" class="headerlink" title="一些常见的缩略语💬"></a>一些常见的缩略语💬</h3><table>
+<thead>
+<tr>
+<th>缩略语</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i.e., blabla</td>
+<td>也即是blabla（一定加逗号）</td>
+</tr>
+<tr>
+<td>e.g., blabla</td>
+<td>例如，blabla</td>
+</tr>
+<tr>
+<td>, etc.   blabla</td>
+<td>，等等。blabla</td>
+</tr>
+<tr>
+<td>n.b.</td>
+<td>特别注意</td>
+</tr>
+<tr>
+<td>cf.</td>
+<td>参见</td>
+</tr>
+</tbody></table>
+<h3 id="一些实用的-LaTeX-辅助工具🔧"><a href="#一些实用的-LaTeX-辅助工具🔧" class="headerlink" title="一些实用的$\LaTeX$辅助工具🔧"></a>一些实用的$\LaTeX$辅助工具🔧</h3><ul>
+<li><p>[excel2latex][3]：在excel里制作表格，生成相应的$\LaTeX$代码</p>
+</li>
+<li><p>Axmath：像输入法一样输入公式</p>
+</li>
+<li><p>Mathpix Snip：OCR</p>
+</li>
+<li><p>latex-formatter（vscode扩展）：格式化</p>
+</li>
+</ul>
+<h3 id="下载与使用"><a href="#下载与使用" class="headerlink" title="下载与使用"></a>下载与使用</h3><p>可以直接把该仓库clone到本地，也可以前往GitHub下载最新的源文档<a target="_blank" rel="noopener" href="https://github.com/LeyuDame/LDMCM">LDMCM</a></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/LeyuDame/LDMCM.git</span><br></pre></td></tr></table></figure>
+
+<p>本地编译：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">latexmk main.tex</span><br></pre></td></tr></table></figure>
+
+<p>当然也可以上传到overleaf上进行在线编译，编译器选择<code>xelatex</code>，点击一次<code>compile</code>即可</p>
+<p>[1]: <a target="_blank" rel="noopener" href="https://github.com/xjtu-blacksmith/easymcm">https://github.com/xjtu-blacksmith/easymcm</a>	“EasyMCM仓库地址（已于2023年上半年归档）”</p>
+<p>[2]: <a target="_blank" rel="noopener" href="https://space.bilibili.com/384497590/channel/collectiondetail?sid=424302">https://space.bilibili.com/384497590/channel/collectiondetail?sid=424302</a>	“浩然讲数学建模”<br>[3]: <a target="_blank" rel="noopener" href="https://github.com/ivankokan/Excel2LaTeX">https://github.com/ivankokan/Excel2LaTeX</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>LeyuDame
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://leyudame.github.io/post/ba7a336d.html" title="一份简洁易用的美赛LaTeX模板">https://leyudame.github.io/post/ba7a336d.html</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/LaTeX/" rel="tag"># LaTeX</a>
+              <a href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag"># 模板</a>
+              <a href="/tags/MCM/" rel="tag"># MCM</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/f20b745e.html" rel="prev" title="番石榴">
+                  <i class="fa fa-chevron-left"></i> 番石榴
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/9df161f6.html" rel="next" title="BNU中文LaTeX简历模板">
+                  BNU中文LaTeX简历模板 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa-solid fa-bolt"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LeyuDame</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"LeyuDame","repo":"LeyuDame.github.io","client_id":"244a3eb626d44e7d4995","client_secret":"4b55c5c6c0a9257285a5ac6c6150514e1ef87d0d","admin_user":"LeyuDame","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"3111df4501d211103ce0729b8566b853"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
